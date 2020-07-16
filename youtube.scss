@@ -33,6 +33,7 @@ html {
     --ytd-caption_-_font-size: $fs1 !important;
     --ytd-tab-system_-_font-size: $fs3 !important;
     --ytd-comment-link_-_font-size: $fs3 !important;
+    //--yt-paper-button-font-size: $fs2 !important;
     // font weight
     --ytd-thumbnail-attribution_-_font-weight: $fw1 !important;
     --ytd-user-comment_-_font-weight: $fw1 !important;
@@ -128,7 +129,8 @@ html {
     // button colors
     // FIXME: Theather mode
     ytd-button-renderer.style-suggestive[is-paper-button] paper-button.ytd-button-renderer,
-    ytd-button-renderer.style-destructive[is-paper-button] {
+    ytd-button-renderer.style-destructive[is-paper-button],
+    ytd-button-renderer.style-compact-gray[is-paper-button] {
       border: 1px solid #d3d3d3 !important;
       background-color: #f8f8f8 !important;
       color: #333 !important;
@@ -316,3 +318,8 @@ paper-button.ytd-expander {
   width: 100% !important;
   margin: 0px 0 -15px !important;
 }
+
+// video like bar and buttons
+ytd-sentiment-bar-renderer { padding-top: 13px !important; }
+#menu.ytd-video-primary-info-renderer { top: 13px !important; }
+ytd-video-primary-info-renderer { --yt-button-icon-size: 32px !important; }
