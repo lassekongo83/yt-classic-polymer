@@ -1,0 +1,318 @@
+// font-size
+$fs1: 11px; // smallest text
+$fs2: 12px; // small text
+$fs3: 13px; // normal text
+$fs4: 14px; // normal slightly larger text
+$fs5: 15px; // normal even slightly larger text
+// font-weight
+$fw1: 500;
+// line-height
+$lh1: 1.3em;
+// thumbs size
+$thumb_size: 196px;
+
+// globals
+html {
+  // light theme colors
+  &:not(.style-scope):not([dark]) {
+    --yt-spec-brand-background-primary: #fff !important;
+    --yt-spec-general-background-a: #f1f1f1 !important;
+    --yt-lightsource-section1-color: white !important;
+    --yt-spec-text-secondary: #767676 !important;
+    --yt-spec-call-to-action: #167ac6 !important;
+    --paper-tabs-selection-bar-color: #f00 !important;
+  }
+
+  // fonts and more
+  font-family: "YouTube Noto",Roboto,arial,sans-serif !important;
+  &:not(.style-scope) {
+    --paper-font-common-base_-_font-family: "YouTube Noto",Roboto,arial,sans-serif !important;
+    // font size
+    --ytd-thumbnail-attribution_-_font-size: $fs1 !important;
+    --ytd-user-comment_-_font-size: $fs3 !important;
+    --ytd-caption_-_font-size: $fs1 !important;
+    --ytd-tab-system_-_font-size: $fs3 !important;
+    --ytd-comment-link_-_font-size: $fs3 !important;
+    // font weight
+    --ytd-thumbnail-attribution_-_font-weight: $fw1 !important;
+    --ytd-user-comment_-_font-weight: $fw1 !important;
+    // line heights
+    --ytd-thumbnail-attribution_-_line-height: 1.4em !important;
+    --ytd-user-comment_-_line-height: $lh1 !important;
+    --ytd-comment-link_-_line-height: $lh1 !important;
+    // sizes, margins and paddings
+    --ytd-masthead-height: 49px !important;
+    --ytd-rich-grid-item-margin: 10px !important;
+  }
+
+  // more light theme colors
+  &:not([dark]) {
+    #primary.ytd-two-column-browse-results-renderer,
+    ytd-browse-secondary-contents-renderer.ytd-two-column-browse-results-renderer,
+    #items.ytd-watch-next-secondary-results-renderer,
+    #info.ytd-watch-flexy,
+    #meta.ytd-watch-flexy,
+    ytd-comments,
+    ytd-two-column-search-results-renderer[center-results] #primary.ytd-two-column-search-results-renderer { background-color: white !important; }
+
+    #like-bar.ytd-sentiment-bar-renderer { background: #167ac6 !important; }
+    ytd-c4-tabbed-header-renderer { --yt-lightsource-section1-color: white !important; }
+    
+    // light theme borders
+    ytd-video-primary-info-renderer,
+    ytd-expander.ytd-video-secondary-info-renderer,
+    ytd-comments,
+    ytd-video-secondary-info-renderer { border: none !important; }
+
+    ytd-rich-shelf-renderer { border-top: 1px solid #e2e2e2 !important; }
+
+    #show-more-button.ytd-rich-shelf-renderer,
+    ytd-rich-shelf-renderer[is-show-more-hidden] #dismissable.ytd-rich-shelf-renderer { border-bottom: 1px solid #e2e2e2 !important; }
+
+    ytd-masthead:not([dark]) #container.ytd-masthead { border-bottom: 1px solid #e8e8e8 !important; }
+
+    app-drawer#guide { border-right: 1px solid #e8e8e8 !important; }
+
+    paper-button.ytd-expander { border-top: 1px solid #e8e8e8 !important; }
+
+    // text colors
+    #title.ytd-rich-grid-renderer,
+    #title.ytd-rich-shelf-renderer,
+    paper-tabs.ytd-c4-tabbed-header-renderer { color: #333 !important; }
+
+    #video-title.ytd-rich-grid-video-renderer,
+    ytd-grid-video-renderer #video-title.yt-simple-endpoint.ytd-grid-video-renderer,
+    #video-title.ytd-video-renderer,
+    #author-text.yt-simple-endpoint.ytd-comment-renderer,
+    yt-formatted-string[has-link-only_]:not([force-default-style]) a.yt-simple-endpoint.yt-formatted-string:hover,
+    ytd-compact-video-renderer #video-title.ytd-compact-video-renderer:hover,
+    .title.ytd-mini-channel-renderer:hover { color: #167ac6 !important; }
+
+    ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer:hover,
+    ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button-end.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer:hover { color: #555 !important; }
+
+    // sidebar guide
+    #guide-section-title.ytd-guide-section-renderer { color: #f00 !important; }
+    
+    ytd-guide-entry-renderer[active] .title.ytd-guide-entry-renderer,
+    ytd-guide-entry-renderer[active] .guide-icon.ytd-guide-entry-renderer { color: white !important; }
+
+    ytd-guide-entry-renderer[active] > #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer,
+    ytd-guide-entry-renderer[active] > #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer:hover { background-color: #f00 !important; }
+    #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer:hover {
+      background-color: #444 !important;
+      color: white !important;
+    }
+    .title.ytd-guide-entry-renderer, .guide-icon.ytd-guide-entry-renderer { color: unset !important; } // to make sure there's no delay when hovering
+
+    ytd-guide-entry-renderer[active] *> .title.ytd-guide-entry-renderer,
+    ytd-guide-entry-renderer[active] .guide-icon.ytd-guide-entry-renderer { text-shadow: -1px -1px 0 rgba(0,0,0,0.25) !important; }
+
+    // misc colors
+    paper-tabs.ytd-c4-tabbed-header-renderer { --paper-tabs-selection-bar-color: #f00 !important; }
+
+    // box shadow
+    #primary.ytd-two-column-browse-results-renderer,
+    ytd-browse-secondary-contents-renderer.ytd-two-column-browse-results-renderer,
+    #items.ytd-watch-next-secondary-results-renderer,
+    #info.ytd-watch-flexy,
+    #meta.ytd-watch-flexy,
+    ytd-comments,ytd-two-column-search-results-renderer[center-results] #primary.ytd-two-column-search-results-renderer,
+    #header.ytd-c4-tabbed-header-renderer { box-shadow: 0 1px 2px rgba(0,0,0,.1) !important; }
+    
+    paper-tab:not(.iron-selected) > .tab-content.paper-tab:hover,
+    paper-tab.iron-selected.ytd-c4-tabbed-header-renderer > .tab-content.paper-tab {
+      box-shadow: inset 0 -3px #f00 !important;
+    }
+
+    // button colors
+    // FIXME: Theather mode
+    ytd-button-renderer.style-suggestive[is-paper-button] paper-button.ytd-button-renderer,
+    ytd-button-renderer.style-destructive[is-paper-button] {
+      border: 1px solid #d3d3d3 !important;
+      background-color: #f8f8f8 !important;
+      color: #333 !important;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.05) !important;
+      border-radius: 2px !important;
+      text-transform: none !important;
+      &:hover {
+        background-color: #f0f0f0 !important;
+        border-color: #c6c6c6 !important;
+        box-shadow: 0 1px 0 rgba(0,0,0,0.10) !important;
+      }
+      &:active {
+        background-color: #e9e9e9 !important;
+        border-color: #c6c6c6 !important;
+        box-shadow: inset 0 1px 0 #ddd !important;
+      }
+    }
+  }
+}
+
+// more font changes
+#channel-container *> #text.ytd-channel-name { font-size: 20px !important; }
+
+#title.ytd-rich-grid-renderer,#title.ytd-rich-shelf-renderer { font-size: $fs5 !important; }
+
+ytd-compact-video-renderer #video-title.ytd-compact-video-renderer,#video-title.ytd-video-renderer { font-size: $fs4 !important; }
+
+#video-title.ytd-rich-grid-video-renderer,ytd-grid-video-renderer #video-title.yt-simple-endpoint.ytd-grid-video-renderer,#author-text.yt-simple-endpoint.ytd-comment-renderer,#expander.ytd-comment-replies-renderer,ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer, ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button-end.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer,ytd-guide-entry-renderer[active],.title.ytd-guide-entry-renderer,#content-text.ytd-backstage-post-renderer,#content-text.ytd-comment-renderer,.title.ytd-mini-channel-renderer { font-size: $fs3 !important; }
+
+.more-button.ytd-video-secondary-info-renderer, .less-button.ytd-video-secondary-info-renderer { font-size: $fs3 !important; }
+
+ytd-video-meta-block[rich-meta] #channel-name.ytd-video-meta-block, ytd-video-meta-block[rich-meta] #metadata-line.ytd-video-meta-block,#guide-section-title.ytd-guide-section-renderer { font-size: $fs1 !important; }
+
+// line heights
+#title.ytd-rich-grid-renderer,#title.ytd-rich-shelf-renderer,ytd-expander.ytd-video-secondary-info-renderer,#video-title.ytd-rich-grid-video-renderer,#expander.ytd-comment-replies-renderer,ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer, ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button-end.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer,#content-text.ytd-backstage-post-renderer,#content-text.ytd-comment-renderer { line-height: $lh1 !important; }
+ytd-compact-video-renderer #video-title.ytd-compact-video-renderer,ytd-grid-video-renderer #video-title.yt-simple-endpoint.ytd-grid-video-renderer { line-height: 1.2 !important; }
+.title.ytd-guide-entry-renderer,ytd-guide-entry-renderer[active] .title.ytd-guide-entry-renderer { line-height: 20px !important; }
+
+// text decoration
+#video-title.ytd-rich-grid-video-renderer,
+yt-formatted-string[has-link-only_]:not([force-default-style]) a.yt-simple-endpoint.yt-formatted-string,
+ytd-grid-video-renderer #video-title.yt-simple-endpoint.ytd-grid-video-renderer,
+#video-title.ytd-video-renderer,
+#author-text.yt-simple-endpoint.ytd-comment-renderer,
+ytd-comment-replies-renderer *> ytd-button-renderer yt-formatted-string.ytd-button-renderer {
+  &:hover { text-decoration: underline !important; }
+}
+
+// text transform
+ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer, ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button-end.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer,paper-tabs.ytd-c4-tabbed-header-renderer { text-transform: initial !important; }
+
+// --- SIZES (etc) --- //
+$tablet-width: 876px;
+$desktop-width: 1920px;
+@media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+  ytd-two-column-browse-results-renderer {
+    max-width: 876px !important;
+    margin-top: 10px !important;
+  }
+  #header.ytd-c4-tabbed-header-renderer {
+    --app-header-background-front-layer_-_background-size: 100% 115px !important;
+    --app-header-background-front-layer_-_background-position: center 0 !important;
+  }
+  ytd-c4-tabbed-header-renderer[has-channel-art][guide-persistent-and-visible] .banner-visible-area.ytd-c4-tabbed-header-renderer,
+  ytd-c4-tabbed-header-renderer[has-channel-art] .banner-visible-area.ytd-c4-tabbed-header-renderer {
+    height: 115px !important;
+  }
+  #header.ytd-browse { width: 876px !important; }
+
+  // ugly hack until I find something better
+  ytd-watch-flexy { --ytd-watch-flexy-sidebar-width: 430px !important; }
+}
+
+@media (min-width: #{$desktop-width}) {
+  ytd-two-column-browse-results-renderer {
+    max-width: 1262px !important;
+    margin-top: 10px !important;
+  }
+  #header.ytd-c4-tabbed-header-renderer {
+    --app-header-background-front-layer_-_background-size: 100% 175px !important;
+    --app-header-background-front-layer_-_background-position: center 0 !important;
+  }
+  ytd-c4-tabbed-header-renderer[has-channel-art][guide-persistent-and-visible] .banner-visible-area.ytd-c4-tabbed-header-renderer,
+  ytd-c4-tabbed-header-renderer[has-channel-art] .banner-visible-area.ytd-c4-tabbed-header-renderer {
+    height: 175px !important;
+  }
+  #header.ytd-browse { width: 1262px !important; }
+}
+
+// masthead
+ytd-masthead.shell,#container.ytd-masthead,#header.ytd-app { height: 49px !important; }
+#container.ytd-masthead { max-height: 49px !important; }
+// left sidebar guide
+ytd-app { --app-drawer-width: 230px !important; }
+ytd-guide-renderer.ytd-app { width: 230px !important; }
+#endpoint.yt-simple-endpoint.ytd-guide-entry-renderer { min-height: 40px !important; }
+paper-item.ytd-guide-entry-renderer { height: 28px !important; }
+#endpoint.yt-simple-endpoint.ytd-guide-entry-renderer, #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer > paper-item { min-height: 28px !important; }
+.guide-icon.ytd-guide-entry-renderer { --iron-icon-height: 20px !important; --iron-icon-width: 20px !important; }
+// channel tabs
+#tabs-container.ytd-c4-tabbed-header-renderer,app-toolbar.ytd-c4-tabbed-header-renderer,paper-tabs.ytd-c4-tabbed-header-renderer { height: 32px !important; }
+// thumbnails
+ytd-rich-item-renderer {
+  margin-bottom: 12px !important;
+  width: $thumb_size !important;
+}
+// channel thumbs
+ytd-thumbnail.ytd-grid-video-renderer { width: $thumb_size !important; height: 110px !important; margin-bottom: 4px !important; }
+ytd-browse[page-subtype~=channels] ytd-two-column-browse-results-renderer.ytd-browse *> #items.ytd-grid-renderer > ytd-grid-video-renderer.ytd-grid-renderer { width: $thumb_size !important; }
+#items.yt-horizontal-list-renderer > *.yt-horizontal-list-renderer { padding-right: 10px !important; }
+ytd-grid-video-renderer { width: $thumb_size !important; }
+
+// --- MARGINS & PADDINGS --- //
+// main page grid
+#grid-title.ytd-rich-grid-renderer { margin: 10px 0 0 10px !important; }
+ytd-thumbnail.ytd-rich-grid-video-renderer { margin-bottom: 4px !important; }
+#rich-shelf-header.ytd-rich-shelf-renderer { margin: 10px 0 10px 0px !important; }
+#meta.ytd-rich-grid-video-renderer,#meta.ytd-grid-video-renderer { padding-right: 0 !important; }
+ytd-rich-item-renderer { margin-bottom: 12px !important; }
+h3.ytd-rich-grid-video-renderer,h3.ytd-grid-video-renderer { margin: 0 20px 0 0 !important; }
+// player page
+#items.ytd-watch-next-secondary-results-renderer { padding: 10px !important; }
+ytd-watch-flexy:not([theater]):not([fullscreen]) #primary.ytd-watch-flexy, ytd-watch-flexy:not([theater]):not([fullscreen]) #secondary.ytd-watch-flexy { padding-top: 10px !important; }
+ytd-watch-flexy[flexy_] #primary.ytd-watch-flexy, ytd-watch-flexy[flexy_] #secondary.ytd-watch-flexy { padding-right: 10px !important; }
+ytd-watch-flexy[theater] #secondary.ytd-watch-flexy, ytd-watch-flexy[fullscreen] #secondary.ytd-watch-flexy { margin-top: 10px !important; }
+#content.ytd-rich-section-renderer > *.ytd-rich-section-renderer { margin-bottom: 10px !important; }
+ytd-comments { padding: 15px !important; }
+ytd-comments-header-renderer { margin-top: 0 !important; }
+#top-row.ytd-video-secondary-info-renderer { padding-top: 0 !important; }
+ytd-expander.ytd-video-secondary-info-renderer { margin-left: 0 !important; }
+ytd-video-secondary-info-renderer { margin: 10px 0 !important; padding: 15px !important; }
+ytd-video-primary-info-renderer { padding: 15px !important; margin-top: 10px !important; }
+// channels
+ytd-browse-secondary-contents-renderer.ytd-two-column-browse-results-renderer { margin-left: 10px !important; padding: 15px !important; }
+ytd-section-list-renderer { padding: 0 15px !important; }
+ytd-browse[page-subtype~=channels] ytd-two-column-browse-results-renderer.ytd-browse *> #items.ytd-grid-renderer > ytd-grid-video-renderer.ytd-grid-renderer {
+  margin-right: 10px !important;
+  margin-bottom: 20px !important;
+}
+// channels tabs
+paper-tab.ytd-c4-tabbed-header-renderer { padding: 0 12px !important; }
+paper-tabs.ytd-c4-tabbed-header-renderer { margin-left: 0 !important; padding-bottom: 0 !important; }
+#channel-header.ytd-c4-tabbed-header-renderer { padding: 15px !important; }
+// left sidebar guide
+#sections.ytd-guide-renderer > *.ytd-guide-renderer { padding: 13px 22px !important; }
+#guide-spacer.ytd-app { margin-top: 50px !important; }
+.guide-icon.ytd-guide-entry-renderer,yt-img-shadow.ytd-guide-entry-renderer { margin-right: 6px !important; }
+#guide-section-title.ytd-guide-section-renderer { padding: 1px 0 8px !important; }
+paper-item.ytd-guide-entry-renderer { padding: 0 8px !important; }
+ytd-app[mini-guide-visible_] ytd-page-manager.ytd-app { margin-left: 0 !important; }
+
+// --- MISC --- //
+// display:none on a few elements that wasn't there in the old design
+#avatar-link.ytd-rich-grid-video-renderer,
+ytd-mini-guide-renderer.ytd-app,
+paper-ripple,
+ytd-compact-promoted-item-renderer,
+#selectionBar.paper-tabs,
+#thumbnail.ytd-moving-thumbnail-renderer,
+#avatar.ytd-c4-tabbed-header-renderer,
+.ytp-miniplayer-button,
+[id*="skeleton"],
+#play.fade-in.ytd-moving-thumbnail-renderer,
+#play.show.ytd-moving-thumbnail-renderer,
+#masthead-ad { display: none !important; }
+
+// old pointer events on thumbnail details
+#details.ytd-rich-grid-video-renderer {
+  cursor: auto !important;
+  pointer-events: none !important;
+}
+#details.ytd-rich-grid-video-renderer *> a, #details.ytd-rich-grid-video-renderer *> button.yt-icon-button {
+  cursor: pointer !important;
+  pointer-events: initial !important;
+}
+
+// avatars
+#author-thumbnail.ytd-comment-renderer yt-img-shadow.ytd-comment-renderer,#avatar.ytd-video-owner-renderer,yt-img-shadow.ytd-mini-channel-renderer,#author-thumbnail.ytd-comment-simplebox-renderer { border-radius: 0 !important; }
+#author-thumbnail.ytd-comment-renderer yt-img-shadow.ytd-comment-renderer {
+  width: 48px !important;
+  height: 48px !important;
+}
+
+paper-button.ytd-expander {
+  width: 100% !important;
+  margin: 0px 0 -15px !important;
+}

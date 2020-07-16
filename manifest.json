@@ -1,0 +1,23 @@
+{
+  "name": "Youtube Classic Polymer",
+  "version": "1.1",
+  "description": "Redesigns YouTube's polymer design to look more like the old layout from around 2015",
+  "permissions": ["webRequest", "webRequestBlocking", "tabs", "*://*.youtube.com/*", "*://*.ggpht.com/*", "*://i.ytimg.com/*"],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.youtube.com/*"],
+      "js": ["content_script.js"],
+      "css": ["youtube.css"]
+    }
+  ],
+  "icons": {
+    "16": "images/yt_gb_spoof16.png",
+    "32": "images/yt_gb_spoof32.png",
+    "48": "images/yt_gb_spoof48.png",
+    "128": "images/yt_gb_spoof128.png"
+  },
+  "manifest_version": 2
+}
