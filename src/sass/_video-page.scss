@@ -1,0 +1,26 @@
+// ugly hack until I find something better
+// video on small sizes isn't filled out. Probably has something to do with a margin or padding somewhere.
+@media (max-width: 1280px) {
+  ytd-watch-flexy { --ytd-watch-flexy-sidebar-width: 430px !important; }
+}
+
+#items.ytd-watch-next-secondary-results-renderer { padding: 10px !important; }
+ytd-watch-flexy:not([theater]):not([fullscreen]) #primary.ytd-watch-flexy, ytd-watch-flexy:not([theater]):not([fullscreen]) #secondary.ytd-watch-flexy { padding-top: 10px !important; }
+ytd-watch-flexy[flexy_] #primary.ytd-watch-flexy, ytd-watch-flexy[flexy_] #secondary.ytd-watch-flexy { padding-right: 10px !important; }
+ytd-watch-flexy[theater] #secondary.ytd-watch-flexy, ytd-watch-flexy[fullscreen] #secondary.ytd-watch-flexy { margin-top: 10px !important; }
+#content.ytd-rich-section-renderer > *.ytd-rich-section-renderer { margin-bottom: 10px !important; }
+ytd-comments { padding: 15px !important; }
+ytd-comments-header-renderer { margin-top: 0 !important; }
+#top-row.ytd-video-secondary-info-renderer { padding-top: 0 !important; }
+ytd-expander.ytd-video-secondary-info-renderer { margin-left: 0 !important; }
+ytd-video-secondary-info-renderer { margin: 10px 0 !important; padding: 15px !important; }
+ytd-video-primary-info-renderer { padding: 15px !important; margin-top: 10px !important; }
+
+// video like bar and buttons
+ytd-sentiment-bar-renderer { padding-top: 13px !important; }
+#menu.ytd-video-primary-info-renderer { top: 13px !important; }
+ytd-video-primary-info-renderer { --yt-button-icon-size: 32px !important; }
+
+html:not([dark]) {
+  #like-bar.ytd-sentiment-bar-renderer { background: #167ac6 !important; }
+}

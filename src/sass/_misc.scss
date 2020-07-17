@@ -1,0 +1,59 @@
+// display:none on a few elements that wasn't there in the old design
+#avatar-link.ytd-rich-grid-video-renderer,
+ytd-mini-guide-renderer.ytd-app,
+paper-ripple,
+ytd-compact-promoted-item-renderer,
+#selectionBar.paper-tabs,
+#thumbnail.ytd-moving-thumbnail-renderer,
+#avatar.ytd-c4-tabbed-header-renderer,
+.ytp-miniplayer-button,
+[id*="skeleton"],
+#play.fade-in.ytd-moving-thumbnail-renderer,
+#play.show.ytd-moving-thumbnail-renderer,
+#masthead-ad { display: none !important; }
+
+// old pointer events on thumbnail details
+#details.ytd-rich-grid-video-renderer {
+  cursor: auto !important;
+  pointer-events: none !important;
+}
+#details.ytd-rich-grid-video-renderer *> a, #details.ytd-rich-grid-video-renderer *> button.yt-icon-button {
+  cursor: pointer !important;
+  pointer-events: initial !important;
+}
+
+// avatars
+#author-thumbnail.ytd-comment-renderer yt-img-shadow.ytd-comment-renderer,#avatar.ytd-video-owner-renderer,yt-img-shadow.ytd-mini-channel-renderer,#author-thumbnail.ytd-comment-simplebox-renderer { border-radius: 0 !important; }
+#author-thumbnail.ytd-comment-renderer yt-img-shadow.ytd-comment-renderer {
+  width: 48px !important;
+  height: 48px !important;
+}
+
+// Buttons
+paper-button.ytd-expander {
+  width: 100% !important;
+  margin: 0px 0 -15px !important;
+}
+
+html:not([dark]) {
+  ytd-button-renderer.style-suggestive[is-paper-button] paper-button.ytd-button-renderer,
+  ytd-button-renderer.style-destructive[is-paper-button],
+  ytd-button-renderer.style-compact-gray[is-paper-button] {
+    border: 1px solid #d3d3d3 !important;
+    background-color: #f8f8f8 !important;
+    color: #333 !important;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.05) !important;
+    border-radius: 2px !important;
+    text-transform: none !important;
+    &:hover {
+      background-color: #f0f0f0 !important;
+      border-color: #c6c6c6 !important;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.10) !important;
+    }
+    &:active {
+      background-color: #e9e9e9 !important;
+      border-color: #c6c6c6 !important;
+      box-shadow: inset 0 1px 0 #ddd !important;
+    }
+  }
+}

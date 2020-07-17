@@ -1,23 +1,43 @@
 {
-  "name": "Youtube Classic Polymer",
-  "version": "1.1",
-  "description": "Redesigns YouTube's polymer design to look more like the old layout from around 2015",
-  "permissions": ["webRequest", "webRequestBlocking", "tabs", "*://*.youtube.com/*", "*://*.ggpht.com/*", "*://i.ytimg.com/*"],
-  "background": {
-    "scripts": ["background.js"]
+  "name": "YouTube 2015 Theme",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "Browse YouTube like it's 2015!",
+  "homepage_url": "https://github.com/lassekongo83",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
   },
+  "background": {
+    "scripts": [
+      "src/bg/background.js"
+    ]
+  },
+  "permissions": [
+    "tabs",
+    "webRequest",
+    "webRequestBlocking",
+    "*://*.youtube.com/*",
+    "*://*.ggpht.com/*",
+    "*://i.ytimg.com/*"
+  ],
   "content_scripts": [
     {
-      "matches": ["https://*.youtube.com/*"],
-      "js": ["content_script.js"],
-      "css": ["youtube.css"]
+      "matches": [
+        "https://*.youtube.com/*"
+      ],
+      "css": [
+        "src/inject/inject.css"
+      ]
+    },
+    {
+      "matches": [
+        "https://*.youtube.com/*"
+      ],
+      "js": [
+        "src/inject/inject.js"
+      ]
     }
-  ],
-  "icons": {
-    "16": "images/yt_gb_spoof16.png",
-    "32": "images/yt_gb_spoof32.png",
-    "48": "images/yt_gb_spoof48.png",
-    "128": "images/yt_gb_spoof128.png"
-  },
-  "manifest_version": 2
+  ]
 }

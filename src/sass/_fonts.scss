@@ -1,0 +1,77 @@
+// main font family
+$fm: "YouTube Noto",Roboto,arial,sans-serif;
+// font-sizes
+$fs1: 11px; // smallest text
+$fs2: 12px; // small text
+$fs3: 13px; // normal text
+$fs4: 14px; // normal slightly larger text
+$fs5: 15px; // normal even slightly larger text
+// font-weights
+$fw1: 500;
+// line-height
+$lh1: 1.3em;
+
+// youtube's global variables
+html {
+  font-family: $fm !important;
+  &:not(.style-scope) {
+    --paper-font-common-base_-_font-family: $fm !important;
+    // FONT SIZES
+    --paper-font-body1_-_font-size: $fs3 !important;
+    --paper-font-body2_-_font-size: $fs3 !important;
+    --paper-font-caption_-_font-size: $fs2 !important;
+    --paper-font-menu_-_font-size: $fs3 !important;
+    --paper-font-button_-_font-size: $fs3 !important;
+    --ytd-thumbnail-attribution_-_font-size: $fs1 !important;
+    --ytd-user-comment_-_font-size: $fs3 !important;
+    --ytd-caption_-_font-size: $fs1 !important;
+    --ytd-tab-system_-_font-size: $fs3 !important;
+    --ytd-comment-link_-_font-size: $fs3 !important;
+
+    // FONT WEIGHT
+    --paper-font-body1_-_font-weight: $fw1 !important;
+    --ytd-thumbnail-attribution_-_font-weight: $fw1 !important;
+    --ytd-user-comment_-_font-weight: $fw1 !important;
+
+    // LINE HEIGHT
+    --ytd-thumbnail-attribution_-_line-height: 1.4em !important;
+    --ytd-user-comment_-_line-height: $lh1 !important;
+    --ytd-comment-link_-_line-height: $lh1 !important;
+
+    // TEXT TRANSFORM
+    --paper-font-button_-_text-transform: none !important;
+
+    // TEXT DECORATION
+    --yt-endpoint-hover_-_text-decoration: underline !important;
+  }
+}
+
+// more font changes
+#channel-container *> #text.ytd-channel-name { font-size: 20px !important; }
+
+#title.ytd-rich-grid-renderer,#title.ytd-rich-shelf-renderer { font-size: $fs5 !important; }
+
+ytd-compact-video-renderer #video-title.ytd-compact-video-renderer,#video-title.ytd-video-renderer { font-size: $fs4 !important; }
+
+#video-title.ytd-rich-grid-video-renderer,ytd-grid-video-renderer #video-title.yt-simple-endpoint.ytd-grid-video-renderer,#author-text.yt-simple-endpoint.ytd-comment-renderer,#expander.ytd-comment-replies-renderer,ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer, ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button-end.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer,ytd-guide-entry-renderer[active],.title.ytd-guide-entry-renderer,#content-text.ytd-backstage-post-renderer,#content-text.ytd-comment-renderer,.title.ytd-mini-channel-renderer { font-size: $fs3 !important; }
+
+.more-button.ytd-video-secondary-info-renderer, .less-button.ytd-video-secondary-info-renderer { font-size: $fs3 !important; }
+
+ytd-video-meta-block[rich-meta] #channel-name.ytd-video-meta-block, ytd-video-meta-block[rich-meta] #metadata-line.ytd-video-meta-block,#guide-section-title.ytd-guide-section-renderer { font-size: $fs1 !important; }
+
+// line heights
+#title.ytd-rich-grid-renderer,#title.ytd-rich-shelf-renderer,ytd-expander.ytd-video-secondary-info-renderer,#video-title.ytd-rich-grid-video-renderer,#expander.ytd-comment-replies-renderer,ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer, ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button-end.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer,#content-text.ytd-backstage-post-renderer,#content-text.ytd-comment-renderer { line-height: $lh1 !important; }
+ytd-compact-video-renderer #video-title.ytd-compact-video-renderer,ytd-grid-video-renderer #video-title.yt-simple-endpoint.ytd-grid-video-renderer { line-height: 1.2 !important; }
+.title.ytd-guide-entry-renderer,ytd-guide-entry-renderer[active] .title.ytd-guide-entry-renderer { line-height: 20px !important; }
+
+// text decoration
+#video-title.ytd-rich-grid-video-renderer,
+yt-formatted-string[has-link-only_]:not([force-default-style]) a.yt-simple-endpoint.yt-formatted-string,
+ytd-grid-video-renderer #video-title.yt-simple-endpoint.ytd-grid-video-renderer,
+#video-title.ytd-video-renderer,
+#author-text.yt-simple-endpoint.ytd-comment-renderer,
+ytd-comment-replies-renderer *> ytd-button-renderer yt-formatted-string.ytd-button-renderer {
+  &:hover { text-decoration: underline !important; }
+}
+
+ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer, ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button-end.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer,paper-tabs.ytd-c4-tabbed-header-renderer { text-transform: initial !important; }

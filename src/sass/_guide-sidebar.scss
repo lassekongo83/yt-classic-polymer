@@ -1,0 +1,33 @@
+// colors for light theme
+html:not([dark]) {
+  app-drawer#guide { border-right: 1px solid #e8e8e8 !important; }
+  #guide-section-title.ytd-guide-section-renderer { color: #f00 !important; }
+    
+  ytd-guide-entry-renderer[active] .title.ytd-guide-entry-renderer,
+  ytd-guide-entry-renderer[active] .guide-icon.ytd-guide-entry-renderer { color: white !important; }
+
+  ytd-guide-entry-renderer[active] > #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer,
+  ytd-guide-entry-renderer[active] > #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer:hover { background-color: #f00 !important; }
+  #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer:hover {
+    background-color: #444 !important;
+    color: white !important;
+  }
+  .title.ytd-guide-entry-renderer, .guide-icon.ytd-guide-entry-renderer { color: unset !important; } // to make sure there's no delay when hovering
+
+  ytd-guide-entry-renderer[active] *> .title.ytd-guide-entry-renderer,
+  ytd-guide-entry-renderer[active] .guide-icon.ytd-guide-entry-renderer { text-shadow: -1px -1px 0 rgba(0,0,0,0.25) !important; }
+}
+// sizes
+ytd-app { --app-drawer-width: 230px !important; }
+ytd-guide-renderer.ytd-app { width: 230px !important; }
+#endpoint.yt-simple-endpoint.ytd-guide-entry-renderer { min-height: 40px !important; }
+paper-item.ytd-guide-entry-renderer { height: 28px !important; }
+#endpoint.yt-simple-endpoint.ytd-guide-entry-renderer, #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer > paper-item { min-height: 28px !important; }
+.guide-icon.ytd-guide-entry-renderer { --iron-icon-height: 20px !important; --iron-icon-width: 20px !important; }
+// paddings
+#sections.ytd-guide-renderer > *.ytd-guide-renderer { padding: 13px 22px !important; }
+#guide-spacer.ytd-app { margin-top: 50px !important; }
+.guide-icon.ytd-guide-entry-renderer,yt-img-shadow.ytd-guide-entry-renderer { margin-right: 6px !important; }
+#guide-section-title.ytd-guide-section-renderer { padding: 1px 0 8px !important; }
+paper-item.ytd-guide-entry-renderer { padding: 0 8px !important; }
+ytd-app[mini-guide-visible_] ytd-page-manager.ytd-app { margin-left: 0 !important; }
