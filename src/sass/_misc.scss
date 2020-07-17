@@ -57,3 +57,18 @@ html:not([dark]) {
     }
   }
 }
+
+// menu
+html:not([dark]) ytd-multi-page-menu-renderer {
+  border: 1px solid #c5c5c5 !important;
+  border-top: 1px solid #c5c5c5 !important;
+  box-shadow: 0 0 15px rgba(0,0,0,.18) !important;
+}
+#submenu.ytd-multi-page-menu-renderer ytd-multi-page-menu-renderer.ytd-multi-page-menu-renderer {
+  border: none !important;
+}
+html:not([dark]) ytd-menu-popup-renderer {
+  border: 1px solid #d3d3d3 !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,.2) !important;
+  border-radius: 0 !important;
+}
