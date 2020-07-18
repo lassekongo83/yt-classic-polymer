@@ -47,7 +47,7 @@ ytd-rich-item-renderer {
 
 // Strange padding when navigating from a video to the channel
 #contentContainer.app-header-layout {
-  padding-top: 284px !important;
+   @include for-size(big-desktop-up) { padding-top: 284px !important; }
 }
 
 ytd-browse-secondary-contents-renderer.ytd-two-column-browse-results-renderer { margin-left: 10px !important; padding: 15px !important; }
