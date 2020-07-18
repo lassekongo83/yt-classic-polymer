@@ -1,11 +1,11 @@
 // light theme text colors
 html {
   &:not(.style-scope):not([dark]) {
-    --yt-spec-brand-background-primary: #fff !important;
-    --yt-spec-general-background-a: #f1f1f1 !important;
-    --yt-lightsource-section1-color: white !important;
-    --yt-spec-text-secondary: #767676 !important;
-    --yt-spec-call-to-action: #167ac6 !important;
+    --yt-spec-brand-background-primary: $secondary_bg !important;
+    --yt-spec-general-background-a: $primary_bg !important;
+    --yt-lightsource-section1-color: $secondary_bg !important;
+    --yt-spec-text-secondary: $secondary_text !important;
+    --yt-spec-call-to-action: $accent_color !important;
   }
 
   &:not([dark]) {
@@ -17,7 +17,7 @@ html {
     ytd-comments,ytd-two-column-search-results-renderer[center-results] #primary.ytd-two-column-search-results-renderer,
     #header.ytd-c4-tabbed-header-renderer {
       box-shadow: 0 1px 2px rgba(0,0,0,.1) !important;
-      background-color: white !important;
+      background-color: $secondary_bg !important;
     }
 
     // light theme borders
@@ -29,15 +29,15 @@ html {
     // text colors
     #title.ytd-rich-grid-renderer,
     #title.ytd-rich-shelf-renderer,
-    paper-tabs.ytd-c4-tabbed-header-renderer { color: #333 !important; }
+    paper-tabs.ytd-c4-tabbed-header-renderer { color: $primary_text !important; }
     #video-title.ytd-rich-grid-video-renderer,
     ytd-grid-video-renderer #video-title.yt-simple-endpoint.ytd-grid-video-renderer,
     #video-title.ytd-video-renderer,
     #author-text.yt-simple-endpoint.ytd-comment-renderer,
     yt-formatted-string[has-link-only_]:not([force-default-style]) a.yt-simple-endpoint.yt-formatted-string:hover,
     ytd-compact-video-renderer #video-title.ytd-compact-video-renderer:hover,
-    .title.ytd-mini-channel-renderer:hover { color: #167ac6 !important; }
+    .title.ytd-mini-channel-renderer:hover { color: $accent_color !important; }
     ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer:hover,
-    ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button-end.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer:hover { color: #555 !important; }
+    ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button-end.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer:hover { color: $alt_text !important; }
   }
 }

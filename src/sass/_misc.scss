@@ -1,3 +1,6 @@
+// make sure scrolling is never disabled
+body { overflow-y: auto !important; }
+
 // display:none on a few elements that wasn't there in the old design
 #avatar-link.ytd-rich-grid-video-renderer,
 ytd-mini-guide-renderer.ytd-app,
@@ -35,6 +38,7 @@ paper-button.ytd-expander {
   margin: 0px 0 -15px !important;
 }
 
+// TODO: Button color variables
 html:not([dark]) {
   ytd-button-renderer.style-suggestive[is-paper-button] paper-button.ytd-button-renderer,
   ytd-button-renderer.style-destructive[is-paper-button],
@@ -58,8 +62,39 @@ html:not([dark]) {
   }
 }
 
+// toggle button
+.toggle-container.paper-toggle-button {
+  width: 37px !important;
+  height: 15px !important;
+}
+
+.toggle-button.paper-toggle-button {
+  width: 13px !important;
+  height: 13px !important;
+  box-shadow: none !important;
+  top: 1px !important;
+  left: 1px !important;
+}
+
+paper-toggle-button[checked] .toggle-button.paper-toggle-button {
+  left: 7px !important;
+}
+
+html:not([dark]) paper-toggle-button[checked]:not([disabled]) .toggle-bar.paper-toggle-button {
+  background-color: $accent_color !important;
+  opacity: unset !important;
+}
+
+html:not([dark]) .toggle-bar.paper-toggle-button {
+  background-color: #b8b8b8 !important;
+  opacity: unset !important;
+}
+html:not([dark]) .toggle-button.paper-toggle-button {
+  background-color: #fbfbfb !important;
+}
+
 // menu
-html:not([dark]) ytd-multi-page-menu-renderer {
+html:not([dark]) ytd-multi-page-menu-renderer, .dropdown-content.paper-menu-button {
   border: 1px solid #c5c5c5 !important;
   border-top: 1px solid #c5c5c5 !important;
   box-shadow: 0 0 15px rgba(0,0,0,.18) !important;

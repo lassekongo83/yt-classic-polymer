@@ -66,7 +66,7 @@ ytd-rich-item-renderer { margin-bottom: 12px !important; }
 h3.ytd-rich-grid-video-renderer,h3.ytd-grid-video-renderer { margin: 0 20px 0 0 !important; }
 
 html:not([dark]) {
-  ytd-rich-shelf-renderer { border-top: 1px solid #e2e2e2 !important; }
+  ytd-rich-shelf-renderer { border-top: 1px solid $primary_border !important; }
   #show-more-button.ytd-rich-shelf-renderer,
-  ytd-rich-shelf-renderer[is-show-more-hidden] #dismissable.ytd-rich-shelf-renderer { border-bottom: 1px solid #e2e2e2 !important; }
+  ytd-rich-shelf-renderer[is-show-more-hidden] #dismissable.ytd-rich-shelf-renderer { border-bottom: 1px solid $primary_border !important; }
 }

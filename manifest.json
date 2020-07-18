@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "manifest_version": 2,
   "description": "Browse YouTube like it's 2015.",
+  "author": "Frellwit",
   "homepage_url": "https://github.com/lassekongo83",
   "icons": {
     "16": "icons/icon16.png",
@@ -28,7 +29,7 @@
         "https://*.youtube.com/*"
       ],
       "css": [
-        "src/inject/inject.css"
+        "src/inject/inject.min.css"
       ]
     },
     {

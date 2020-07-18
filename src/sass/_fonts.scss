@@ -27,16 +27,19 @@ html {
     --ytd-caption_-_font-size: $fs1 !important;
     --ytd-tab-system_-_font-size: $fs3 !important;
     --ytd-comment-link_-_font-size: $fs3 !important;
+    --ytd-subheadline_-_font-size: $fs3 !important;
 
     // FONT WEIGHT
     --paper-font-body1_-_font-weight: $fw1 !important;
     --ytd-thumbnail-attribution_-_font-weight: $fw1 !important;
     --ytd-user-comment_-_font-weight: $fw1 !important;
+    --ytd-subheadline_-_font-weight:  $fw1 !important;
 
     // LINE HEIGHT
     --ytd-thumbnail-attribution_-_line-height: 1.4em !important;
     --ytd-user-comment_-_line-height: $lh1 !important;
     --ytd-comment-link_-_line-height: $lh1 !important;
+    --ytd-subheadline_-_line-height: $lh1 !important;
 
     // TEXT TRANSFORM
     --paper-font-button_-_text-transform: none !important;
@@ -74,4 +77,4 @@ ytd-comment-replies-renderer *> ytd-button-renderer yt-formatted-string.ytd-butt
   &:hover { text-decoration: underline !important; }
 }
 
-ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer, ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button-end.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer,paper-tabs.ytd-c4-tabbed-header-renderer { text-transform: initial !important; }
+ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer, ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button-end.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer,paper-tabs.ytd-c4-tabbed-header-renderer,#autoplay.ytd-compact-autoplay-renderer { text-transform: initial !important; }

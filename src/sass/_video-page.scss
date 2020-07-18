@@ -1,12 +1,19 @@
-// ugly hack until I find something better
-// video on small sizes isn't filled out. Probably has something to do with a margin or padding somewhere.
-@media (max-width: 1280px) {
-  ytd-watch-flexy { --ytd-watch-flexy-sidebar-width: 430px !important; }
+ytd-watch-flexy {
+  @include for-size(big-desktop-up) {
+    --ytd-watch-flexy-sidebar-width: 416px !important;
+  }
 }
 
 #items.ytd-watch-next-secondary-results-renderer { padding: 10px !important; }
 ytd-watch-flexy:not([theater]):not([fullscreen]) #primary.ytd-watch-flexy, ytd-watch-flexy:not([theater]):not([fullscreen]) #secondary.ytd-watch-flexy { padding-top: 10px !important; }
-ytd-watch-flexy[flexy_] #primary.ytd-watch-flexy, ytd-watch-flexy[flexy_] #secondary.ytd-watch-flexy { padding-right: 10px !important; }
+
+//ytd-watch-flexy[flexy_] #primary.ytd-watch-flexy, ytd-watch-flexy[flexy_] #secondary.ytd-watch-flexy { padding-right: 10px !important; }
+// Workaround: use positioning instead of padding to not mess up the player size at different screen sizes.
+ytd-watch-next-secondary-results-renderer {
+  position: relative !important;
+  right: 14px !important;
+}
+
 ytd-watch-flexy[theater] #secondary.ytd-watch-flexy, ytd-watch-flexy[fullscreen] #secondary.ytd-watch-flexy { margin-top: 10px !important; }
 #content.ytd-rich-section-renderer > *.ytd-rich-section-renderer { margin-bottom: 10px !important; }
 ytd-comments { padding: 15px !important; }
@@ -22,5 +29,5 @@ ytd-sentiment-bar-renderer { padding-top: 13px !important; }
 ytd-video-primary-info-renderer { --yt-button-icon-size: 32px !important; }
 
 html:not([dark]) {
-  #like-bar.ytd-sentiment-bar-renderer { background: #167ac6 !important; }
+  #like-bar.ytd-sentiment-bar-renderer { background: $accent_color !important; }
 }
