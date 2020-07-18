@@ -3,6 +3,10 @@ Browse YouTube like it's 2015.
 
 **YouTube Classic Polymer** is an extension that restyles YouTube's polymer design to look more like the old design from around 2015.
 
+This extension also blocks some network requests, such as: 
+- Avatars on the main page
+- Animated thumbnails
+
 ![Before and After](yt-screen.png?raw=true)
 Before and after screenshot.
 
@@ -21,3 +25,5 @@ Before and after screenshot.
 
 ### Firefox
 Not yet available. (Unless you run a version of Firefox that allows you to install unsigned extensions.)
+
+An alternative is to copy the content of the [CSS file](https://github.com/lassekongo83/yt-classic-polymer/blob/master/src/inject/inject.min.css) and paste it into a UserStyle manager extension of your choice.
