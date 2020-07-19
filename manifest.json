@@ -1,5 +1,6 @@
 {
   "name": "YouTube Classic Polymer Theme",
+  "short_name": "YT Classic Theme",
   "version": "0.0.1",
   "manifest_version": 2,
   "description": "Browse YouTube like it's 2015.",

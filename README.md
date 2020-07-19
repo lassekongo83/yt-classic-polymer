@@ -7,6 +7,10 @@ This extension also blocks some network requests, such as:
 - Avatars on the main page
 - Animated thumbnails
 
+In addition to that, it also removes some new features from the site, such as:
+- Miniplayer
+- "Skeleton" styles. (The empty background elements you see when the page is loading.)
+
 ![Before and After](yt-screen.png?raw=true)
 Before and after screenshot.
 
@@ -27,3 +31,8 @@ Before and after screenshot.
 Not yet available. (Unless you run a version of Firefox that allows you to install unsigned extensions.)
 
 An alternative is to copy the content of the [CSS file](https://github.com/lassekongo83/yt-classic-polymer/blob/master/src/inject/inject.min.css) and paste it into a UserStyle manager extension of your choice.
+The network requests, like animated thumbnails etc won't be blocked, but you can block it with [uBlock Origin](https://github.com/gorhill/uBlock) by adding these filters to `My Filters`: 
+```
+||yt3.ggpht.com/a-/$image,domain=youtube.com
+||i.ytimg.com/an_webp/$domain=youtube.com
+```
