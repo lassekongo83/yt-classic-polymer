@@ -4,9 +4,10 @@ chrome.webRequest.onBeforeRequest.addListener(
     urls: [
       // grid avatars and animated thumbnails
       "*://yt3.ggpht.com/a-/*",
-      "*://i.ytimg.com/an_webp/*"
+      "*://i.ytimg.com/an_webp/*",
+      "*://www.youtube.com/s/player/*/player_ias.vflset/*/miniplayer.js"
     ],
-    types: ["image"]
+    types: ["image", "script"]
   },
   ["blocking"]
 );
