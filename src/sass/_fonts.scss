@@ -8,6 +8,7 @@ $fs4: 14px; // normal slightly larger text
 $fs5: 15px; // normal even slightly larger text
 // font-weights
 $fw1: 500;
+$fw2: 400;
 // line-height
 $lh1: 1.3em;
 
@@ -31,9 +32,9 @@ html {
 
     // FONT WEIGHT
     --paper-font-body1_-_font-weight: $fw1 !important;
-    --ytd-thumbnail-attribution_-_font-weight: $fw1 !important;
-    --ytd-user-comment_-_font-weight: $fw1 !important;
-    --ytd-subheadline_-_font-weight: $fw1 !important;
+    --ytd-thumbnail-attribution_-_font-weight: $fw2 !important;
+    --ytd-user-comment_-_font-weight: $fw2 !important;
+    --ytd-subheadline_-_font-weight: $fw2 !important;
 
     // LINE HEIGHT
     --ytd-thumbnail-attribution_-_line-height: 1.4em !important;
