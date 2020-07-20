@@ -14,4 +14,4 @@ sassc $SASSC_OPT main.scss ../inject/inject.css
 # using csso-cli to minify the css file. Can be installed with: npm install -g csso-cli
 csso -i ../inject/inject.css -o ../inject/inject.min.css
 # remove the non-minified css file
-rm ../inject/inject.css
+#rm ../inject/inject.css
