@@ -31,3 +31,14 @@ ytd-video-primary-info-renderer { --yt-button-icon-size: 32px !important; }
 html:not([dark]) {
   #like-bar.ytd-sentiment-bar-renderer { background: $accent_color !important; }
 }
+
+// Attempt to restore the old player sizes
+//#player.ytd-watch-flexy { background-color: black !important; }
+
+//ytd-watch-flexy[flexy_]:not([is-vertical-video_]) #player-container-inner.ytd-watch-flexy { position: unset !important; }
+
+//ytd-watch-flexy[flexy_][is-two-columns_][is-four-three-to-sixteen-nine-video_] #primary.ytd-watch-flexy {
+//  @include for-size(big-desktop-up) {
+//    max-width: 1280px !important;
+//  }
+//}
