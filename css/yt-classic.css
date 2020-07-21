@@ -114,7 +114,9 @@ paper-tabs.ytd-c4-tabbed-header-renderer { margin-left: 0 !important; padding-bo
 
 #channel-header.ytd-c4-tabbed-header-renderer { padding: 15px !important; }
 
-html:not([dark]) ytd-c4-tabbed-header-renderer { --yt-lightsource-section1-color: white !important; }
+html:not([dark]) ytd-c4-tabbed-header-renderer { --yt-lightsource-section1-color: #fff !important; }
+
+html:not([dark]) app-toolbar.ytd-c4-tabbed-header-renderer { background-color: #fff !important; }
 
 html:not([dark]) paper-tabs.ytd-c4-tabbed-header-renderer { --paper-tabs-selection-bar-color: #f00 !important; }
 
