@@ -30,9 +30,11 @@ Before and after screenshot.
 ### Firefox
 Not yet available. (Unless you run a version of Firefox that allows you to install unsigned extensions.)
 
-An alternative is to copy the content of the [CSS file](https://github.com/lassekongo83/yt-classic-polymer/blob/master/src/inject/inject.min.css) and paste it into a UserStyle manager extension of your choice.
-The network requests, like animated thumbnails etc won't be blocked, but you can block it with [uBlock Origin](https://github.com/gorhill/uBlock) by adding these filters to `My Filters`: 
+An alternative is to copy the content of the [CSS file](https://github.com/lassekongo83/yt-classic-polymer/blob/master/css/yt-classic.min.css) and paste it into a UserStyle manager extension of your choice.
+The network requests, like animated thumbnails, miniplayer, etc won't be blocked, but you can block it with [uBlock Origin](https://github.com/gorhill/uBlock) by adding these filters to `My Filters`: 
 ```
 ||yt3.ggpht.com/a-/$image,domain=youtube.com
 ||i.ytimg.com/an_webp/$domain=youtube.com
+/miniplayer.js$domain=youtube.com
 ```
+[This userstyle is also available for uBlock Origin.](https://github.com/lassekongo83/UserStyles/tree/master/youtube) (But currently only at a fixed size for 1920 screen sizes.)
