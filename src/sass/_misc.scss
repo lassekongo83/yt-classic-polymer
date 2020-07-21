@@ -52,7 +52,8 @@ html:not([dark]) {
   }
 }
 
-#subscribe-button paper-button.ytd-button-renderer {
+#subscribe-button paper-button.ytd-button-renderer,
+paper-button.ytd-subscribe-button-renderer[subscribed] {
   padding: 0 8px !important;
   height: 24px !important;
   text-transform: none !important;
@@ -62,6 +63,7 @@ html:not([dark]) {
 html:not([dark]) {
   ytd-button-renderer.style-suggestive[is-paper-button] paper-button.ytd-button-renderer,
   //ytd-button-renderer.style-destructive[is-paper-button],
+  paper-button.ytd-subscribe-button-renderer[subscribed],
   ytd-button-renderer.style-compact-gray[is-paper-button] {
     border: 1px solid #d3d3d3 !important;
     background-color: #f8f8f8 !important;
@@ -86,6 +88,7 @@ html:not([dark]) {
 .toggle-container.paper-toggle-button {
   width: 37px !important;
   height: 15px !important;
+  cursor: pointer !important;
 }
 
 .toggle-button.paper-toggle-button {

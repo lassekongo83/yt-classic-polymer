@@ -68,6 +68,10 @@ html:not([dark]) ytd-rich-shelf-renderer { border-top: 1px solid #e2e2e2 !import
 
 html:not([dark]) #show-more-button.ytd-rich-shelf-renderer, html:not([dark]) ytd-rich-shelf-renderer[is-show-more-hidden] #dismissable.ytd-rich-shelf-renderer { border-bottom: 1px solid #e2e2e2 !important; }
 
+ytd-browse[page-subtype=channels] app-header { transform: unset !important; position: static !important; margin-top: 0 !important; }
+
+#contentContainer.app-header-layout { padding-top: 0 !important; }
+
 #header.ytd-c4-tabbed-header-renderer { --app-header-background-front-layer_-_background-position: center 0 !important; }
 
 @media (min-width: 600px) { #header.ytd-c4-tabbed-header-renderer { --app-header-background-front-layer_-_background-size: 100% 115px !important; } }
@@ -93,8 +97,6 @@ html:not([dark]) #show-more-button.ytd-rich-shelf-renderer, html:not([dark]) ytd
 @media (min-width: 2500px) { #header.ytd-browse { width: 2200px !important; } }
 
 ytd-rich-item-renderer { margin-bottom: 12px !important; }
-
-@media (min-width: 1800px) { #contentContainer.app-header-layout { padding-top: 284px !important; } }
 
 ytd-browse-secondary-contents-renderer.ytd-two-column-browse-results-renderer { margin-left: 10px !important; padding: 15px !important; }
 
@@ -234,15 +236,15 @@ html:not([dark]) ytd-button-renderer.style-destructive[is-paper-button] { backgr
 
 html:not([dark]) ytd-button-renderer.style-destructive[is-paper-button]:hover { background-color: #cc181e !important; }
 
-#subscribe-button paper-button.ytd-button-renderer { padding: 0 8px !important; height: 24px !important; text-transform: none !important; }
+#subscribe-button paper-button.ytd-button-renderer, paper-button.ytd-subscribe-button-renderer[subscribed] { padding: 0 8px !important; height: 24px !important; text-transform: none !important; }
 
-html:not([dark]) ytd-button-renderer.style-suggestive[is-paper-button] paper-button.ytd-button-renderer, html:not([dark]) ytd-button-renderer.style-compact-gray[is-paper-button] { border: 1px solid #d3d3d3 !important; background-color: #f8f8f8 !important; color: #333 !important; box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05) !important; border-radius: 2px !important; text-transform: none !important; }
+html:not([dark]) ytd-button-renderer.style-suggestive[is-paper-button] paper-button.ytd-button-renderer, html:not([dark]) paper-button.ytd-subscribe-button-renderer[subscribed], html:not([dark]) ytd-button-renderer.style-compact-gray[is-paper-button] { border: 1px solid #d3d3d3 !important; background-color: #f8f8f8 !important; color: #333 !important; box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05) !important; border-radius: 2px !important; text-transform: none !important; }
 
-html:not([dark]) ytd-button-renderer.style-suggestive[is-paper-button] paper-button.ytd-button-renderer:hover, html:not([dark]) ytd-button-renderer.style-compact-gray[is-paper-button]:hover { background-color: #f0f0f0 !important; border-color: #c6c6c6 !important; box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1) !important; }
+html:not([dark]) ytd-button-renderer.style-suggestive[is-paper-button] paper-button.ytd-button-renderer:hover, html:not([dark]) paper-button.ytd-subscribe-button-renderer[subscribed]:hover, html:not([dark]) ytd-button-renderer.style-compact-gray[is-paper-button]:hover { background-color: #f0f0f0 !important; border-color: #c6c6c6 !important; box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1) !important; }
 
-html:not([dark]) ytd-button-renderer.style-suggestive[is-paper-button] paper-button.ytd-button-renderer:active, html:not([dark]) ytd-button-renderer.style-compact-gray[is-paper-button]:active { background-color: #e9e9e9 !important; border-color: #c6c6c6 !important; box-shadow: inset 0 1px 0 #ddd !important; }
+html:not([dark]) ytd-button-renderer.style-suggestive[is-paper-button] paper-button.ytd-button-renderer:active, html:not([dark]) paper-button.ytd-subscribe-button-renderer[subscribed]:active, html:not([dark]) ytd-button-renderer.style-compact-gray[is-paper-button]:active { background-color: #e9e9e9 !important; border-color: #c6c6c6 !important; box-shadow: inset 0 1px 0 #ddd !important; }
 
-.toggle-container.paper-toggle-button { width: 37px !important; height: 15px !important; }
+.toggle-container.paper-toggle-button { width: 37px !important; height: 15px !important; cursor: pointer !important; }
 
 .toggle-button.paper-toggle-button { width: 13px !important; height: 13px !important; box-shadow: none !important; top: 1px !important; left: 1px !important; }
 

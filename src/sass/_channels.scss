@@ -1,4 +1,13 @@
 // channel header
+ytd-browse[page-subtype=channels] app-header {
+  transform: unset !important;
+  position: static !important;
+  margin-top: 0 !important;
+}
+#contentContainer.app-header-layout {
+  padding-top: 0 !important;
+}
+
 #header.ytd-c4-tabbed-header-renderer {
   --app-header-background-front-layer_-_background-position: center 0 !important;
   @include for-size(tablet-portrait-up) {
@@ -43,11 +52,6 @@ ytd-c4-tabbed-header-renderer[has-channel-art] .banner-visible-area.ytd-c4-tabbe
 
 ytd-rich-item-renderer {
   margin-bottom: 12px !important;
-}
-
-// Strange padding when navigating from a video to the channel
-#contentContainer.app-header-layout {
-   @include for-size(big-desktop-up) { padding-top: 284px !important; }
 }
 
 ytd-browse-secondary-contents-renderer.ytd-two-column-browse-results-renderer { margin-left: 10px !important; padding: 15px !important; }
