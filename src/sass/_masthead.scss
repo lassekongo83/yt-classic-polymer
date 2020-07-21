@@ -1,5 +1,5 @@
 html:not(.style-scope) {
-  --ytd-masthead-height: 49px !important;
+  --ytd-masthead-height: 49px !important; // Plus 1px border = 50px
 }
 
 ytd-masthead.shell,#container.ytd-masthead,#header.ytd-app { height: 49px !important; }

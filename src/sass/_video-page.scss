@@ -1,7 +1,8 @@
+$sidebar_width: 416px;
 ytd-watch-flexy {
-  @include for-size(big-desktop-up) {
-    --ytd-watch-flexy-sidebar-width: 416px !important;
-  }
+  //@include for-size(big-desktop-up) {
+    --ytd-watch-flexy-sidebar-width: $sidebar_width !important;
+  //}
 }
 
 #items.ytd-watch-next-secondary-results-renderer { padding: 10px !important; }
@@ -31,6 +32,13 @@ ytd-video-primary-info-renderer { --yt-button-icon-size: 32px !important; }
 html:not([dark]) {
   #like-bar.ytd-sentiment-bar-renderer { background: $accent_color !important; }
 }
+
+// Playlist
+#container.ytd-playlist-panel-renderer {
+  position: relative !important;
+  right: 14px !important;
+}
+#playlist.ytd-watch-flexy { margin-bottom: 10px !important; }
 
 // Player sizes. Disabled becuase it's just too buggy.
 //#player.ytd-watch-flexy { background-color: black !important; }
