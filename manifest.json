@@ -1,7 +1,7 @@
 {
   "name": "YouTube Classic Polymer Theme",
   "short_name": "YT Classic Theme",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "manifest_version": 2,
   "description": "Browse YouTube like it's 2015.",
   "author": "Frellwit",
@@ -13,7 +13,7 @@
   },
   "background": {
     "scripts": [
-      "src/bg/background.js"
+      "js/background.js"
     ]
   },
   "permissions": [
@@ -30,7 +30,7 @@
         "https://*.youtube.com/*"
       ],
       "css": [
-        "src/inject/inject.min.css"
+        "css/yt-classic.min.css"
       ]
     },
     {
@@ -38,7 +38,7 @@
         "https://*.youtube.com/*"
       ],
       "js": [
-        "src/inject/inject.js"
+        "js/contentScript.js"
       ]
     }
   ]

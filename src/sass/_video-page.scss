@@ -32,13 +32,27 @@ html:not([dark]) {
   #like-bar.ytd-sentiment-bar-renderer { background: $accent_color !important; }
 }
 
-// Attempt to restore the old player sizes
+// Player sizes. Disabled becuase it's just too buggy.
 //#player.ytd-watch-flexy { background-color: black !important; }
-
-//ytd-watch-flexy[flexy_]:not([is-vertical-video_]) #player-container-inner.ytd-watch-flexy { position: unset !important; }
-
-//ytd-watch-flexy[flexy_][is-two-columns_][is-four-three-to-sixteen-nine-video_] #primary.ytd-watch-flexy {
-//  @include for-size(big-desktop-up) {
+//@media (min-height: 800px) {
+//  ytd-watch-flexy[flexy_][is-two-columns_][is-four-three-to-sixteen-nine-video_] #primary.ytd-watch-flexy { // FIXME: Does not work very well for non-widescreen videos
+//    min-width: 854px !important;
+//    max-width: 854px !important;
+//  }
+//  .ytp-chrome-bottom { width: 854px - 24px !important; } // FIXME: Seek area isn't adjusted to the new size, causing issues with the seeker
+//  .html5-video-player .video-stream { // FIXME: Not a good idea to stretch the video
+//    width: 854px !important;
+//    height: 480px !important;
+//  }
+//}
+//@media (min-height: 986px) {
+//  ytd-watch-flexy[flexy_][is-two-columns_][is-four-three-to-sixteen-nine-video_] #primary.ytd-watch-flexy {
+//    min-width: 1280px !important;
 //    max-width: 1280px !important;
+//  }
+//  .ytp-chrome-bottom { width: 1280px - 24px !important; }
+//  .html5-video-player .video-stream {
+//    width: 1280px !important;
+//    height: 760px !important;
 //  }
 //}
