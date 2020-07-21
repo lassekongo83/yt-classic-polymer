@@ -28,8 +28,9 @@ Before and after screenshot.
     - Click *Open*.
 
 ### Firefox
-Not yet available. (Unless you run a version of Firefox that allows you to install unsigned extensions.)
+1. Go [here](https://github.com/lassekongo83/yt-classic-polymer/releases/) and follow the instructions.
 
+### UserStyle
 An alternative is to copy the content of the [CSS file](https://github.com/lassekongo83/yt-classic-polymer/blob/master/css/yt-classic.min.css) and paste it into a UserStyle manager extension of your choice.
 The network requests, like animated thumbnails, miniplayer, etc won't be blocked, but you can block it with [uBlock Origin](https://github.com/gorhill/uBlock) by adding these filters to `My Filters`: 
 ```
