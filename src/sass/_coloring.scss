@@ -41,6 +41,7 @@ html {
     yt-formatted-string[has-link-only_]:not([force-default-style]) a.yt-simple-endpoint.yt-formatted-string:hover,
     ytd-compact-video-renderer #video-title.ytd-compact-video-renderer:hover,
     ytd-compact-radio-renderer.use-ellipsis #video-title.ytd-compact-radio-renderer:hover,
+    ytd-compact-playlist-renderer #video-title.ytd-compact-playlist-renderer:hover,
     .title.ytd-mini-channel-renderer:hover {
       color: $accent_color !important;
     }
