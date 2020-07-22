@@ -1,0 +1,46 @@
+// Player sizes. Disabled becuase it's just too buggy.
+#player.ytd-watch-flexy { background-color: black !important; } // Make the video container black
+
+// Depending on the browser height (as it was before). The smaller the dock/panel/taskbar and browser toolbars, the larger the video gets.
+@media (min-height: 800px) {
+  ytd-watch-flexy[flexy_][is-two-columns_][is-four-three-to-sixteen-nine-video_] #primary.ytd-watch-flexy { // FIXME: Does not work very well for non-widescreen videos
+    min-width: 854px !important;
+    max-width: 854px !important;
+    //max-height: 480px !important;
+
+    // Attempt to fit the video within the player if it's not a widescreen video ...
+    .html5-video-player:not(.ytp-large-width-mode) .video-stream {
+      object-fit: contain !important;
+      margin: 0 auto !important;
+      display: block !important;
+      left: 0 !important;
+      position: unset !important;
+    }
+    // ... and if it is, then stretch it. But it still does not compute... So many different types of videos. *sigh*
+    .html5-video-player.ytp-large-width-mode .video-stream {
+      width: 100% !important;
+      height: auto !important;
+    }
+  }
+  .ytp-chrome-bottom { width: 854px - 24px !important; } // FIXME: Seek area isn't adjusted to the new size, causing issues with the seeker
+}
+@media (min-height: 986px) {
+  ytd-watch-flexy[flexy_][is-two-columns_][is-four-three-to-sixteen-nine-video_] #primary.ytd-watch-flexy {
+    min-width: 1280px !important;
+    max-width: 1280px !important;
+    //max-height: 720px !important;
+
+    .html5-video-player:not(.ytp-large-width-mode) .video-stream {
+      object-fit: contain !important;
+      margin: 0 auto !important;
+      display: block !important;
+      left: 0 !important;
+      position: unset !important;
+    }
+    .html5-video-player.ytp-large-width-mode .video-stream {
+      width: 100% !important;
+      height: auto !important;
+    }
+  }
+  .ytp-chrome-bottom { width: 1280px - 24px !important; }
+}
