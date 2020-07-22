@@ -5,3 +5,12 @@ html:not(.style-scope) {
 ytd-masthead.shell,#container.ytd-masthead,#header.ytd-app { height: 49px !important; }
 #container.ytd-masthead { max-height: 49px !important; }
 ytd-masthead:not([dark]) #container.ytd-masthead, ytd-masthead.shell { border-bottom: 1px solid $secondary_border !important; }
+ytd-masthead[dark] #container.ytd-masthead, ytd-masthead.shell { border-bottom: 1px solid transparent !important; }
+
+html[dark] {
+  #container.ytd-searchbox, #search-icon-legacy.ytd-searchbox {
+    box-shadow: none !important;
+    background-color: $dark_button !important;
+    border: none !important;
+  }
+}

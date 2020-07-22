@@ -29,8 +29,13 @@ ytd-sentiment-bar-renderer { padding-top: 13px !important; }
 #menu.ytd-video-primary-info-renderer { top: 13px !important; }
 ytd-video-primary-info-renderer { --yt-button-icon-size: 32px !important; }
 
-html:not([dark]) {
-  #like-bar.ytd-sentiment-bar-renderer { background: $accent_color !important; }
+html {
+  &:not([dark]) {
+    #like-bar.ytd-sentiment-bar-renderer { background: $accent_color !important; }
+  }
+  &[dark] {
+    #like-bar.ytd-sentiment-bar-renderer { background: $accent_color_dark !important; }
+  }
 }
 
 // Playlist

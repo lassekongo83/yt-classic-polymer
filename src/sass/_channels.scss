@@ -67,12 +67,23 @@ ytd-browse[page-subtype~=channels] ytd-two-column-browse-results-renderer.ytd-br
 paper-tab.ytd-c4-tabbed-header-renderer { padding: 0 12px !important; }
 paper-tabs.ytd-c4-tabbed-header-renderer { margin-left: 0 !important; padding-bottom: 0 !important; }
 #channel-header.ytd-c4-tabbed-header-renderer { padding: 15px !important; }
-html:not([dark]) {
-  ytd-c4-tabbed-header-renderer { --yt-lightsource-section1-color: $secondary_bg !important; }
-  app-toolbar.ytd-c4-tabbed-header-renderer { background-color: $secondary_bg !important; }
-  paper-tabs.ytd-c4-tabbed-header-renderer { --paper-tabs-selection-bar-color: $theme_red !important; }
-  paper-tab:not(.iron-selected) > .tab-content.paper-tab:hover,
-  paper-tab.iron-selected.ytd-c4-tabbed-header-renderer > .tab-content.paper-tab {
-    box-shadow: inset 0 -3px $theme_red !important;
+html {
+  &:not([dark]) {
+    ytd-c4-tabbed-header-renderer { --yt-lightsource-section1-color: $secondary_bg !important; }
+    app-toolbar.ytd-c4-tabbed-header-renderer { background-color: $secondary_bg !important; }
+    paper-tabs.ytd-c4-tabbed-header-renderer { --paper-tabs-selection-bar-color: $theme_red !important; }
+    paper-tab:not(.iron-selected) > .tab-content.paper-tab:hover,
+    paper-tab.iron-selected.ytd-c4-tabbed-header-renderer > .tab-content.paper-tab {
+      box-shadow: inset 0 -3px $theme_red !important;
+    }
+  }
+  &[dark] {
+    ytd-c4-tabbed-header-renderer { --yt-lightsource-section1-color: $secondary_bg_dark !important; }
+    app-toolbar.ytd-c4-tabbed-header-renderer { background-color: $secondary_bg_dark !important; }
+    paper-tabs.ytd-c4-tabbed-header-renderer { --paper-tabs-selection-bar-color: $theme_red_dark !important; }
+    paper-tab:not(.iron-selected) > .tab-content.paper-tab:hover,
+    paper-tab.iron-selected.ytd-c4-tabbed-header-renderer > .tab-content.paper-tab {
+      box-shadow: inset 0 -3px $theme_red_dark !important;
+    }
   }
 }

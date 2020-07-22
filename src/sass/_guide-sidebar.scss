@@ -1,21 +1,23 @@
 // colors for light theme
-html:not([dark]) {
-  app-drawer#guide { border-right: 1px solid $secondary_border !important; }
-  #guide-section-title.ytd-guide-section-renderer { color: $theme_red !important; }
+html {
+  &:not([dark]) {
+    app-drawer#guide { border-right: 1px solid $secondary_border !important; }
+    #guide-section-title.ytd-guide-section-renderer { color: $theme_red !important; }
     
-  ytd-guide-entry-renderer[active] .title.ytd-guide-entry-renderer,
-  ytd-guide-entry-renderer[active] .guide-icon.ytd-guide-entry-renderer { color: white !important; }
+    ytd-guide-entry-renderer[active] .title.ytd-guide-entry-renderer,
+    ytd-guide-entry-renderer[active] .guide-icon.ytd-guide-entry-renderer { color: white !important; }
 
-  ytd-guide-entry-renderer[active] > #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer,
-  ytd-guide-entry-renderer[active] > #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer:hover { background-color: $guide_active !important; }
-  #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer:hover {
-    background-color: $guide_hover !important;
-    color: white !important;
+    ytd-guide-entry-renderer[active] > #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer,
+    ytd-guide-entry-renderer[active] > #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer:hover { background-color: $guide_active !important; }
+    #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer:hover {
+      background-color: $guide_hover !important;
+      color: white !important;
+    }
+    .title.ytd-guide-entry-renderer, .guide-icon.ytd-guide-entry-renderer { color: unset !important; } // to make sure there's no delay when hovering
+
+    ytd-guide-entry-renderer[active] *> .title.ytd-guide-entry-renderer,
+    ytd-guide-entry-renderer[active] .guide-icon.ytd-guide-entry-renderer { text-shadow: -1px -1px 0 rgba(0,0,0,0.25) !important; }
   }
-  .title.ytd-guide-entry-renderer, .guide-icon.ytd-guide-entry-renderer { color: unset !important; } // to make sure there's no delay when hovering
-
-  ytd-guide-entry-renderer[active] *> .title.ytd-guide-entry-renderer,
-  ytd-guide-entry-renderer[active] .guide-icon.ytd-guide-entry-renderer { text-shadow: -1px -1px 0 rgba(0,0,0,0.25) !important; }
 }
 // sizes
 ytd-app { --app-drawer-width: 230px !important; }
@@ -36,3 +38,7 @@ paper-item.ytd-guide-entry-renderer { height: 28px !important; }
 #guide-section-title.ytd-guide-section-renderer { padding: 1px 0 8px !important; }
 paper-item.ytd-guide-entry-renderer { padding: 0 8px 0 8px !important; }
 ytd-app[mini-guide-visible_] ytd-page-manager.ytd-app { margin-left: 0 !important; }
+
+ytd-browse[mini-guide-visible] ytd-playlist-sidebar-renderer.ytd-browse {
+  left: 0 !important;
+}

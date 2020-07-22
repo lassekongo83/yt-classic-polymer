@@ -1,4 +1,5 @@
 .gitattributes export-ignore
 .github export-ignore
+.web-extension-id export-ignore
 sass export-ignore
 yt-screen.png export-ignore
