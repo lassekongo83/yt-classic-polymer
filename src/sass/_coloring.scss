@@ -24,21 +24,30 @@ html {
     ytd-video-primary-info-renderer,
     ytd-expander.ytd-video-secondary-info-renderer,
     ytd-comments,
-    ytd-video-secondary-info-renderer { border: none !important; }
+    ytd-video-secondary-info-renderer {
+      border: none !important;
+    }
 
     // text colors
     #title.ytd-rich-grid-renderer,
     #title.ytd-rich-shelf-renderer,
-    paper-tabs.ytd-c4-tabbed-header-renderer { color: $primary_text !important; }
+    paper-tabs.ytd-c4-tabbed-header-renderer {
+      color: $primary_text !important;
+    }
     #video-title.ytd-rich-grid-video-renderer,
     ytd-grid-video-renderer #video-title.yt-simple-endpoint.ytd-grid-video-renderer,
     #video-title.ytd-video-renderer,
     #author-text.yt-simple-endpoint.ytd-comment-renderer,
     yt-formatted-string[has-link-only_]:not([force-default-style]) a.yt-simple-endpoint.yt-formatted-string:hover,
     ytd-compact-video-renderer #video-title.ytd-compact-video-renderer:hover,
-    .title.ytd-mini-channel-renderer:hover { color: $accent_color !important; }
+    ytd-compact-radio-renderer.use-ellipsis #video-title.ytd-compact-radio-renderer:hover,
+    .title.ytd-mini-channel-renderer:hover {
+      color: $accent_color !important;
+    }
     ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer:hover,
-    ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button-end.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer:hover { color: $alt_text !important; }
+    ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button-end.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer:hover {
+      color: $alt_text !important;
+    }
   }
 
   &[dark] {
@@ -65,20 +74,28 @@ html {
     ytd-video-primary-info-renderer,
     ytd-expander.ytd-video-secondary-info-renderer,
     ytd-comments,
-    ytd-video-secondary-info-renderer { border: none !important; }
+    ytd-video-secondary-info-renderer {
+      border: none !important;
+    }
 
     // text colors
     #title.ytd-rich-grid-renderer,
     #title.ytd-rich-shelf-renderer,
-    paper-tabs.ytd-c4-tabbed-header-renderer { color: $primary_text_dark !important; }
+    paper-tabs.ytd-c4-tabbed-header-renderer {
+      color: $primary_text_dark !important;
+    }
     #video-title.ytd-rich-grid-video-renderer,
     ytd-grid-video-renderer #video-title.yt-simple-endpoint.ytd-grid-video-renderer,
     #video-title.ytd-video-renderer,
     #author-text.yt-simple-endpoint.ytd-comment-renderer,
     yt-formatted-string[has-link-only_]:not([force-default-style]) a.yt-simple-endpoint.yt-formatted-string:hover,
     ytd-compact-video-renderer #video-title.ytd-compact-video-renderer:hover,
-    .title.ytd-mini-channel-renderer:hover { color: $primary_text_dark !important; }
+    .title.ytd-mini-channel-renderer:hover {
+      color: $primary_text_dark !important;
+    }
     ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer:hover,
-    ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button-end.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer:hover { color: $alt_text_dark !important; }
+    ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button-end.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer:hover {
+      color: $alt_text_dark !important;
+    }
   }
 }

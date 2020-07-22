@@ -1,5 +1,7 @@
 // make sure scrolling is never disabled
-body { overflow-y: auto !important; }
+body {
+  overflow-y: auto !important;
+}
 
 // display:none on a few elements that wasn't there in the old design
 #avatar-link.ytd-rich-grid-video-renderer,
@@ -14,7 +16,9 @@ ytd-compact-promoted-item-renderer,
 #play.fade-in.ytd-moving-thumbnail-renderer,
 #play.show.ytd-moving-thumbnail-renderer,
 .not-visible.paper-tabs,
-#masthead-ad { display: none !important; }
+#masthead-ad {
+  display: none !important;
+}
 
 // old pointer events on thumbnail details
 #details.ytd-rich-grid-video-renderer {

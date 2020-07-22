@@ -2,10 +2,18 @@ html:not(.style-scope) {
   --ytd-masthead-height: 49px !important; // Plus 1px border = 50px
 }
 
-ytd-masthead.shell,#container.ytd-masthead,#header.ytd-app { height: 49px !important; }
-#container.ytd-masthead { max-height: 49px !important; }
-ytd-masthead:not([dark]) #container.ytd-masthead, ytd-masthead.shell { border-bottom: 1px solid $secondary_border !important; }
-ytd-masthead[dark] #container.ytd-masthead, ytd-masthead.shell { border-bottom: 1px solid transparent !important; }
+ytd-masthead.shell,#container.ytd-masthead,#header.ytd-app {
+  height: 49px !important;
+}
+#container.ytd-masthead {
+  max-height: 49px !important;
+}
+ytd-masthead:not([dark]) #container.ytd-masthead, ytd-masthead.shell {
+  border-bottom: 1px solid $secondary_border !important;
+}
+ytd-masthead[dark] #container.ytd-masthead, ytd-masthead.shell {
+  border-bottom: 1px solid transparent !important;
+}
 
 html[dark] {
   #container.ytd-searchbox, #search-icon-legacy.ytd-searchbox {
@@ -13,4 +21,9 @@ html[dark] {
     background-color: $dark_button !important;
     border: none !important;
   }
+}
+
+// Remove some effects
+#masthead-container.ytd-app {
+  transition: none !important;
 }

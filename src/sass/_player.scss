@@ -44,3 +44,9 @@
   }
   .ytp-chrome-bottom { width: 1280px - 24px !important; }
 }
+
+// testing something
+ytd-watch-flexy[flexy_] {
+  --ytd-watch-flexy-width-ratio: 16 !important;
+  --ytd-watch-flexy-height-ratio: 9 !important;
+}
