@@ -79,6 +79,11 @@ ytd-video-meta-block[rich-meta] #channel-name.ytd-video-meta-block, ytd-video-me
   font-weight: $fw1 !important;
 }
 
+.more-button.ytd-comment-renderer, .less-button.ytd-comment-renderer {
+  font-size: $fs3 !important;
+  text-transform: uppercase !important;
+}
+
 // line heights
 #title.ytd-rich-grid-renderer,#title.ytd-rich-shelf-renderer,ytd-expander.ytd-video-secondary-info-renderer,#video-title.ytd-rich-grid-video-renderer,#expander.ytd-comment-replies-renderer,ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer, ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button-end.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer,#content-text.ytd-backstage-post-renderer,#content-text.ytd-comment-renderer {
   line-height: $lh1 !important;

@@ -49,12 +49,12 @@ html:not([dark]) {
   }
   ytd-button-renderer.style-destructive[is-paper-button],
   paper-button.keyboard-focus.ytd-subscribe-button-renderer {
-    background-color: $theme_red !important;
-    border-color: $theme_red !important;
+    //background-color: $theme_red !important;
+    border-color: transparent !important;
     box-shadow: none !important;
-    &:hover {
-      background-color: $theme_red_hover !important;
-    }
+    //&:hover {
+      //background-color: $theme_red_hover !important;
+    //}
   }
 }
 

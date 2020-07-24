@@ -44,6 +44,11 @@ ytd-video-primary-info-renderer {
   margin-top: 10px !important;
 }
 
+#expander.ytd-comment-renderer > paper-button.ytd-expander {
+  padding: 8px !important;
+  margin-top: 8px !important;
+}
+
 // video like bar and buttons
 ytd-sentiment-bar-renderer {
   padding-top: 13px !important;

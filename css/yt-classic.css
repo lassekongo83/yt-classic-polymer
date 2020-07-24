@@ -16,6 +16,8 @@ ytd-video-meta-block[rich-meta] #channel-name.ytd-video-meta-block, ytd-video-me
 
 #upnext.ytd-compact-autoplay-renderer { font-weight: 500 !important; }
 
+.more-button.ytd-comment-renderer, .less-button.ytd-comment-renderer { font-size: 13px !important; text-transform: uppercase !important; }
+
 #title.ytd-rich-grid-renderer, #title.ytd-rich-shelf-renderer, ytd-expander.ytd-video-secondary-info-renderer, #video-title.ytd-rich-grid-video-renderer, #expander.ytd-comment-replies-renderer, ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer, ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button-end.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer, #content-text.ytd-backstage-post-renderer, #content-text.ytd-comment-renderer { line-height: 1.3em !important; }
 
 ytd-compact-video-renderer #video-title.ytd-compact-video-renderer, ytd-grid-video-renderer #video-title.yt-simple-endpoint.ytd-grid-video-renderer { line-height: 1.2 !important; }
@@ -158,6 +160,8 @@ ytd-video-secondary-info-renderer { margin: 10px 0 !important; padding: 15px !im
 
 ytd-video-primary-info-renderer { padding: 15px !important; margin-top: 10px !important; }
 
+#expander.ytd-comment-renderer > paper-button.ytd-expander { padding: 8px !important; margin-top: 8px !important; }
+
 ytd-sentiment-bar-renderer { padding-top: 13px !important; }
 
 #menu.ytd-video-primary-info-renderer { top: 13px !important; }
@@ -270,9 +274,7 @@ paper-button.ytd-expander { width: 100% !important; margin: 0px 0 -15px !importa
 
 html:not([dark]) paper-button.ytd-expander { border-top: 1px solid #e2e2e2 !important; }
 
-html:not([dark]) ytd-button-renderer.style-destructive[is-paper-button], html:not([dark]) paper-button.keyboard-focus.ytd-subscribe-button-renderer { background-color: #f00 !important; border-color: #f00 !important; box-shadow: none !important; }
-
-html:not([dark]) ytd-button-renderer.style-destructive[is-paper-button]:hover, html:not([dark]) paper-button.keyboard-focus.ytd-subscribe-button-renderer:hover { background-color: #cc181e !important; }
+html:not([dark]) ytd-button-renderer.style-destructive[is-paper-button], html:not([dark]) paper-button.keyboard-focus.ytd-subscribe-button-renderer { border-color: transparent !important; box-shadow: none !important; }
 
 #subscribe-button paper-button.ytd-button-renderer, paper-button.keyboard-focus.ytd-subscribe-button-renderer, ytd-button-renderer.style-destructive[is-paper-button], paper-button.ytd-subscribe-button-renderer[subscribed] { text-transform: none !important; }
 
