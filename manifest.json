@@ -1,7 +1,7 @@
 {
   "name": "YouTube Classic Polymer Theme",
   "short_name": "YT Classic Theme",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "manifest_version": 2,
   "description": "Browse YouTube like it's 2015.",
   "author": "Frellwit",
@@ -31,7 +31,8 @@
       ],
       "css": [
         "css/yt-classic.min.css"
-      ]
+      ],
+      "run_at": "document_start"
     },
     {
       "matches": [
