@@ -10,11 +10,11 @@ ytd-browse[page-subtype=channels] app-header {
 
 #header.ytd-c4-tabbed-header-renderer {
   --app-header-background-front-layer_-_background-position: center 0 !important;
-  @include for-size(tablet-portrait-up) {
-    --app-header-background-front-layer_-_background-size: 100% 115px !important;
+  @include for-size(tablet-landscape-up) {
+    --app-header-background-front-layer_-_background-size: 100% 175px !important;
   }
   @include for-size(big-desktop-up) {
-    --app-header-background-front-layer_-_background-size: 100% 175px !important;
+    --app-header-background-front-layer_-_background-size: 100% 209.1382614px !important;
   }
   @include for-size(bigger-desktop-up) {
     --app-header-background-front-layer_-_background-size: 100% 245px !important; // not tested
@@ -22,25 +22,22 @@ ytd-browse[page-subtype=channels] app-header {
 }
 ytd-c4-tabbed-header-renderer[has-channel-art][guide-persistent-and-visible] .banner-visible-area.ytd-c4-tabbed-header-renderer,
 ytd-c4-tabbed-header-renderer[has-channel-art] .banner-visible-area.ytd-c4-tabbed-header-renderer {
-  @include for-size(tablet-portrait-up) {
-    height: 115px !important;
+  @include for-size(tablet-landscape-up) {
+    height: 175px !important;
   }
   @include for-size(big-desktop-up) {
-    height: 175px !important;
+    height: 209.1382614px !important;
   }
   @include for-size(bigger-desktop-up) {
     height: 245px !important;
   }
 }
 #header.ytd-browse {
-  @include for-size(tablet-portrait-up) {
-    width: 482px !important;
-  }
   @include for-size(tablet-landscape-up) {
-    width: 642px !important;
+    width: 850px !important;
   }
   @include for-size(desktop-up) {
-    width: 856px !important;
+    width: 1056px !important;
   }
   @include for-size(big-desktop-up) {
     width: 1262px !important;
