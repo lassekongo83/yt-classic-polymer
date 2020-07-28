@@ -11,9 +11,6 @@ ytd-masthead.shell,#container.ytd-masthead,#header.ytd-app {
 ytd-masthead:not([dark]) #container.ytd-masthead, ytd-masthead.shell {
   border-bottom: 1px solid $secondary_border !important;
 }
-ytd-masthead[dark] #container.ytd-masthead, ytd-masthead.shell {
-  border-bottom: 1px solid transparent !important;
-}
 
 html[dark] {
   #container.ytd-searchbox, #search-icon-legacy.ytd-searchbox {

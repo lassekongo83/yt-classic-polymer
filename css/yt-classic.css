@@ -12,11 +12,13 @@ ytd-compact-video-renderer #video-title.ytd-compact-video-renderer, #video-title
 
 .more-button.ytd-video-secondary-info-renderer, .less-button.ytd-video-secondary-info-renderer { font-size: 13px !important; }
 
-ytd-video-meta-block[rich-meta] #channel-name.ytd-video-meta-block, ytd-video-meta-block[rich-meta] #metadata-line.ytd-video-meta-block, #guide-section-title.ytd-guide-section-renderer { font-size: 11px !important; }
+ytd-video-meta-block[rich-meta] #channel-name.ytd-video-meta-block, ytd-video-meta-block[rich-meta] #metadata-line.ytd-video-meta-block, #guide-section-title.ytd-guide-section-renderer, .badge.ytd-badge-supported-renderer { font-size: 11px !important; }
+
+.more-button.ytd-comment-renderer, .less-button.ytd-comment-renderer { font-size: 13px !important; text-transform: uppercase !important; }
 
 #upnext.ytd-compact-autoplay-renderer { font-weight: 500 !important; }
 
-.more-button.ytd-comment-renderer, .less-button.ytd-comment-renderer { font-size: 13px !important; text-transform: uppercase !important; }
+.badge.ytd-badge-supported-renderer { font-weight: 400 !important; }
 
 #title.ytd-rich-grid-renderer, #title.ytd-rich-shelf-renderer, ytd-expander.ytd-video-secondary-info-renderer, #video-title.ytd-rich-grid-video-renderer, #expander.ytd-comment-replies-renderer, ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer, ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button-end.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer, #content-text.ytd-backstage-post-renderer, #content-text.ytd-comment-renderer { line-height: 1.3em !important; }
 
@@ -228,8 +230,6 @@ ytd-masthead.shell, #container.ytd-masthead, #header.ytd-app { height: 49px !imp
 
 ytd-masthead:not([dark]) #container.ytd-masthead, ytd-masthead.shell { border-bottom: 1px solid #e8e8e8 !important; }
 
-ytd-masthead[dark] #container.ytd-masthead, ytd-masthead.shell { border-bottom: 1px solid transparent !important; }
-
 html[dark] #container.ytd-searchbox, html[dark] #search-icon-legacy.ytd-searchbox { box-shadow: none !important; background-color: #383838 !important; border: none !important; }
 
 #masthead-container.ytd-app { transition: none !important; }
@@ -258,7 +258,7 @@ html[dark] #video-title.ytd-rich-grid-video-renderer, html[dark] ytd-grid-video-
 
 html[dark] ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer:hover, html[dark] ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button-end.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer:hover { color: #909090 !important; }
 
-body { overflow-y: auto !important; }
+body[style="overflow: hidden;"] { overflow-y: auto !important; }
 
 #avatar-link.ytd-rich-grid-video-renderer, ytd-mini-guide-renderer.ytd-app, paper-ripple, ytd-compact-promoted-item-renderer, #selectionBar.paper-tabs, #thumbnail.ytd-moving-thumbnail-renderer, #avatar.ytd-c4-tabbed-header-renderer, .ytp-miniplayer-button, [id*="skeleton"], #play.fade-in.ytd-moving-thumbnail-renderer, #play.show.ytd-moving-thumbnail-renderer, .not-visible.paper-tabs, #masthead-ad { display: none !important; }
 

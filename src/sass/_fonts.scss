@@ -71,17 +71,22 @@ ytd-compact-video-renderer #video-title.ytd-compact-video-renderer,#video-title.
   font-size: $fs3 !important;
 }
 
-ytd-video-meta-block[rich-meta] #channel-name.ytd-video-meta-block, ytd-video-meta-block[rich-meta] #metadata-line.ytd-video-meta-block,#guide-section-title.ytd-guide-section-renderer {
+ytd-video-meta-block[rich-meta] #channel-name.ytd-video-meta-block, ytd-video-meta-block[rich-meta] #metadata-line.ytd-video-meta-block,#guide-section-title.ytd-guide-section-renderer,.badge.ytd-badge-supported-renderer {
   font-size: $fs1 !important;
-}
-
-#upnext.ytd-compact-autoplay-renderer {
-  font-weight: $fw1 !important;
 }
 
 .more-button.ytd-comment-renderer, .less-button.ytd-comment-renderer {
   font-size: $fs3 !important;
   text-transform: uppercase !important;
+}
+
+// font weights
+#upnext.ytd-compact-autoplay-renderer {
+  font-weight: $fw1 !important;
+}
+
+.badge.ytd-badge-supported-renderer {
+  font-weight: $fw2 !important;
 }
 
 // line heights

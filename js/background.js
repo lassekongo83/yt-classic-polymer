@@ -1,14 +1,19 @@
 chrome.webRequest.onBeforeRequest.addListener(
   function(){ return {cancel: true}; },
+  //info => info.initiator === 'https://www.youtube.com' && { redirectUrl: 'data:,' },
   {
     urls: [
-      // grid avatars and animated thumbnails
-      "*://yt3.ggpht.com/a-/*",
+      // animated thumbnails
       "*://i.ytimg.com/an_webp/*",
-      // miniplayer
-      "*://www.youtube.com/s/player/*/player_ias.vflset/*/miniplayer.js"
+      // promo image
+      "*://www.gstatic.com/youtube/img/promos/*",
+      // miniplayer script
+      "*://www.youtube.com/s/player/*/player_ias.vflset/*/miniplayer.js",
+      // skeleton stylesheets
+      "*://www.youtube.com/yts/cssbin/www-main-desktop-home-page-skeleton*",
+      "*://www.youtube.com/yts/cssbin/www-main-desktop-watch-page-skeleton*"
     ],
-    types: ["image", "script"]
+    types: ["image", "script", "stylesheet"]
   },
   ["blocking"]
 );

@@ -1,5 +1,5 @@
 // make sure scrolling is never disabled
-body {
+body[style="overflow: hidden;"] {
   overflow-y: auto !important;
 }
 
