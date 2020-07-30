@@ -16,7 +16,8 @@ ytd-compact-promoted-item-renderer,
 #play.fade-in.ytd-moving-thumbnail-renderer,
 #play.show.ytd-moving-thumbnail-renderer,
 .not-visible.paper-tabs,
-#masthead-ad {
+#masthead-ad,
+#offer-module {
   display: none !important;
 }
 
@@ -31,7 +32,9 @@ ytd-compact-promoted-item-renderer,
 }
 
 // avatars
-#author-thumbnail.ytd-comment-renderer yt-img-shadow.ytd-comment-renderer,#avatar.ytd-video-owner-renderer,yt-img-shadow.ytd-mini-channel-renderer,#author-thumbnail.ytd-comment-simplebox-renderer { border-radius: 0 !important; }
+#author-thumbnail.ytd-comment-renderer yt-img-shadow.ytd-comment-renderer,#avatar.ytd-video-owner-renderer,yt-img-shadow.ytd-mini-channel-renderer,#author-thumbnail.ytd-comment-simplebox-renderer {
+  border-radius: 0 !important;
+}
 #author-thumbnail.ytd-comment-renderer yt-img-shadow.ytd-comment-renderer {
   width: 48px !important;
   height: 48px !important;

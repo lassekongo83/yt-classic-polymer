@@ -26,21 +26,13 @@
   ],
   "content_scripts": [
     {
-      "matches": [
-        "https://*.youtube.com/*"
-      ],
-      "css": [
-        "css/yt-classic.min.css"
-      ],
+      "matches": ["https://*.youtube.com/*"],
+      "css": ["css/yt-classic.min.css"],
       "run_at": "document_start"
     },
     {
-      "matches": [
-        "https://*.youtube.com/*"
-      ],
-      "js": [
-        "js/contentScript.js"
-      ]
+      "matches": ["https://*.youtube.com/*"],
+      "js": ["js/contentScript.js"]
     }
   ]
 }

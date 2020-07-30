@@ -254,7 +254,7 @@ html[dark] ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-bu
 
 body[style="overflow: hidden;"] { overflow-y: auto !important; }
 
-#avatar-link.ytd-rich-grid-video-renderer, ytd-mini-guide-renderer.ytd-app, paper-ripple, ytd-compact-promoted-item-renderer, #selectionBar.paper-tabs, #thumbnail.ytd-moving-thumbnail-renderer, #avatar.ytd-c4-tabbed-header-renderer, .ytp-miniplayer-button, [id*="skeleton"], #play.fade-in.ytd-moving-thumbnail-renderer, #play.show.ytd-moving-thumbnail-renderer, .not-visible.paper-tabs, #masthead-ad { display: none !important; }
+#avatar-link.ytd-rich-grid-video-renderer, ytd-mini-guide-renderer.ytd-app, paper-ripple, ytd-compact-promoted-item-renderer, #selectionBar.paper-tabs, #thumbnail.ytd-moving-thumbnail-renderer, #avatar.ytd-c4-tabbed-header-renderer, .ytp-miniplayer-button, [id*="skeleton"], #play.fade-in.ytd-moving-thumbnail-renderer, #play.show.ytd-moving-thumbnail-renderer, .not-visible.paper-tabs, #masthead-ad, #offer-module { display: none !important; }
 
 #details.ytd-rich-grid-video-renderer { cursor: auto !important; pointer-events: none !important; }
 
