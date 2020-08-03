@@ -55,27 +55,45 @@ html {
   font-size: 20px !important;
 }
 
-#title.ytd-rich-grid-renderer,#title.ytd-rich-shelf-renderer {
+#title.ytd-rich-grid-renderer,#title.ytd-rich-shelf-renderer,
+#title.ytd-vertical-channel-section-renderer {
   font-size: $fs5 !important;
 }
 
-ytd-compact-video-renderer #video-title.ytd-compact-video-renderer,#video-title.ytd-video-renderer {
+ytd-compact-video-renderer #video-title.ytd-compact-video-renderer,
+#video-title.ytd-video-renderer {
   font-size: $fs4 !important;
 }
 
-#video-title.ytd-rich-grid-video-renderer,ytd-grid-video-renderer #video-title.yt-simple-endpoint.ytd-grid-video-renderer,#author-text.yt-simple-endpoint.ytd-comment-renderer,#expander.ytd-comment-replies-renderer,ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer, ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button-end.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer,ytd-guide-entry-renderer[active],.title.ytd-guide-entry-renderer,#content-text.ytd-backstage-post-renderer,#content-text.ytd-comment-renderer,.title.ytd-mini-channel-renderer {
+#video-title.ytd-rich-grid-video-renderer,
+ytd-grid-video-renderer #video-title.yt-simple-endpoint.ytd-grid-video-renderer,
+#author-text.yt-simple-endpoint.ytd-comment-renderer,
+#expander.ytd-comment-replies-renderer,
+ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer,
+ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button-end.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer,
+ytd-guide-entry-renderer[active],
+.title.ytd-guide-entry-renderer,
+#content-text.ytd-backstage-post-renderer,
+#content-text.ytd-comment-renderer,
+.title.ytd-mini-channel-renderer {
   font-size: $fs3 !important;
 }
 
-.more-button.ytd-video-secondary-info-renderer, .less-button.ytd-video-secondary-info-renderer {
+.more-button.ytd-video-secondary-info-renderer,
+.less-button.ytd-video-secondary-info-renderer {
   font-size: $fs3 !important;
 }
 
-ytd-video-meta-block[rich-meta] #channel-name.ytd-video-meta-block, ytd-video-meta-block[rich-meta] #metadata-line.ytd-video-meta-block,#guide-section-title.ytd-guide-section-renderer,.badge.ytd-badge-supported-renderer {
+ytd-video-meta-block[rich-meta] #channel-name.ytd-video-meta-block,
+ytd-video-meta-block[rich-meta] #metadata-line.ytd-video-meta-block,
+#guide-section-title.ytd-guide-section-renderer,
+.badge.ytd-badge-supported-renderer,
+ytd-mini-channel-renderer a.yt-simple-endpoint.ytd-button-renderer {
   font-size: $fs1 !important;
 }
 
-.more-button.ytd-comment-renderer, .less-button.ytd-comment-renderer {
+.more-button.ytd-comment-renderer,
+.less-button.ytd-comment-renderer {
   font-size: $fs3 !important;
   text-transform: uppercase !important;
 }
@@ -90,13 +108,22 @@ ytd-video-meta-block[rich-meta] #channel-name.ytd-video-meta-block, ytd-video-me
 }
 
 // line heights
-#title.ytd-rich-grid-renderer,#title.ytd-rich-shelf-renderer,ytd-expander.ytd-video-secondary-info-renderer,#video-title.ytd-rich-grid-video-renderer,#expander.ytd-comment-replies-renderer,ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer, ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button-end.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer,#content-text.ytd-backstage-post-renderer,#content-text.ytd-comment-renderer {
+#title.ytd-rich-grid-renderer,
+#title.ytd-rich-shelf-renderer,
+ytd-expander.ytd-video-secondary-info-renderer,
+#video-title.ytd-rich-grid-video-renderer,
+#expander.ytd-comment-replies-renderer,
+ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer,
+ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button-end.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer,
+#content-text.ytd-backstage-post-renderer,#content-text.ytd-comment-renderer {
   line-height: $lh1 !important;
 }
-ytd-compact-video-renderer #video-title.ytd-compact-video-renderer,ytd-grid-video-renderer #video-title.yt-simple-endpoint.ytd-grid-video-renderer {
+ytd-compact-video-renderer #video-title.ytd-compact-video-renderer,
+ytd-grid-video-renderer #video-title.yt-simple-endpoint.ytd-grid-video-renderer {
   line-height: 1.2 !important;
 }
-.title.ytd-guide-entry-renderer,ytd-guide-entry-renderer[active] .title.ytd-guide-entry-renderer {
+.title.ytd-guide-entry-renderer,
+ytd-guide-entry-renderer[active] .title.ytd-guide-entry-renderer {
   line-height: 20px !important;
 }
 
@@ -112,6 +139,9 @@ ytd-comment-replies-renderer *> ytd-button-renderer yt-formatted-string.ytd-butt
   }
 }
 
-ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer, ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button-end.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer,paper-tabs.ytd-c4-tabbed-header-renderer,#autoplay.ytd-compact-autoplay-renderer {
+ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer,
+ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button-end.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer,
+paper-tabs.ytd-c4-tabbed-header-renderer,#autoplay.ytd-compact-autoplay-renderer,
+#title.ytd-vertical-channel-section-renderer {
   text-transform: initial !important;
 }

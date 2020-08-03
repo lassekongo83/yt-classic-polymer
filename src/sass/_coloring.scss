@@ -6,6 +6,7 @@ html {
     --yt-lightsource-section1-color: $secondary_bg !important;
     --yt-spec-text-secondary: $secondary_text !important;
     --yt-spec-call-to-action: $accent_color !important;
+    --yt-spec-text-primary: $menu_text !important;
   }
 
   &:not([dark]) {
@@ -31,7 +32,8 @@ html {
     // text colors
     #title.ytd-rich-grid-renderer,
     #title.ytd-rich-shelf-renderer,
-    paper-tabs.ytd-c4-tabbed-header-renderer {
+    paper-tabs.ytd-c4-tabbed-header-renderer,
+    #title.ytd-vertical-channel-section-renderer {
       color: $primary_text !important;
     }
     #video-title.ytd-rich-grid-video-renderer,

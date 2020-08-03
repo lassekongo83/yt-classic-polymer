@@ -60,7 +60,7 @@ paper-item.ytd-guide-entry-renderer {
   --iron-icon-width: 20px !important;
 }
 
-// paddings
+// margins & paddings
 #sections.ytd-guide-renderer > *.ytd-guide-renderer {
   padding: 13px 22px !important;
 }
@@ -72,6 +72,7 @@ paper-item.ytd-guide-entry-renderer {
 }
 #guide-section-title.ytd-guide-section-renderer {
   padding: 1px 0 8px !important;
+  margin: 0 5px !important;
 }
 paper-item.ytd-guide-entry-renderer {
   padding: 0 8px 0 8px !important;
@@ -83,4 +84,9 @@ ytd-app[mini-guide-visible_] ytd-page-manager.ytd-app {
 // fixes the playlist when mini guide is gone
 ytd-browse[mini-guide-visible] ytd-playlist-sidebar-renderer.ytd-browse {
   left: 0 !important;
+}
+
+// misc
+yt-img-shadow.ytd-guide-entry-renderer {
+  border-radius: 0 !important;
 }

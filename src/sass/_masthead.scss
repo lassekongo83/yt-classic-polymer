@@ -24,3 +24,30 @@ html[dark] {
 #masthead-container.ytd-app {
   transition: none !important;
 }
+
+// login button
+html:not([dark]) {
+  ytd-button-renderer.style-suggestive.ytd-masthead #button.ytd-button-renderer,
+  #sign-in-button #button.ytd-button-renderer {
+    height: 28px !important;
+    padding: 0 10px !important;
+    font-size: $fs1 !important;
+    background-color: $accent_color !important;
+    color: white !important;
+    border: none !important;
+    margin-top: 5px !important;
+    &:hover, &:active {
+      background-color: $accent_color_hover !important;
+    }
+    & > yt-formatted-string.ytd-button-renderer {
+      margin-left: 0 !important;
+    }
+    & > yt-icon {
+      display: none !important;
+    }
+  }
+
+  .ytd-masthead button.yt-icon-button > yt-icon {
+    opacity: .75 !important;
+  }
+}

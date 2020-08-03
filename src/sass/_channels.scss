@@ -89,6 +89,10 @@ html {
     paper-tab.iron-selected.ytd-c4-tabbed-header-renderer > .tab-content.paper-tab {
       box-shadow: inset 0 -3px $theme_red !important;
     }
+    paper-tab:not(.iron-selected) > .tab-content.paper-tab {
+      opacity: 0.8 !important;
+      font-weight: normal !important;
+    }
   }
   &[dark] {
     ytd-c4-tabbed-header-renderer { --yt-lightsource-section1-color: $secondary_bg_dark !important; }
@@ -99,4 +103,9 @@ html {
       box-shadow: inset 0 -3px $theme_red_dark !important;
     }
   }
+}
+
+// misc
+#title.ytd-vertical-channel-section-renderer {
+  margin-bottom: 10px !important;
 }
