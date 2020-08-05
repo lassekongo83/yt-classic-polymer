@@ -44,7 +44,6 @@
   ],
   "browser_specific_settings": {
     "gecko": {
-      "id": "389389aa-6501-4759-90a0-a2269a405ee0",
       "strict_min_version": "56.0",
       "update_url": "https://github.com/lassekongo83/yt-classic-polymer/extension/updates.json"
     }
