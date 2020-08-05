@@ -1,0 +1,4 @@
+icon16
+icon19
+icon48
+icon128

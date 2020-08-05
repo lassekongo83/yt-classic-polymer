@@ -1,0 +1,4 @@
+/extension/web-ext-artifacts
+/src/manifest.json
+/src/icons/*.png
+*.log

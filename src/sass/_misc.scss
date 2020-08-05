@@ -17,7 +17,8 @@ ytd-compact-promoted-item-renderer,
 #play.show.ytd-moving-thumbnail-renderer,
 .not-visible.paper-tabs,
 #masthead-ad,
-#offer-module {
+#offer-module,
+ytd-compact-movie-renderer.ytd-watch-next-secondary-results-renderer {
   display: none !important;
 }
 

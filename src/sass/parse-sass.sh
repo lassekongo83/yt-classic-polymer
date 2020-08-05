@@ -9,9 +9,9 @@ SASSC_OPT="-M -t compact"
 
 echo Generating the css...
 
-sassc $SASSC_OPT main.scss ../../css/yt-classic.css
+sassc $SASSC_OPT main.scss ../css/yt-classic.css
 
 # using csso-cli to minify the css file. Can be installed with: npm install -g csso-cli
-csso -i ../../css/yt-classic.css -o ../../css/yt-classic.min.css
+csso -i ../css/yt-classic.css -o ../css/yt-classic.min.css
 # remove the non-minified css file
-#rm ../../css/yt-classic.css
+#rm ../css/yt-classic.css

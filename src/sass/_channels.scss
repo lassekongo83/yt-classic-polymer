@@ -109,3 +109,17 @@ html {
 #title.ytd-vertical-channel-section-renderer {
   margin-bottom: 10px !important;
 }
+
+#metadata-container.ytd-channel-video-player-renderer,
+#title.ytd-channel-video-player-renderer {
+  margin-bottom: 3px !important;
+}
+
+#description.ytd-channel-video-player-renderer {
+  margin-top: 7px !important;
+}
+
+ytd-browse[page-subtype~=channels] #contents.ytd-shelf-renderer,
+ytd-browse[page-subtype~=channels] .grid-subheader.ytd-shelf-renderer {
+  margin-top: 15px !important;
+}
