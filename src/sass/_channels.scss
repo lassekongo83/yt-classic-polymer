@@ -105,6 +105,20 @@ html {
   }
 }
 
+// videos page
+ytd-section-list-renderer[page-subtype=channels] #items.ytd-grid-renderer > ytd-grid-video-renderer.ytd-grid-renderer {
+  width: 196px !important;
+}
+
+ytd-section-list-renderer[page-subtype=channels] #items.ytd-grid-renderer ytd-thumbnail.ytd-grid-video-renderer {
+  width: 196px !important;
+  height: 110px !important;
+}
+
+ytd-section-list-renderer[page-subtype=channels] #items.ytd-grid-renderer {
+  margin-right: -15px !important;
+}
+
 // misc
 #title.ytd-vertical-channel-section-renderer {
   margin-bottom: 10px !important;

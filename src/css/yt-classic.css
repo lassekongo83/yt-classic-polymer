@@ -136,6 +136,12 @@ html[dark] paper-tabs.ytd-c4-tabbed-header-renderer { --paper-tabs-selection-bar
 
 html[dark] paper-tab:not(.iron-selected) > .tab-content.paper-tab:hover, html[dark] paper-tab.iron-selected.ytd-c4-tabbed-header-renderer > .tab-content.paper-tab { box-shadow: inset 0 -3px #cd1821 !important; }
 
+ytd-section-list-renderer[page-subtype=channels] #items.ytd-grid-renderer > ytd-grid-video-renderer.ytd-grid-renderer { width: 196px !important; }
+
+ytd-section-list-renderer[page-subtype=channels] #items.ytd-grid-renderer ytd-thumbnail.ytd-grid-video-renderer { width: 196px !important; height: 110px !important; }
+
+ytd-section-list-renderer[page-subtype=channels] #items.ytd-grid-renderer { margin-right: -15px !important; }
+
 #title.ytd-vertical-channel-section-renderer { margin-bottom: 10px !important; }
 
 #metadata-container.ytd-channel-video-player-renderer, #title.ytd-channel-video-player-renderer { margin-bottom: 3px !important; }
