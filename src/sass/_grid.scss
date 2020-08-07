@@ -83,3 +83,19 @@ html {
     ytd-rich-shelf-renderer[is-show-more-hidden] #dismissable.ytd-rich-shelf-renderer { border-bottom: 1px solid $primary_border_dark !important; }
   }
 }
+
+// subscriptions grid
+ytd-section-list-renderer[page-subtype="subscriptions"] #items.ytd-grid-renderer > ytd-grid-video-renderer.ytd-grid-renderer {
+  width: 196px !important;
+  margin-right: 10px !important;
+  margin-bottom: 12px !important;
+}
+
+ytd-section-list-renderer[page-subtype="subscriptions"] ytd-thumbnail.ytd-grid-video-renderer {
+  height: 110px !important;
+  width: 196px !important;
+}
+
+ytd-section-list-renderer[page-subtype="subscriptions"] #items.ytd-grid-renderer {
+  margin-right: -15px !important;
+}

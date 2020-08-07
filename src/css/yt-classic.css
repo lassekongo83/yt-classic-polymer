@@ -74,6 +74,12 @@ html[dark] ytd-rich-shelf-renderer { border-top: 1px solid #1a1a1a !important; }
 
 html[dark] #show-more-button.ytd-rich-shelf-renderer, html[dark] ytd-rich-shelf-renderer[is-show-more-hidden] #dismissable.ytd-rich-shelf-renderer { border-bottom: 1px solid #1a1a1a !important; }
 
+ytd-section-list-renderer[page-subtype="subscriptions"] #items.ytd-grid-renderer > ytd-grid-video-renderer.ytd-grid-renderer { width: 196px !important; margin-right: 10px !important; margin-bottom: 12px !important; }
+
+ytd-section-list-renderer[page-subtype="subscriptions"] ytd-thumbnail.ytd-grid-video-renderer { height: 110px !important; width: 196px !important; }
+
+ytd-section-list-renderer[page-subtype="subscriptions"] #items.ytd-grid-renderer { margin-right: -15px !important; }
+
 ytd-browse[page-subtype=channels] app-header { transform: unset !important; position: static !important; margin-top: 0 !important; }
 
 #contentContainer.app-header-layout { padding-top: 0 !important; }
