@@ -17,6 +17,41 @@ document.querySelectorAll('#masthead-ad').forEach(el => el.remove());
   });
 })();
 
+// Gets rid of the annoying cookie and login modal
+/*(function() {
+  "use strict";
+
+  function clickButton(selector) {
+    let elm = document.querySelectorAll(selector)[0];
+    if (elm) { elm.click(); }
+  }
+
+  function addStyleHide(cssSelector){
+    var D = document;
+    var newNode = D.createElement('style');
+    newNode.textContent = cssSelector + "{display:none !important;}";
+    var targ = D.getElementsByTagName('head')[0] || D.body || D.documentElement;
+    targ.appendChild (newNode);
+  }
+
+  function tick() {
+    clickButton('#introAgreeButton');
+    clickButton('#dismiss-button');
+    clickButton('.ytp-large-play-button');
+  }
+
+  const hideSelectors = [
+    "iron-overlay-backdrop",
+    "#consent-bump"
+  ];
+
+  for (var i = 0; i < hideSelectors.length; i++) {
+    addStyleHide(hideSelectors[i]);
+  }
+
+  setInterval(tick, 10);
+}());*/
+
 //insert elements
 // Disabled for now because it needs localization and dark theme crap
 /*
