@@ -105,6 +105,7 @@ ytd-section-list-renderer[page-subtype="subscriptions"] #items.ytd-grid-renderer
 ytd-section-list-renderer[page-subtype="subscriptions"] ytd-thumbnail.ytd-grid-video-renderer {
   height: 110px !important;
   width: 196px !important;
+  margin-bottom: 4px !important;
 }
 
 ytd-section-list-renderer[page-subtype="subscriptions"] #items.ytd-grid-renderer {

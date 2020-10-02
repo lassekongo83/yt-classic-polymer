@@ -76,7 +76,8 @@ ytd-guide-entry-renderer[active],
 #content-text.ytd-backstage-post-renderer,
 #content-text.ytd-comment-renderer,
 .title.ytd-mini-channel-renderer,
-ytd-rich-grid-media[mini-mode] #video-title.ytd-rich-grid-media {
+ytd-rich-grid-media[mini-mode] #video-title.ytd-rich-grid-media,
+h3.ytd-rich-grid-media {
   font-size: $fs3 !important;
 }
 
