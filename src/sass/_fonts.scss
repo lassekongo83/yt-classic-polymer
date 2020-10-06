@@ -61,7 +61,9 @@ html {
 }
 
 ytd-compact-video-renderer #video-title.ytd-compact-video-renderer,
-#video-title.ytd-video-renderer {
+#video-title.ytd-video-renderer,
+#video-title.ytd-playlist-renderer,
+#video-title.ytd-radio-renderer {
   font-size: $fs4 !important;
 }
 
@@ -101,7 +103,10 @@ ytd-mini-channel-renderer a.yt-simple-endpoint.ytd-button-renderer {
 }
 
 // font weights
-#upnext.ytd-compact-autoplay-renderer {
+#upnext.ytd-compact-autoplay-renderer,
+#video-title.ytd-playlist-renderer,
+#video-title.ytd-video-renderer,
+#video-title.ytd-radio-renderer {
   font-weight: $fw1 !important;
 }
 
@@ -135,6 +140,8 @@ ytd-guide-entry-renderer[active] .title.ytd-guide-entry-renderer {
 yt-formatted-string[has-link-only_]:not([force-default-style]) a.yt-simple-endpoint.yt-formatted-string,
 ytd-grid-video-renderer #video-title.yt-simple-endpoint.ytd-grid-video-renderer,
 #video-title.ytd-video-renderer,
+#video-title.ytd-playlist-renderer,
+#video-title.ytd-radio-renderer,
 #author-text.yt-simple-endpoint.ytd-comment-renderer,
 ytd-comment-replies-renderer *> ytd-button-renderer yt-formatted-string.ytd-button-renderer,
 ytd-rich-grid-media[mini-mode] #video-title.ytd-rich-grid-media {

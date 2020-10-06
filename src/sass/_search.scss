@@ -1,0 +1,23 @@
+ytd-search ytd-playlist-renderer[use-prominent-thumbs] ytd-playlist-thumbnail.ytd-playlist-renderer,
+ytd-search ytd-video-renderer[use-prominent-thumbs] ytd-thumbnail.ytd-video-renderer,
+ytd-radio-renderer[use-prominent-thumbs] ytd-thumbnail.ytd-radio-renderer {
+  max-width: 196px !important;
+  min-width: 196px !important;
+}
+
+ytd-search ytd-playlist-thumbnail #thumbnail.ytd-playlist-thumbnail ytd-thumbnail-overlay-side-panel-renderer,
+ytd-radio-renderer.ytd-item-section-renderer ytd-thumbnail-overlay-side-panel-renderer {
+  width: 70px !important;
+}
+
+ytd-search ytd-video-renderer[use-prominent-thumbs] #channel-info.ytd-video-renderer > a > yt-img-shadow.ytd-video-renderer {
+  display: none !important;
+}
+
+ytd-search #channel-name.ytd-video-renderer {
+  padding-left: 0 !important;
+}
+
+ytd-search ytd-video-renderer[use-prominent-thumbs] #channel-info.ytd-video-renderer {
+  padding: 6px 0 !important;
+}

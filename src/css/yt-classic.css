@@ -6,7 +6,7 @@ html:not(.style-scope) { --paper-font-common-base_-_font-family: "YouTube Noto",
 
 #title.ytd-rich-grid-renderer, #title.ytd-rich-shelf-renderer, #title.ytd-vertical-channel-section-renderer { font-size: 15px !important; }
 
-ytd-compact-video-renderer #video-title.ytd-compact-video-renderer, #video-title.ytd-video-renderer { font-size: 14px !important; }
+ytd-compact-video-renderer #video-title.ytd-compact-video-renderer, #video-title.ytd-video-renderer, #video-title.ytd-playlist-renderer, #video-title.ytd-radio-renderer { font-size: 14px !important; }
 
 #video-title.ytd-rich-grid-video-renderer, ytd-grid-video-renderer #video-title.yt-simple-endpoint.ytd-grid-video-renderer, #author-text.yt-simple-endpoint.ytd-comment-renderer, #expander.ytd-comment-replies-renderer, ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer, ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button-end.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer, ytd-guide-entry-renderer[active], .title.ytd-guide-entry-renderer, #content-text.ytd-backstage-post-renderer, #content-text.ytd-comment-renderer, .title.ytd-mini-channel-renderer, ytd-rich-grid-media[mini-mode] #video-title.ytd-rich-grid-media, h3.ytd-rich-grid-media { font-size: 13px !important; }
 
@@ -16,7 +16,7 @@ ytd-video-meta-block[rich-meta] #channel-name.ytd-video-meta-block, ytd-video-me
 
 .more-button.ytd-comment-renderer, .less-button.ytd-comment-renderer { font-size: 13px !important; text-transform: uppercase !important; }
 
-#upnext.ytd-compact-autoplay-renderer { font-weight: 500 !important; }
+#upnext.ytd-compact-autoplay-renderer, #video-title.ytd-playlist-renderer, #video-title.ytd-video-renderer, #video-title.ytd-radio-renderer { font-weight: 500 !important; }
 
 .badge.ytd-badge-supported-renderer { font-weight: 400 !important; }
 
@@ -26,7 +26,7 @@ ytd-compact-video-renderer #video-title.ytd-compact-video-renderer, ytd-grid-vid
 
 .title.ytd-guide-entry-renderer, ytd-guide-entry-renderer[active] .title.ytd-guide-entry-renderer { line-height: 20px !important; }
 
-#video-title.ytd-rich-grid-video-renderer:hover, yt-formatted-string[has-link-only_]:not([force-default-style]) a.yt-simple-endpoint.yt-formatted-string:hover, ytd-grid-video-renderer #video-title.yt-simple-endpoint.ytd-grid-video-renderer:hover, #video-title.ytd-video-renderer:hover, #author-text.yt-simple-endpoint.ytd-comment-renderer:hover, ytd-comment-replies-renderer * > ytd-button-renderer yt-formatted-string.ytd-button-renderer:hover, ytd-rich-grid-media[mini-mode] #video-title.ytd-rich-grid-media:hover { text-decoration: underline !important; }
+#video-title.ytd-rich-grid-video-renderer:hover, yt-formatted-string[has-link-only_]:not([force-default-style]) a.yt-simple-endpoint.yt-formatted-string:hover, ytd-grid-video-renderer #video-title.yt-simple-endpoint.ytd-grid-video-renderer:hover, #video-title.ytd-video-renderer:hover, #video-title.ytd-playlist-renderer:hover, #video-title.ytd-radio-renderer:hover, #author-text.yt-simple-endpoint.ytd-comment-renderer:hover, ytd-comment-replies-renderer * > ytd-button-renderer yt-formatted-string.ytd-button-renderer:hover, ytd-rich-grid-media[mini-mode] #video-title.ytd-rich-grid-media:hover { text-decoration: underline !important; }
 
 ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer, ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button-end.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer, paper-tabs.ytd-c4-tabbed-header-renderer, #autoplay.ytd-compact-autoplay-renderer, #title.ytd-vertical-channel-section-renderer { text-transform: initial !important; }
 
@@ -274,7 +274,7 @@ html:not([dark]) ytd-video-primary-info-renderer, html:not([dark]) ytd-expander.
 
 html:not([dark]) #title.ytd-rich-grid-renderer, html:not([dark]) #title.ytd-rich-shelf-renderer, html:not([dark]) paper-tabs.ytd-c4-tabbed-header-renderer, html:not([dark]) #title.ytd-vertical-channel-section-renderer { color: #333 !important; }
 
-html:not([dark]) #video-title.ytd-rich-grid-video-renderer, html:not([dark]) h3.ytd-rich-grid-media, html:not([dark]) ytd-grid-video-renderer #video-title.yt-simple-endpoint.ytd-grid-video-renderer, html:not([dark]) ytd-rich-grid-media[mini-mode] #video-title.ytd-rich-grid-media, html:not([dark]) #video-title.ytd-video-renderer, html:not([dark]) #author-text.yt-simple-endpoint.ytd-comment-renderer, html:not([dark]) yt-formatted-string[has-link-only_]:not([force-default-style]) a.yt-simple-endpoint.yt-formatted-string:hover, html:not([dark]) ytd-compact-video-renderer #video-title.ytd-compact-video-renderer:hover, html:not([dark]) ytd-compact-radio-renderer.use-ellipsis #video-title.ytd-compact-radio-renderer:hover, html:not([dark]) ytd-compact-playlist-renderer #video-title.ytd-compact-playlist-renderer:hover, html:not([dark]) .title.ytd-mini-channel-renderer:hover, html:not([dark]) #title.ytd-channel-video-player-renderer a { color: #167ac6 !important; }
+html:not([dark]) #video-title.ytd-rich-grid-video-renderer, html:not([dark]) #video-title.ytd-playlist-renderer, html:not([dark]) h3.ytd-rich-grid-media, html:not([dark]) ytd-grid-video-renderer #video-title.yt-simple-endpoint.ytd-grid-video-renderer, html:not([dark]) ytd-rich-grid-media[mini-mode] #video-title.ytd-rich-grid-media, html:not([dark]) #video-title.ytd-video-renderer, html:not([dark]) #author-text.yt-simple-endpoint.ytd-comment-renderer, html:not([dark]) yt-formatted-string[has-link-only_]:not([force-default-style]) a.yt-simple-endpoint.yt-formatted-string:hover, html:not([dark]) ytd-compact-video-renderer #video-title.ytd-compact-video-renderer:hover, html:not([dark]) ytd-compact-radio-renderer.use-ellipsis #video-title.ytd-compact-radio-renderer:hover, html:not([dark]) ytd-compact-playlist-renderer #video-title.ytd-compact-playlist-renderer:hover, html:not([dark]) .title.ytd-mini-channel-renderer:hover, html:not([dark]) #title.ytd-channel-video-player-renderer a { color: #167ac6 !important; }
 
 html:not([dark]) ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer:hover, html:not([dark]) ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button-end.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer:hover { color: #555 !important; }
 
@@ -333,3 +333,13 @@ html:not([dark]) ytd-multi-page-menu-renderer, .dropdown-content.paper-menu-butt
 #submenu.ytd-multi-page-menu-renderer ytd-multi-page-menu-renderer.ytd-multi-page-menu-renderer { border: none !important; }
 
 html:not([dark]) ytd-menu-popup-renderer { border: 1px solid #d3d3d3 !important; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important; border-radius: 0 !important; }
+
+ytd-search ytd-playlist-renderer[use-prominent-thumbs] ytd-playlist-thumbnail.ytd-playlist-renderer, ytd-search ytd-video-renderer[use-prominent-thumbs] ytd-thumbnail.ytd-video-renderer, ytd-radio-renderer[use-prominent-thumbs] ytd-thumbnail.ytd-radio-renderer { max-width: 196px !important; min-width: 196px !important; }
+
+ytd-search ytd-playlist-thumbnail #thumbnail.ytd-playlist-thumbnail ytd-thumbnail-overlay-side-panel-renderer, ytd-radio-renderer.ytd-item-section-renderer ytd-thumbnail-overlay-side-panel-renderer { width: 70px !important; }
+
+ytd-search ytd-video-renderer[use-prominent-thumbs] #channel-info.ytd-video-renderer > a > yt-img-shadow.ytd-video-renderer { display: none !important; }
+
+ytd-search #channel-name.ytd-video-renderer { padding-left: 0 !important; }
+
+ytd-search ytd-video-renderer[use-prominent-thumbs] #channel-info.ytd-video-renderer { padding: 6px 0 !important; }
