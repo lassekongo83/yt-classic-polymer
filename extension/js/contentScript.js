@@ -8,7 +8,10 @@ document.querySelectorAll('#masthead-ad').forEach(el => el.remove());
       document.querySelector('.ytp-miniplayer-button').parentNode.removeChild(document.querySelector('.ytp-miniplayer-button'))
     }
     if (window.location.pathname != "/watch") {
-      document.querySelector('#movie_player video').parentNode.removeChild(document.querySelector('#movie_player video'));
+      let mp = document.querySelector('#movie_player video') !== null;
+      if (mp) {
+        document.querySelector('#movie_player video').parentNode.removeChild(document.querySelector('#movie_player video'));
+      } else {}
     }
   });
 })();

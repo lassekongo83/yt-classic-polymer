@@ -28,13 +28,17 @@ ytd-compact-movie-renderer.ytd-watch-next-secondary-results-renderer {
   cursor: auto !important;
   pointer-events: none !important;
 }
-#details.ytd-rich-grid-video-renderer *> a, #details.ytd-rich-grid-video-renderer *> button.yt-icon-button {
+#details.ytd-rich-grid-video-renderer *> a,
+#details.ytd-rich-grid-video-renderer *> button.yt-icon-button {
   cursor: pointer !important;
   pointer-events: initial !important;
 }
 
 // avatars
-#author-thumbnail.ytd-comment-renderer yt-img-shadow.ytd-comment-renderer,#avatar.ytd-video-owner-renderer,yt-img-shadow.ytd-mini-channel-renderer,#author-thumbnail.ytd-comment-simplebox-renderer {
+#author-thumbnail.ytd-comment-renderer yt-img-shadow.ytd-comment-renderer,
+#avatar.ytd-video-owner-renderer,
+yt-img-shadow.ytd-mini-channel-renderer,
+#author-thumbnail.ytd-comment-simplebox-renderer {
   border-radius: 0 !important;
 }
 #author-thumbnail.ytd-comment-renderer yt-img-shadow.ytd-comment-renderer {
@@ -131,7 +135,8 @@ html:not([dark]) .toggle-button.paper-toggle-button {
 }
 
 // menu
-html:not([dark]) ytd-multi-page-menu-renderer, .dropdown-content.paper-menu-button {
+html:not([dark]) ytd-multi-page-menu-renderer,
+.dropdown-content.paper-menu-button {
   border: 1px solid #c5c5c5 !important;
   border-top: 1px solid #c5c5c5 !important;
   box-shadow: 0 0 15px rgba(0,0,0,.18) !important;

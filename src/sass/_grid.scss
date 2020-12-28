@@ -37,6 +37,10 @@ $large_tn_width: 210px;
 $large_tn_height: 118px;
 
 html:not(.style-scope) {
+  //--ytd-rich-grid-item-min-width: $small_tn_width !important;
+  //--ytd-rich-grid-item-max-width: $large_tn_width !important;
+  //--ytd-rich-grid-mini-item-min-width: $small_tn_width !important;
+  //--ytd-rich-grid-mini-item-max-width: $large_tn_width !important;
   --ytd-rich-grid-item-margin: 10px !important; // space between thumbnails
   @include for-size(tablet-landscape-up) {
     --ytd-grid-video-item_-_width: $small_tn_width !important;
