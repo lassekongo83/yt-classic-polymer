@@ -79,7 +79,7 @@ ytd-guide-entry-renderer[active],
 #content-text.ytd-backstage-post-renderer,
 #content-text.ytd-comment-renderer,
 .title.ytd-mini-channel-renderer,
-ytd-rich-grid-media[mini-mode] #video-title.ytd-rich-grid-media,
+#video-title.ytd-rich-grid-media,
 h3.ytd-rich-grid-media {
   font-size: $fs3 !important;
 }
@@ -124,7 +124,7 @@ ytd-expander.ytd-video-secondary-info-renderer,
 ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer,
 ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button-end.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer,
 #content-text.ytd-backstage-post-renderer,#content-text.ytd-comment-renderer,
-ytd-rich-grid-media[mini-mode] #video-title.ytd-rich-grid-media {
+#video-title.ytd-rich-grid-media {
   line-height: $lh1 !important;
 }
 ytd-compact-video-renderer #video-title.ytd-compact-video-renderer,
@@ -145,7 +145,7 @@ ytd-grid-video-renderer #video-title.yt-simple-endpoint.ytd-grid-video-renderer,
 #video-title.ytd-radio-renderer,
 #author-text.yt-simple-endpoint.ytd-comment-renderer,
 ytd-comment-replies-renderer *> ytd-button-renderer yt-formatted-string.ytd-button-renderer,
-ytd-rich-grid-media[mini-mode] #video-title.ytd-rich-grid-media {
+#video-title.ytd-rich-grid-media {
   &:hover {
     text-decoration: underline !important;
   }

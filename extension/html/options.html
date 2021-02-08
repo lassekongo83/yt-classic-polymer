@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head><title>Youtube Classic Polymer Options</title></head>
+<body>
+  <style type="text/css">
+    body {
+      padding:8px;
+      min-width:230px;
+    }
+    ::selection { background: transparent; }
+    label:after {
+      content: "";
+      display: block;
+    }
+  </style>
+  <label>
+    <input type="checkbox" id="options-disable-mp">
+    Auto-close miniplayer
+  </label>
+
+  <label>
+    <input type="checkbox" id="options-guide-menu">
+    Collapse guide menu by default
+  </label>
+
+  <label>
+    <input type="checkbox" id="options-disable-anim">
+    Disable live thumbnail previews
+  </label>
+
+  <p>Note: Refresh any open YouTube tabs for the settings to take effect.</p>
+
+  <script src="../js/options.js"></script>
+</body>
+</html>

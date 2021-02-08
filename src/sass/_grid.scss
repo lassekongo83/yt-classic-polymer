@@ -13,7 +13,7 @@ ytd-rich-grid-renderer {
   }
 }
 
-ytd-two-column-browse-results-renderer {
+ytd-two-column-browse-results-renderer, ytd-two-column-search-results-renderer {
   margin-top: 10px !important;
   @include for-size(tablet-landscape-up) {
     max-width: 850px !important;
@@ -64,7 +64,7 @@ ytd-thumbnail.ytd-rich-grid-video-renderer,
 ytd-thumbnail.ytd-rich-grid-media {
   margin-bottom: 4px !important;
 }
-ytd-rich-grid-media[mini-mode] h3.ytd-rich-grid-media {
+h3.ytd-rich-grid-media {
   margin-bottom: 1px !important;
   padding-right: 24px !important;
 }

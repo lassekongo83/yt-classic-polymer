@@ -14,10 +14,14 @@ sed -i "s/\"version\": \"$old_ver\"/\"version\": \"$new_ver\"/g" ../src/manifest
 # Remove comments from the js files
 cpp -undef -P ../src/js/contentScript.js > ../extension/js/contentScript.js
 cpp -undef -P ../src/js/background.js > ../extension/js/background.js
+cpp -undef -P ../src/js/options.js > ../extension/js/options.js
+cpp -undef -P ../src/js/popup.js > ../extension/js/popup.js
+cpp -undef -P ../src/js/version.js > ../extension/js/version.js
 
 # copy the rest of the files
 cp ../src/css/yt-classic.min.css ../extension/css/
 cp ../src/icons/*.png ../extension/icons/
+cp ../src/html/*.html ../extension/html/
 
 # update version number in updates.json
 cat > ../extension/updates.json <<EOF

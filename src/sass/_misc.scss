@@ -9,13 +9,13 @@ ytd-mini-guide-renderer.ytd-app,
 paper-ripple,
 ytd-compact-promoted-item-renderer,
 #selectionBar.paper-tabs,
-#thumbnail.ytd-moving-thumbnail-renderer,
+//#thumbnail.ytd-moving-thumbnail-renderer,
 #avatar.ytd-c4-tabbed-header-renderer,
 #avatar-link.ytd-rich-grid-media,
-.ytp-miniplayer-button,
+//.ytp-miniplayer-button,
 [id*="skeleton"],
-#play.fade-in.ytd-moving-thumbnail-renderer,
-#play.show.ytd-moving-thumbnail-renderer,
+//#play.fade-in.ytd-moving-thumbnail-renderer,
+//#play.show.ytd-moving-thumbnail-renderer,
 .not-visible.paper-tabs,
 #masthead-ad,
 #offer-module,
@@ -73,6 +73,7 @@ ytd-button-renderer.style-destructive[is-paper-button],
 paper-button.ytd-subscribe-button-renderer[subscribed] {
   // Disabled because some buttons seems to have different paddings
   //padding: 0 8px !important;
+  //--yt-button-padding: 0px 8px !important;
   //height: 24px !important;
   text-transform: none !important;
 }

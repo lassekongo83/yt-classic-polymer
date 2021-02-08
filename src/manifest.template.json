@@ -1,28 +1,35 @@
 {
   "name": "YouTube Classic Polymer Theme",
   "short_name": "YT Classic Theme",
-  "version": "0.1.7",
+  "version": "0.2.0",
   "manifest_version": 2,
   "description": "Browse YouTube like it's 2015.",
   "author": "Frellwit",
   "homepage_url": "https://github.com/lassekongo83/yt-classic-polymer",
+  "options_page": "html/options.html",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
     "128": "icons/icon128.png"
   },
+  "page_action": {
+    "default_popup": "html/popup.html",
+    "default_title": "YouTube Classic Polymer Theme"
+  },
+  "options_ui": {
+    "page": "html/options.html",
+    "open_in_tab": true
+  },
   "background": {
-    "scripts": [
-      "js/background.js"
-    ]
+    "scripts": ["js/background.js"]
   },
   "permissions": [
+    "storage",
     "tabs",
     "webRequest",
     "webRequestBlocking",
     "*://*.youtube.com/*",
-    "*://*.ggpht.com/*",
-    "*://i.ytimg.com/*"
+    "*://*.gstatic.com/*"
   ],
   "content_scripts": [
     {

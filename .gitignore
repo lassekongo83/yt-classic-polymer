@@ -2,3 +2,5 @@
 /src/manifest.json
 /src/icons/*.png
 *.log
+*.pem
+*.crx
