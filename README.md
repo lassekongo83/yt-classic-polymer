@@ -3,12 +3,10 @@ Browse YouTube like it's 2015.
 
 **YouTube Classic Polymer** is an extension that restyles YouTube's polymer layout to look like the old design from around 2015.
 
-In addition to that, it also removes and blocks some new features from the site, such as:
-- Miniplayer
-- Animated thumbnails
-- "Skeleton" styles. (The empty background elements you see when the page is loading.)
-
-*The goal is to add some of those features as options in a future release.*
+In addition to that, it also gives you options to remove/change some things on the site, such as:
+- Disabling miniplayer
+- Static thumbnails instead of live previews
+- Collapsing the guide menu by default
 
 ![Before and After](/images/yt-screen.png?raw=true)
 Before and after screenshot.
