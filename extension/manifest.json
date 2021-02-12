@@ -1,12 +1,13 @@
 {
   "name": "YouTube Classic Polymer Theme",
   "short_name": "YT Classic Theme",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "manifest_version": 2,
-  "description": "Browse YouTube like it's 2015.",
+  "description": "__MSG_ext_desc__",
   "author": "Frellwit",
   "homepage_url": "https://github.com/lassekongo83/yt-classic-polymer",
   "options_page": "html/options.html",
+  "default_locale": "en",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",

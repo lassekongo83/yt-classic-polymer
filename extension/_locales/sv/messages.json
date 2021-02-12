@@ -1,0 +1,34 @@
+{
+  "ext_name": {
+    "message": "YouTube Classic Polymer Theme",
+    "description": "The name of the extension"
+  },
+  "ext_desc": {
+    "message": "Surfa på YouTube som om det vore 2015!",
+    "description": "Extension description"
+  },
+  "ext_name_by": {
+    "message": "YouTube Classic Polymer Theme av lassekongo83",
+    "description": "The name of the extension by author"
+  },
+  "ext_options": {
+    "message": "Inställningar",
+    "description": "The word for application options"
+  },
+  "ext_refresh": {
+    "message": "Uppdatera alla öppna YouTube-flikar så att inställningarna träder i kraft.",
+    "description": "Telling the user to refresh any open youtube tabs"
+  },
+  "ext_disablemp": {
+    "message": "Stäng minispelaren automatiskt",
+    "description": "The option to auto-close the miniplayer"
+  },
+  "ext_collapse": {
+    "message": "Dölj guide-menyn som standard",
+    "description": "The option to collapse the guide menu"
+  },
+  "ext_livepreviews": {
+    "message": "Inaktivera förhandsvisning av live-miniatyrer",
+    "description": "The option to disable live thumbnail previews"
+  }
+}

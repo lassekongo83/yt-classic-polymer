@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html>
-<head><title>Youtube Classic Polymer Options</title></head>
-<body>
+<head>
+  <title>Youtube Classic Polymer Options</title>
+  <meta charset="utf-8">
   <style type="text/css">
     body {
       padding:8px;
-      min-width:230px;
+      min-width:350px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size:14px;
     }
     ::selection { background: transparent; }
     label:after {
@@ -13,23 +16,26 @@
       display: block;
     }
   </style>
+</head>
+<body>
   <label>
     <input type="checkbox" id="options-disable-mp">
-    Auto-close miniplayer
+    <span data-locale="ext_disablemp">Auto-close miniplayer</span>
   </label>
 
   <label>
     <input type="checkbox" id="options-guide-menu">
-    Collapse guide menu by default
+    <span data-locale="ext_collapse">Collapse guide menu by default</span>
   </label>
 
   <label>
     <input type="checkbox" id="options-disable-anim">
-    Disable live thumbnail previews
+    <span data-locale="ext_livepreviews">Disable live thumbnail previews</span>
   </label>
 
-  <p>Note: Refresh any open YouTube tabs for the settings to take effect.</p>
+  <p data-locale="ext_refresh">Note: Refresh any open YouTube tabs for the settings to take effect.</p>
 
   <script src="../js/options.js"></script>
+  <script src="../js/localize.js"></script>
 </body>
 </html>

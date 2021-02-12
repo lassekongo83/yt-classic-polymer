@@ -1,0 +1,34 @@
+{
+  "ext_name": {
+    "message": "YouTube Classic Polymer Theme",
+    "description": "The name of the extension"
+  },
+  "ext_desc": {
+    "message": "Browse YouTube like it's 2015!",
+    "description": "Extension description"
+  },
+  "ext_name_by": {
+    "message": "YouTube Classic Polymer Theme by lassekongo83",
+    "description": "The name of the extension by author"
+  },
+  "ext_options": {
+    "message": "Options",
+    "description": "The word for application options"
+  },
+  "ext_refresh": {
+    "message": "Refresh any open YouTube tabs for the settings to take effect.",
+    "description": "Telling the user to refresh any open youtube tabs"
+  },
+  "ext_disablemp": {
+    "message": "Auto-close the miniplayer",
+    "description": "The option to auto-close the miniplayer"
+  },
+  "ext_collapse": {
+    "message": "Collapse the guide menu by default",
+    "description": "The option to collapse the guide menu"
+  },
+  "ext_livepreviews": {
+    "message": "Disable live thumbnail previews",
+    "description": "The option to disable live thumbnail previews"
+  }
+}
