@@ -24,6 +24,7 @@ cp ../src/css/yt-classic.min.css ../extension/css/
 cp ../src/icons/*.png ../extension/icons/
 cp ../src/html/*.html ../extension/html/
 cp -r ../src/_locales/* ../extension/_locales/
+cp -r ../src/img/* ../extension/img/
 
 # update version number in updates.json
 cat > ../extension/updates.json <<EOF

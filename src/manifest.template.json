@@ -1,7 +1,7 @@
 {
   "name": "YouTube Classic Polymer Theme",
   "short_name": "YT Classic Theme",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "manifest_version": 2,
   "description": "__MSG_ext_desc__",
   "author": "Frellwit",
@@ -42,5 +42,8 @@
       "matches": ["https://*.youtube.com/*"],
       "js": ["js/contentScript.js"]
     }
+  ],
+  "web_accessible_resources": [
+    "img/*.png"
   ]
 }

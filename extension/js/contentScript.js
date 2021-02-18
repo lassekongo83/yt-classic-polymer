@@ -45,10 +45,27 @@ function disablePreview() {
   noLivePreview.innerHTML = "ytd-thumbnail #mouseover-overlay {display:none!important;}";
   document.body.appendChild(noLivePreview);
 }
+function logotype() {
+  const logo = document.querySelector('#logo-icon');
+  const spritemap = chrome.runtime.getURL('../img/spritemap.png');
+  const newLogo = document.createElement('div');
+  checkElement('#logo-icon').then((selector) => {
+    logo.replaceWith(newLogo);
+    newLogo.style.width = "73px";
+    newLogo.style.height = "30px";
+    newLogo.style.backgroundImage = "url(" + spritemap + ")";
+    newLogo.style.backgroundPosition = "-558px -346px";
+    newLogo.style.backgroundSize = "auto";
+  });
+  if (document.querySelector('html[dark="true"]')) {
+    newLogo.style.filter = "grayscale(1) invert(1)";
+  }
+}
 chrome.storage.sync.get({
   settingsDisableMP: true,
   settingsGuideMenu: true,
-  settingsDisableAnim: true
+  settingsDisableAnim: true,
+  settingsOldLogo: false
 }, function (settings) {
   if (true === settings.settingsDisableMP) {
     disableMP();
@@ -58,5 +75,8 @@ chrome.storage.sync.get({
   }
   if (true === settings.settingsDisableAnim) {
     disablePreview();
+  }
+  if (true === settings.settingsOldLogo) {
+    logotype();
   }
 });

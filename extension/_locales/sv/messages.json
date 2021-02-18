@@ -30,5 +30,17 @@
   "ext_livepreviews": {
     "message": "Inaktivera förhandsvisning av live-miniatyrer",
     "description": "The option to disable live thumbnail previews"
+  },
+  "ext_oldlogo": {
+    "message": "Använd YouTube-loggan från 2015",
+    "description": "The option to use the old logotype"
+  },
+  "c_home": {
+    "message": "Hem",
+    "description": "The home link on the nav bar menu"
+  },
+  "c_trending": {
+    "message": "Populärt",
+    "description": "The trending link on the nav bar menu"
   }
 }

@@ -132,9 +132,9 @@ html:not([dark]) ytd-c4-tabbed-header-renderer { --yt-lightsource-section1-color
 
 html:not([dark]) app-toolbar.ytd-c4-tabbed-header-renderer { background-color: #fff !important; }
 
-html:not([dark]) paper-tabs.ytd-c4-tabbed-header-renderer { --paper-tabs-selection-bar-color: #f00 !important; }
+html:not([dark]) paper-tabs.ytd-c4-tabbed-header-renderer { --paper-tabs-selection-bar-color: #cc181e !important; }
 
-html:not([dark]) paper-tab:not(.iron-selected) > .tab-content.paper-tab:hover, html:not([dark]) paper-tab.iron-selected.ytd-c4-tabbed-header-renderer > .tab-content.paper-tab { box-shadow: inset 0 -3px #f00 !important; }
+html:not([dark]) paper-tab:not(.iron-selected) > .tab-content.paper-tab:hover, html:not([dark]) paper-tab.iron-selected.ytd-c4-tabbed-header-renderer > .tab-content.paper-tab { box-shadow: inset 0 -3px #cc181e !important; }
 
 html:not([dark]) paper-tab:not(.iron-selected) > .tab-content.paper-tab { opacity: 0.8 !important; font-weight: normal !important; }
 
@@ -200,11 +200,11 @@ html[dark] #like-bar.ytd-sentiment-bar-renderer { background: #1879c6 !important
 
 html:not([dark]) app-drawer#guide { border-right: 1px solid #e8e8e8 !important; }
 
-html:not([dark]) #guide-section-title.ytd-guide-section-renderer { color: #f00 !important; }
+html:not([dark]) #guide-section-title.ytd-guide-section-renderer { color: #cc181e !important; }
 
 html:not([dark]) ytd-guide-entry-renderer[active] .title.ytd-guide-entry-renderer, html:not([dark]) ytd-guide-entry-renderer[active] .guide-icon.ytd-guide-entry-renderer { color: white !important; }
 
-html:not([dark]) ytd-guide-entry-renderer[active] > #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer, html:not([dark]) ytd-guide-entry-renderer[active] > #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer:hover { background-color: #f00 !important; }
+html:not([dark]) ytd-guide-entry-renderer[active] > #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer, html:not([dark]) ytd-guide-entry-renderer[active] > #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer:hover { background-color: #cc181e !important; }
 
 html:not([dark]) #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer:hover { background-color: #444 !important; color: white !important; }
 
@@ -265,6 +265,14 @@ html:not([dark]) ytd-button-renderer.style-suggestive.ytd-masthead #button.ytd-b
 html:not([dark]) ytd-button-renderer.style-suggestive.ytd-masthead #button.ytd-button-renderer > yt-icon, html:not([dark]) #sign-in-button #button.ytd-button-renderer > yt-icon { display: none !important; }
 
 html:not([dark]) .ytd-masthead button.yt-icon-button > yt-icon { opacity: .75 !important; }
+
+#search-form.ytd-searchbox { height: 29px !important; max-width: 650px !important; }
+
+#container.ytd-searchbox { border-radius: 0 !important; }
+
+#center.ytd-masthead { margin-right: auto !important; }
+
+ytd-searchbox.ytd-masthead { margin: 0 0 0 25px !important; }
 
 html:not(.style-scope):not([dark]) { --yt-spec-brand-background-primary: #fff !important; --yt-spec-general-background-a: #f1f1f1 !important; --yt-lightsource-section1-color: #fff !important; --yt-spec-text-secondary: #767676 !important; --yt-spec-call-to-action: #167ac6 !important; --yt-spec-text-primary: #222 !important; }
 
