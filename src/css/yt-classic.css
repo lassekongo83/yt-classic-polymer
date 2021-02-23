@@ -118,11 +118,11 @@ ytd-section-list-renderer { padding: 0 15px !important; }
 
 ytd-browse[page-subtype~=channels] ytd-two-column-browse-results-renderer.ytd-browse * > #items.ytd-grid-renderer > ytd-grid-video-renderer.ytd-grid-renderer { margin-right: 10px !important; margin-bottom: 20px !important; }
 
-#tabs-container.ytd-c4-tabbed-header-renderer, app-toolbar.ytd-c4-tabbed-header-renderer, paper-tabs.ytd-c4-tabbed-header-renderer { height: 32px !important; }
+#tabs-container.ytd-c4-tabbed-header-renderer, app-toolbar.ytd-c4-tabbed-header-renderer, paper-tabs.ytd-c4-tabbed-header-renderer, tp-yt-app-toolbar.ytd-c4-tabbed-header-renderer { height: 32px !important; }
 
 #tabs-container.ytd-c4-tabbed-header-renderer { margin-left: 8px !important; }
 
-paper-tab.ytd-c4-tabbed-header-renderer { padding: 0 12px !important; }
+paper-tab.ytd-c4-tabbed-header-renderer, tp-yt-app-toolbar.ytd-c4-tabbed-header-renderer { padding: 0 12px !important; }
 
 paper-tabs.ytd-c4-tabbed-header-renderer { margin-left: 0 !important; padding-bottom: 0 !important; }
 
@@ -130,7 +130,7 @@ paper-tabs.ytd-c4-tabbed-header-renderer { margin-left: 0 !important; padding-bo
 
 html:not([dark]) ytd-c4-tabbed-header-renderer { --yt-lightsource-section1-color: #fff !important; }
 
-html:not([dark]) app-toolbar.ytd-c4-tabbed-header-renderer { background-color: #fff !important; }
+html:not([dark]) app-toolbar.ytd-c4-tabbed-header-renderer, html:not([dark]) tp-yt-app-toolbar.ytd-c4-tabbed-header-renderer { background-color: #fff !important; }
 
 html:not([dark]) paper-tabs.ytd-c4-tabbed-header-renderer { --paper-tabs-selection-bar-color: #cc181e !important; }
 
@@ -140,7 +140,7 @@ html:not([dark]) paper-tab:not(.iron-selected) > .tab-content.paper-tab { opacit
 
 html[dark] ytd-c4-tabbed-header-renderer { --yt-lightsource-section1-color: #212121 !important; }
 
-html[dark] app-toolbar.ytd-c4-tabbed-header-renderer { background-color: #212121 !important; }
+html[dark] app-toolbar.ytd-c4-tabbed-header-renderer, html[dark] tp-yt-app-toolbar.ytd-c4-tabbed-header-renderer { background-color: #212121 !important; }
 
 html[dark] paper-tabs.ytd-c4-tabbed-header-renderer { --paper-tabs-selection-bar-color: #cd1821 !important; }
 

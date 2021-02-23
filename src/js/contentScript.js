@@ -12,6 +12,7 @@ const checkElement = async selector => {
 //  console.log(selector);
 //});
 
+// Add style
 function addStyle(styleString) {
   const style = document.createElement('style');
   style.textContent = styleString;
@@ -137,8 +138,9 @@ chrome.storage.sync.get({
   }
 
   // add elements
-  const grid = document.querySelector('ytd-two-column-browse-results-renderer');
-  grid.parentNode.insertBefore(navElem, grid).appendChild(navList); // FIXME: Not visible on trending and subs that are dynamic and created in the page-manager when navigating
+  const grid = document.querySelector('ytd-browse[page-subtype="home"], ytd-browse[page-subtype="trending"], ytd-browse[page-subtype="subscriptions"]');
+  grid.appendChild(navElem).appendChild(navList); // FIXME: Not visible on trending and subs that are dynamic and created in the page-manager when navigating
+  //grid.parentNode.insertBefore(navElem, grid).appendChild(navList);
   //addEventListener('yt-page-data-updated', () => {
   //  homeGrid.parentNode.insertBefore(navElem, homeGrid).appendChild(navList);
   //});

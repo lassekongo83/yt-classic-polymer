@@ -64,13 +64,16 @@ ytd-browse[page-subtype~=channels] ytd-two-column-browse-results-renderer.ytd-br
 }
 
 // tabs
-#tabs-container.ytd-c4-tabbed-header-renderer,app-toolbar.ytd-c4-tabbed-header-renderer,paper-tabs.ytd-c4-tabbed-header-renderer {
+#tabs-container.ytd-c4-tabbed-header-renderer,app-toolbar.ytd-c4-tabbed-header-renderer,
+paper-tabs.ytd-c4-tabbed-header-renderer,
+tp-yt-app-toolbar.ytd-c4-tabbed-header-renderer {
   height: 32px !important;
 }
 #tabs-container.ytd-c4-tabbed-header-renderer {
   margin-left: 8px !important;
 }
-paper-tab.ytd-c4-tabbed-header-renderer {
+paper-tab.ytd-c4-tabbed-header-renderer,
+tp-yt-app-toolbar.ytd-c4-tabbed-header-renderer {
   padding: 0 12px !important;
 }
 paper-tabs.ytd-c4-tabbed-header-renderer {
@@ -83,7 +86,7 @@ paper-tabs.ytd-c4-tabbed-header-renderer {
 html {
   &:not([dark]) {
     ytd-c4-tabbed-header-renderer { --yt-lightsource-section1-color: $secondary_bg !important; }
-    app-toolbar.ytd-c4-tabbed-header-renderer { background-color: $secondary_bg !important; }
+    app-toolbar.ytd-c4-tabbed-header-renderer, tp-yt-app-toolbar.ytd-c4-tabbed-header-renderer { background-color: $secondary_bg !important; }
     paper-tabs.ytd-c4-tabbed-header-renderer { --paper-tabs-selection-bar-color: $theme_red !important; }
     paper-tab:not(.iron-selected) > .tab-content.paper-tab:hover,
     paper-tab.iron-selected.ytd-c4-tabbed-header-renderer > .tab-content.paper-tab {
@@ -96,7 +99,7 @@ html {
   }
   &[dark] {
     ytd-c4-tabbed-header-renderer { --yt-lightsource-section1-color: $secondary_bg_dark !important; }
-    app-toolbar.ytd-c4-tabbed-header-renderer { background-color: $secondary_bg_dark !important; }
+    app-toolbar.ytd-c4-tabbed-header-renderer, tp-yt-app-toolbar.ytd-c4-tabbed-header-renderer { background-color: $secondary_bg_dark !important; }
     paper-tabs.ytd-c4-tabbed-header-renderer { --paper-tabs-selection-bar-color: $theme_red_dark !important; }
     paper-tab:not(.iron-selected) > .tab-content.paper-tab:hover,
     paper-tab.iron-selected.ytd-c4-tabbed-header-renderer > .tab-content.paper-tab {
