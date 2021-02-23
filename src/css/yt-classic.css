@@ -198,7 +198,7 @@ html[dark] #like-bar.ytd-sentiment-bar-renderer { background: #1879c6 !important
 
 #playlist.ytd-watch-flexy { margin-bottom: 10px !important; }
 
-html:not([dark]) app-drawer#guide { border-right: 1px solid #e8e8e8 !important; }
+html:not([dark]) app-drawer#guide, html:not([dark]) tp-yt-app-drawer { border-right: 1px solid #e8e8e8 !important; }
 
 html:not([dark]) #guide-section-title.ytd-guide-section-renderer { color: #cc181e !important; }
 
@@ -214,11 +214,15 @@ html:not([dark]) ytd-guide-entry-renderer[active] * > .title.ytd-guide-entry-ren
 
 ytd-app { --app-drawer-width: 230px !important; }
 
-ytd-guide-renderer.ytd-app, app-drawer.ytd-app:not([persistent]).ytd-app { width: 230px !important; }
+ytd-guide-renderer.ytd-app, app-drawer.ytd-app:not([persistent]).ytd-app, #contentContainer.tp-yt-app-drawer { width: var(--app-drawer-width, 230px) !important; }
 
-app-drawer.ytd-app:not([persistent]).ytd-app { border-right: none !important; box-shadow: 5px 10px 15px 5px rgba(0, 0, 0, 0.1) !important; }
+app-drawer.ytd-app:not([persistent]).ytd-app, tp-yt-app-drawer.ytd-app:not([persistent]).ytd-app { border-right: none !important; box-shadow: 5px 10px 15px 5px rgba(0, 0, 0, 0.1) !important; }
 
-#contentContainer.app-drawer, #scrim, app-drawer.ytd-app:not([persistent]).ytd-app { transition-duration: 0ms !important; }
+#contentContainer.app-drawer, #scrim, app-drawer.ytd-app:not([persistent]).ytd-app, tp-yt-app-drawer { transition-duration: 0ms !important; }
+
+tp-yt-app-drawer, #contentContainer.tp-yt-app-drawer { transition-duration: none !important; transition-property: none !important; transform: none !important; max-width: 230px !important; }
+
+#scrim.tp-yt-app-drawer { transform: none !important; transition-property: none !important; }
 
 #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer { min-height: 40px !important; }
 

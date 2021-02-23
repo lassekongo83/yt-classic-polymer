@@ -5,6 +5,11 @@ const checkElement = async selector => {
   }
   return document.querySelector(selector);
 };
+function addStyle(styleString) {
+  const style = document.createElement('style');
+  style.textContent = styleString;
+  document.head.append(style);
+}
 function disableMP() {
   function clickButton(selector){
     let elm = document.querySelectorAll(selector)[0];
@@ -46,20 +51,11 @@ function disablePreview() {
   document.body.appendChild(noLivePreview);
 }
 function logotype() {
-  const logo = document.querySelector('#logo-icon');
   const spritemap = chrome.runtime.getURL('../img/spritemap.png');
-  const newLogo = document.createElement('div');
-  checkElement('#logo-icon').then((selector) => {
-    logo.replaceWith(newLogo);
-    newLogo.style.width = "73px";
-    newLogo.style.height = "30px";
-    newLogo.style.backgroundImage = "url(" + spritemap + ")";
-    newLogo.style.backgroundPosition = "-558px -346px";
-    newLogo.style.backgroundSize = "auto";
-  });
-  if (document.querySelector('html[dark="true"]')) {
-    newLogo.style.filter = "grayscale(1) invert(1)";
-  }
+  document.getElementById('logo-icon').style.backgroundImage = "url(" + spritemap + ")";
+  document.querySelector('#masthead #logo-icon svg').style.display = "none";
+  addStyle(`#masthead #logo-icon{width:73px!important; height:30px!important; background-position:-558px -346px!important; background-size:auto!important;}
+html[dark="true"] #masthead #logo-icon{filter:grayscale(1) invert(1)!important;}`);
 }
 chrome.storage.sync.get({
   settingsDisableMP: true,
