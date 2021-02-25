@@ -57,11 +57,20 @@ function logotype() {
   addStyle(`#masthead #logo-icon{width:73px!important; height:30px!important; background-position:-558px -346px!important; background-size:auto!important;}
 html[dark="true"] #masthead #logo-icon{filter:grayscale(1) invert(1)!important;}`);
 }
+function listDisplay() {
+  addStyle(`[page-subtype="channels"] #items.ytd-grid-renderer{flex-direction:column!important;}
+[page-subtype="channels"] ytd-grid-video-renderer #dismissable{display:flex!important;}
+[page-subtype="channels"] #items.ytd-grid-renderer > ytd-grid-video-renderer.ytd-grid-renderer{min-width:fit-content!important;}
+[page-subtype="channels"] #details.ytd-grid-video-renderer{min-width:100%;margin-left:10px;}
+[page-subtype="channels"] ytd-grid-video-renderer #video-title.yt-simple-endpoint.ytd-grid-video-renderer{font-size:15px!important;}
+`);
+}
 chrome.storage.sync.get({
   settingsDisableMP: true,
   settingsGuideMenu: true,
   settingsDisableAnim: true,
-  settingsOldLogo: false
+  settingsOldLogo: false,
+  settingsListDisplay: false
 }, function (settings) {
   if (true === settings.settingsDisableMP) {
     disableMP();
@@ -74,5 +83,8 @@ chrome.storage.sync.get({
   }
   if (true === settings.settingsOldLogo) {
     logotype();
+  }
+  if (true === settings.settingsListDisplay) {
+    listDisplay();
   }
 });

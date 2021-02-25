@@ -8,7 +8,7 @@
     "description": "Extension description"
   },
   "ext_name_by": {
-    "message": "YouTube Classic Polymer Theme by lassekongo83",
+    "message": "YouTube Classic Polymer Theme by Frellwit",
     "description": "The name of the extension by author"
   },
   "ext_options": {
@@ -35,6 +35,10 @@
     "message": "Use the YouTube logo from 2015",
     "description": "The option to use the old logotype"
   },
+  "ext_listdisplay": {
+    "message": "Display channel videos as a list",
+    "description": "The option to display channel videos as a list"
+  },
   "c_home": {
     "message": "Home",
     "description": "The home link on the nav bar menu"
@@ -42,5 +46,9 @@
   "c_trending": {
     "message": "Trending",
     "description": "The trending link on the nav bar menu"
+  },
+  "c_subs": {
+    "message": "Subscriptions",
+    "description": "The subscription link on the nav bar menu"
   }
 }

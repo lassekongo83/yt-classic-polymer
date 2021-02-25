@@ -3,11 +3,13 @@ function save_options() {
   const settingsDisableMP = document.getElementById('options-disable-mp').checked;
   const settingsDisableAnim = document.getElementById('options-disable-anim').checked;
   const settingsOldLogo = document.getElementById('options-old-logo').checked;
+  const settingsListDisplay = document.getElementById('options-list-display').checked;
   chrome.storage.sync.set({
     settingsGuideMenu: settingsGuideMenu,
     settingsDisableMP: settingsDisableMP,
     settingsDisableAnim: settingsDisableAnim,
-    settingsOldLogo: settingsOldLogo
+    settingsOldLogo: settingsOldLogo,
+    settingsListDisplay: settingsListDisplay
   });
 }
 function restore_options() {
@@ -15,12 +17,14 @@ function restore_options() {
     settingsGuideMenu: true,
     settingsDisableMP: true,
     settingsDisableAnim: true,
-    settingsOldLogo: false
+    settingsOldLogo: false,
+    settingsListDisplay: false
   }, function(items) {
     document.getElementById('options-guide-menu').checked = items.settingsGuideMenu;
     document.getElementById('options-disable-mp').checked = items.settingsDisableMP;
     document.getElementById('options-disable-anim').checked = items.settingsDisableAnim;
     document.getElementById('options-old-logo').checked = items.settingsOldLogo;
+    document.getElementById('options-list-display').checked = items.settingsListDisplay;
   });
 }
 document.addEventListener('DOMContentLoaded', function () {
@@ -29,4 +33,5 @@ document.addEventListener('DOMContentLoaded', function () {
   document.getElementById("options-disable-mp").addEventListener('click', save_options);
   document.getElementById("options-disable-anim").addEventListener('click', save_options);
   document.getElementById("options-old-logo").addEventListener('click', save_options);
+  document.getElementById("options-list-display").addEventListener('click', save_options);
 });
