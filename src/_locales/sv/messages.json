@@ -8,7 +8,7 @@
     "description": "Extension description"
   },
   "ext_name_by": {
-    "message": "YouTube Classic Polymer Theme av lassekongo83",
+    "message": "YouTube Classic Polymer Theme av Frellwit",
     "description": "The name of the extension by author"
   },
   "ext_options": {
@@ -35,6 +35,10 @@
     "message": "Använd YouTube-loggan från 2015",
     "description": "The option to use the old logotype"
   },
+  "ext_listdisplay": {
+    "message": "Visa kanalvideor som en lista",
+    "description": "The option to display channel videos as a list"
+  },
   "c_home": {
     "message": "Hem",
     "description": "The home link on the nav bar menu"
@@ -42,5 +46,9 @@
   "c_trending": {
     "message": "Populärt",
     "description": "The trending link on the nav bar menu"
+  },
+  "c_subs": {
+    "message": "Prenumerationer",
+    "description": "The subscription link on the nav bar menu"
   }
 }
