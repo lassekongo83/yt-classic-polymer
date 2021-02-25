@@ -5,7 +5,7 @@
         {
           "version": "0.2.4",
           "browser_specific_settings": { "gecko": { "strict_min_version": "56" } },
-          "update_link": "https://github.com/lassekongo83/yt-classic-polymer/releases/download/v0.2.4/youtube_classic_polymer_theme-0.2.4-an+fx.xpi"
+          "update_link": "https://github.com/lassekongo83/yt-classic-polymer/releases/download/v0.2.4/youtube_classic_polymer_theme-0.2.4-an%2Bfx.xpi"
         }
       ]
     }

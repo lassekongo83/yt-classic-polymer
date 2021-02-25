@@ -35,7 +35,7 @@ cat > ../extension/updates.json <<EOF
         {
           "version": "${new_ver}",
           "browser_specific_settings": { "gecko": { "strict_min_version": "56" } },
-          "update_link": "https://github.com/lassekongo83/yt-classic-polymer/releases/download/v${new_ver}/youtube_classic_polymer_theme-${new_ver}-an+fx.xpi"
+          "update_link": "https://github.com/lassekongo83/yt-classic-polymer/releases/download/v${new_ver}/youtube_classic_polymer_theme-${new_ver}-an%2Bfx.xpi"
         }
       ]
     }
