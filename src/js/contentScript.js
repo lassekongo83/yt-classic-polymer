@@ -118,8 +118,9 @@ chrome.storage.sync.get({
 
 // WIP: Old masthead appbar
 // TODO:
-// - Should only be available on a few page-subtypes. (Home, Subs, Trending, to start with)
-// - Make the navigation buttons use yt navigation instead of reloading the document.
+// - Make the navigation buttons use yt navigation instead of reloading the document
+// - Find out why the element sometimes requires the document to be resized/guide menu to be closed to show
+// - Find out how to disconnect the observer without breaking the menu
 /*function oldAppbar() {
   // All items we'd like to add
   const navItems = [
@@ -156,7 +157,16 @@ chrome.storage.sync.get({
   let element = document.querySelector('ytd-browse'), role = false;
   const observer = new MutationObserver(function (mutations) {
     const grid = document.querySelector('ytd-browse[role="main"]');
-    grid.appendChild(navElem).appendChild(navList);
+    if (document.querySelector('ytd-browse[role="main"][page-subtype="home"]'))
+    checkElement('ytd-browse[role="main"][page-subtype="home"]').then((selector) => {
+      grid.appendChild(navElem).appendChild(navList);
+    });
+    checkElement('ytd-browse[role="main"][page-subtype="trending"]').then((selector) => {
+      grid.appendChild(navElem).appendChild(navList);
+    });
+    checkElement('ytd-browse[role="main"][page-subtype="subscriptions"]').then((selector) => {
+      grid.appendChild(navElem).appendChild(navList);
+    });
     //observer.disconnect();
   });
   observer.observe(element, { attributes: true, subtree: role });
@@ -173,17 +183,9 @@ chrome.storage.sync.get({
   //  document.body.appendChild(navElem);
   //}
 
-  // style the elements
-  addStyle(`.ytcp-main-appbar{width:100%; text-align:center; line-height:40px; height:40px; border-bottom:1px solid #e8e8e8; background-color:#fff; position:fixed; z-index:500; font-size:13px; font-family:Roboto,arial,sans-serif;}
-.ytcp-nav-item{display:inline-block; margin-left:30px;}
-.ytcp-nav-item a{display:inline-block; color:#666; text-decoration: none;}
-.ytcp-nav-item a:hover{box-shadow:inset 0 -3px #cc181e;}
-[page-subtype="home"] .ytcp-nav-home a{box-shadow:inset 0 -3px #cc181e; color:#333;}
-[page-subtype="trending"] .ytcp-nav-trending a{box-shadow:inset 0 -3px #cc181e; color:#333;}
-[page-subtype="subscriptions"] .ytcp-nav-subs a{box-shadow:inset 0 -3px #cc181e; color:#333;}
-[page-subtype="home"] ytd-two-column-browse-results-renderer, [page-subtype="trending"] ytd-two-column-browse-results-renderer, [page-subtype="subscriptions"] ytd-two-column-browse-results-renderer {margin-top:60px!important;}
-.ytcp-appbar-nav{display:inline-block; vertical-align:top; overflow:hidden;}`);
-  //if (document.querySelector('html[dark="true"]')) { // TODO
-  //}
+  // make room for the menu
+  addStyle(`
+[page-subtype="home"] ytd-two-column-browse-results-renderer,[page-subtype="trending"] ytd-two-column-browse-results-renderer,[page-subtype="subscriptions"] ytd-two-column-browse-results-renderer{margin-top:60px!important;}
+`);
 }
 oldAppbar();*/

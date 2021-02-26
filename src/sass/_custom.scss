@@ -1,0 +1,94 @@
+// Custom styles used for some of the extension options
+
+// Nav app bar option
+html:not([dark="true"]) {
+  .ytcp-main-appbar {
+    width: 100%;
+    text-align: center;
+    line-height: 40px;
+    height: 40px;
+    border-bottom: 1px solid #e8e8e8;
+    background-color: #fff;
+    position: fixed;
+    z-index: 500;
+    font-size: 13px;
+    font-family: Roboto,arial,sans-serif;
+  }
+  .ytcp-nav-item {
+    display: inline-block;
+    margin-left: 30px;
+
+    a {
+      display:inline-block;
+      color: #666;
+      text-decoration: none;
+
+      &:hover {
+        box-shadow: inset 0 -3px #cc181e;
+      }
+    }
+  }
+  [page-subtype="home"] .ytcp-nav-home a {
+    box-shadow:inset 0 -3px #cc181e;
+    color: #333;
+  }
+  [page-subtype="trending"] .ytcp-nav-trending a {
+    box-shadow: inset 0 -3px #cc181e;
+    color: #333;
+  }
+  [page-subtype="subscriptions"] .ytcp-nav-subs a {
+    box-shadow: inset 0 -3px #cc181e;
+    color: #333;
+  }
+  .ytcp-appbar-nav {
+    display: inline-block;
+    vertical-align: top;
+    overflow: hidden;
+  }
+}
+
+html[dark="true"] {
+  .ytcp-main-appbar {
+    width: 100%;
+    text-align: center;
+    line-height: 40px;
+    height: 40px;
+    background-color: var(--yt-spec-brand-background-primary);
+    position: fixed;
+    z-index: 500;
+    font-size: 13px;
+    font-family: Roboto,arial,sans-serif;
+    box-shadow: inset 0 1px #383838;
+  }
+  .ytcp-nav-item {
+    display: inline-block;
+    margin-left: 30px;
+
+    a {
+      display:inline-block;
+      color: var(--yt-secondary-text-color);
+      text-decoration: none;
+
+      &:hover {
+        box-shadow: inset 0 -3px #dcdcdc;
+      }
+    }
+  }
+  [page-subtype="home"] .ytcp-nav-home a {
+    box-shadow:inset 0 -3px #dcdcdc;
+    color: var(--yt-primary-text-color);
+  }
+  [page-subtype="trending"] .ytcp-nav-trending a {
+    box-shadow: inset 0 -3px #dcdcdc;
+    color: var(--yt-primary-text-color);
+  }
+  [page-subtype="subscriptions"] .ytcp-nav-subs a {
+    box-shadow: inset 0 -3px #dcdcdc;
+    color: var(--yt-primary-text-color);
+  }
+  .ytcp-appbar-nav {
+    display: inline-block;
+    vertical-align: top;
+    overflow: hidden;
+  }
+}

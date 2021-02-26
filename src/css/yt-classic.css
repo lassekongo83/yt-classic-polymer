@@ -357,3 +357,35 @@ ytd-search #channel-name.ytd-video-renderer { padding-left: 0 !important; }
 ytd-search ytd-video-renderer[use-prominent-thumbs] #channel-info.ytd-video-renderer { padding: 6px 0 !important; }
 
 ytd-channel-renderer[use-prominent-thumbs] #avatar-section.ytd-channel-renderer { min-width: 136px !important; max-width: 136px !important; }
+
+html:not([dark="true"]) .ytcp-main-appbar { width: 100%; text-align: center; line-height: 40px; height: 40px; border-bottom: 1px solid #e8e8e8; background-color: #fff; position: fixed; z-index: 500; font-size: 13px; font-family: Roboto,arial,sans-serif; }
+
+html:not([dark="true"]) .ytcp-nav-item { display: inline-block; margin-left: 30px; }
+
+html:not([dark="true"]) .ytcp-nav-item a { display: inline-block; color: #666; text-decoration: none; }
+
+html:not([dark="true"]) .ytcp-nav-item a:hover { box-shadow: inset 0 -3px #cc181e; }
+
+html:not([dark="true"]) [page-subtype="home"] .ytcp-nav-home a { box-shadow: inset 0 -3px #cc181e; color: #333; }
+
+html:not([dark="true"]) [page-subtype="trending"] .ytcp-nav-trending a { box-shadow: inset 0 -3px #cc181e; color: #333; }
+
+html:not([dark="true"]) [page-subtype="subscriptions"] .ytcp-nav-subs a { box-shadow: inset 0 -3px #cc181e; color: #333; }
+
+html:not([dark="true"]) .ytcp-appbar-nav { display: inline-block; vertical-align: top; overflow: hidden; }
+
+html[dark="true"] .ytcp-main-appbar { width: 100%; text-align: center; line-height: 40px; height: 40px; background-color: var(--yt-spec-brand-background-primary); position: fixed; z-index: 500; font-size: 13px; font-family: Roboto,arial,sans-serif; box-shadow: inset 0 1px #383838; }
+
+html[dark="true"] .ytcp-nav-item { display: inline-block; margin-left: 30px; }
+
+html[dark="true"] .ytcp-nav-item a { display: inline-block; color: var(--yt-secondary-text-color); text-decoration: none; }
+
+html[dark="true"] .ytcp-nav-item a:hover { box-shadow: inset 0 -3px #dcdcdc; }
+
+html[dark="true"] [page-subtype="home"] .ytcp-nav-home a { box-shadow: inset 0 -3px #dcdcdc; color: var(--yt-primary-text-color); }
+
+html[dark="true"] [page-subtype="trending"] .ytcp-nav-trending a { box-shadow: inset 0 -3px #dcdcdc; color: var(--yt-primary-text-color); }
+
+html[dark="true"] [page-subtype="subscriptions"] .ytcp-nav-subs a { box-shadow: inset 0 -3px #dcdcdc; color: var(--yt-primary-text-color); }
+
+html[dark="true"] .ytcp-appbar-nav { display: inline-block; vertical-align: top; overflow: hidden; }
