@@ -119,13 +119,13 @@ chrome.storage.sync.get({
 // WIP: Old masthead appbar
 // TODO:
 // - Should only be available on a few page-subtypes. (Home, Subs, Trending, to start with)
-// - Make it reappear when changing subpage from the guide menu.
 // - Make the navigation buttons use yt navigation instead of reloading the document.
 /*function oldAppbar() {
   // All items we'd like to add
   const navItems = [
     {href: '/', text: chrome.i18n.getMessage('c_home')},
     {href: '/feed/trending', text: chrome.i18n.getMessage('c_trending')},
+    {href: '/feed/subscriptions', text: chrome.i18n.getMessage('c_subs')},
   ];
 
   // A few variables for use later
@@ -144,26 +144,29 @@ chrome.storage.sync.get({
     navLink.innerHTML = navItems[i].text;
 
     // add class to li
-    navItem.className = "ytcp-nav-item";
+    //navItem.className = "ytcp-nav-item";
 
     // Add anchor to list item, and list item to list
     navItem.appendChild(navLink);
     navList.appendChild(navItem);
   }
 
-  // add elements
-  const grid = document.querySelector('ytd-browse[page-subtype="home"], ytd-browse[page-subtype="trending"], ytd-browse[page-subtype="subscriptions"]');
-  grid.appendChild(navElem).appendChild(navList); // FIXME: Not visible on trending and subs that are dynamic and created in the page-manager when navigating
-  //grid.parentNode.insertBefore(navElem, grid).appendChild(navList);
-  //addEventListener('yt-page-data-updated', () => {
-  //  homeGrid.parentNode.insertBefore(navElem, homeGrid).appendChild(navList);
-  //});
+  // To be able to insert the nav menu consistently we need to observe the role attribute on ytd-browse
+  // Otherwise the element will be removed when navigating within Youtube
+  let element = document.querySelector('ytd-browse'), role = false;
+  const observer = new MutationObserver(function (mutations) {
+    const grid = document.querySelector('ytd-browse[role="main"]');
+    grid.appendChild(navElem).appendChild(navList);
+    //observer.disconnect();
+  });
+  observer.observe(element, { attributes: true, subtree: role });
 
-  // Add class and id to the elements
-  navElem.id = "ytcp-main-appbar";
-  navList.id = "ytcp-appbar-nav";
-  navList.childNodes[0].id = "ytcp-nav-home";
-  navList.childNodes[1].id = "ytcp-nav-trending";
+  // Add classes to the elements
+  navElem.className = "ytcp-main-appbar";
+  navList.className = "ytcp-appbar-nav";
+  navList.childNodes[0].className = "ytcp-nav-home ytcp-nav-item";
+  navList.childNodes[1].className = "ytcp-nav-trending ytcp-nav-item";
+  navList.childNodes[2].className = "ytcp-nav-subs ytcp-nav-item";
 
   // Add list to body (or anywhere else)
   //window.onload = function () {
@@ -171,14 +174,15 @@ chrome.storage.sync.get({
   //}
 
   // style the elements
-  addStyle(`#ytcp-main-appbar{width:100%; text-align:center; line-height:40px; height:40px; border-bottom:1px solid #e8e8e8; background-color:#fff; position:fixed; z-index:500; font-size:13px; font-family:Roboto,arial,sans-serif;}
+  addStyle(`.ytcp-main-appbar{width:100%; text-align:center; line-height:40px; height:40px; border-bottom:1px solid #e8e8e8; background-color:#fff; position:fixed; z-index:500; font-size:13px; font-family:Roboto,arial,sans-serif;}
 .ytcp-nav-item{display:inline-block; margin-left:30px;}
 .ytcp-nav-item a{display:inline-block; color:#666; text-decoration: none;}
 .ytcp-nav-item a:hover{box-shadow:inset 0 -3px #cc181e;}
-[page-subtype="home"] #ytcp-nav-home a{box-shadow:inset 0 -3px #cc181e; color:#333;}
-[page-subtype="trending"] #ytcp-nav-trending a{box-shadow:inset 0 -3px #cc181e; color:#333;}
+[page-subtype="home"] .ytcp-nav-home a{box-shadow:inset 0 -3px #cc181e; color:#333;}
+[page-subtype="trending"] .ytcp-nav-trending a{box-shadow:inset 0 -3px #cc181e; color:#333;}
+[page-subtype="subscriptions"] .ytcp-nav-subs a{box-shadow:inset 0 -3px #cc181e; color:#333;}
 [page-subtype="home"] ytd-two-column-browse-results-renderer, [page-subtype="trending"] ytd-two-column-browse-results-renderer, [page-subtype="subscriptions"] ytd-two-column-browse-results-renderer {margin-top:60px!important;}
-#ytcp-appbar-nav{display:inline-block; vertical-align:top; overflow:hidden;}`);
+.ytcp-appbar-nav{display:inline-block; vertical-align:top; overflow:hidden;}`);
   //if (document.querySelector('html[dark="true"]')) { // TODO
   //}
 }
