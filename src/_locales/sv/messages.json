@@ -50,5 +50,9 @@
   "c_subs": {
     "message": "Prenumerationer",
     "description": "The subscription link on the nav bar menu"
+  },
+  "c_loadmore": {
+    "message": "Ladda mer",
+    "description": "The load more button"
   }
 }

@@ -119,8 +119,6 @@ chrome.storage.sync.get({
 // WIP: Old masthead appbar
 // TODO:
 // - Make the navigation buttons use yt navigation instead of reloading the document
-// - Find out why the element sometimes requires the document to be resized/guide menu to be closed to show
-// - Find out how to disconnect the observer without breaking the menu
 /*function oldAppbar() {
   // All items we'd like to add
   const navItems = [
@@ -144,32 +142,24 @@ chrome.storage.sync.get({
     navLink.href = navItems[i].href;
     navLink.innerHTML = navItems[i].text;
 
-    // add class to li
-    //navItem.className = "ytcp-nav-item";
-
     // Add anchor to list item, and list item to list
     navItem.appendChild(navLink);
     navList.appendChild(navItem);
   }
 
-  // To be able to insert the nav menu consistently we need to observe the role attribute on ytd-browse
-  // Otherwise the element will be removed when navigating within Youtube
-  let element = document.querySelector('ytd-browse'), role = false;
-  const observer = new MutationObserver(function (mutations) {
-    const grid = document.querySelector('ytd-browse[role="main"]');
-    if (document.querySelector('ytd-browse[role="main"][page-subtype="home"]'))
-    checkElement('ytd-browse[role="main"][page-subtype="home"]').then((selector) => {
-      grid.appendChild(navElem).appendChild(navList);
-    });
-    checkElement('ytd-browse[role="main"][page-subtype="trending"]').then((selector) => {
-      grid.appendChild(navElem).appendChild(navList);
-    });
-    checkElement('ytd-browse[role="main"][page-subtype="subscriptions"]').then((selector) => {
-      grid.appendChild(navElem).appendChild(navList);
-    });
-    //observer.disconnect();
-  });
-  observer.observe(element, { attributes: true, subtree: role });
+  // Insert the elments
+  const homeGrid = document.querySelector('ytd-browse[role="main"][page-subtype="home"]');
+  const trendGrid = document.querySelector('ytd-browse[role="main"][page-subtype="trending"]');
+  const subGrid = document.querySelector('ytd-browse[role="main"][page-subtype="subscriptions"]');
+  if (homeGrid !== null) {
+    homeGrid.appendChild(navElem).appendChild(navList);
+  }
+  if (trendGrid !== null) {
+    trendGrid.appendChild(navElem).appendChild(navList);
+  }
+  if (subGrid !== null) {
+    subGrid.appendChild(navElem).appendChild(navList);
+  }
 
   // Add classes to the elements
   navElem.className = "ytcp-main-appbar";
@@ -177,15 +167,29 @@ chrome.storage.sync.get({
   navList.childNodes[0].className = "ytcp-nav-home ytcp-nav-item";
   navList.childNodes[1].className = "ytcp-nav-trending ytcp-nav-item";
   navList.childNodes[2].className = "ytcp-nav-subs ytcp-nav-item";
-
-  // Add list to body (or anywhere else)
-  //window.onload = function () {
-  //  document.body.appendChild(navElem);
-  //}
-
-  // make room for the menu
-  addStyle(`
-[page-subtype="home"] ytd-two-column-browse-results-renderer,[page-subtype="trending"] ytd-two-column-browse-results-renderer,[page-subtype="subscriptions"] ytd-two-column-browse-results-renderer{margin-top:60px!important;}
-`);
 }
-oldAppbar();*/
+oldAppbar();
+// Insert the old nav menu again when navigating
+document.body.addEventListener('yt-navigate-finish', () => {
+  oldAppbar();
+
+  // Remove the old ones, or they'll keep being added to the DOM forever
+  function rm() {
+    for(const next of document.body.querySelectorAll('.ytcp-main-appbar')) {
+      if(next.nextElementSibling) {
+        next.nextElementSibling.remove();
+      }
+    }
+    const nav = document.querySelector('[hidden] .ytcp-main-appbar');
+    if (nav !== null) {
+      nav.remove();
+    }
+  }
+  rm();
+});
+
+// make room for the nav menu
+function makeRoom() {
+  addStyle(`[page-subtype="home"] ytd-two-column-browse-results-renderer,[page-subtype="trending"] ytd-two-column-browse-results-renderer,[page-subtype="subscriptions"] ytd-two-column-browse-results-renderer{margin-top:60px!important;}`);
+}
+makeRoom();*/
