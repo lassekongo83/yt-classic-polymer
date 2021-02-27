@@ -39,6 +39,10 @@
     "message": "Display channel videos as a list",
     "description": "The option to display channel videos as a list"
   },
+  "ext_navbar": {
+    "message": "Display the old horizontal navigation bar",
+    "description": "The option to display the old horizontal navigation bar"
+  },
   "c_home": {
     "message": "Home",
     "description": "The home link on the nav bar menu"

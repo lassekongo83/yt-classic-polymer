@@ -91,35 +91,9 @@ function listDisplay() {
 `);
 }
 
-// Apply settings
-chrome.storage.sync.get({
-  settingsDisableMP: true,
-  settingsGuideMenu: true,
-  settingsDisableAnim: true,
-  settingsOldLogo: false,
-  settingsListDisplay: false
-}, function (settings) {
-  if (true === settings.settingsDisableMP) {
-    disableMP();
-  }
-  if (true === settings.settingsGuideMenu) {
-    hideGuide();
-  }
-  if (true === settings.settingsDisableAnim) {
-    disablePreview();
-  }
-  if (true === settings.settingsOldLogo) {
-    logotype();
-  }
-  if (true === settings.settingsListDisplay) {
-    listDisplay();
-  }
-});
-
-// WIP: Old masthead appbar
-// TODO:
-// - Make the navigation buttons use yt navigation instead of reloading the document
-/*function oldAppbar() {
+// Old horizontal navigation bar
+// TODO: Make the navigation buttons use yt navigation instead of reloading the document
+function navBar() {
   // All items we'd like to add
   const navItems = [
     {href: '/', text: chrome.i18n.getMessage('c_home')},
@@ -168,13 +142,12 @@ chrome.storage.sync.get({
   navList.childNodes[1].className = "ytcp-nav-trending ytcp-nav-item";
   navList.childNodes[2].className = "ytcp-nav-subs ytcp-nav-item";
 }
-oldAppbar();
 // Insert the old nav menu again when navigating
-document.body.addEventListener('yt-navigate-finish', () => {
-  oldAppbar();
+function navBarNavigation() {
+  document.body.addEventListener('yt-navigate-finish', () => {
+    navBar();
 
-  // Remove the old ones, or they'll keep being added to the DOM forever
-  function rm() {
+    // Remove the old ones, or they'll keep being added to the DOM forever
     for(const next of document.body.querySelectorAll('.ytcp-main-appbar')) {
       if(next.nextElementSibling) {
         next.nextElementSibling.remove();
@@ -184,12 +157,40 @@ document.body.addEventListener('yt-navigate-finish', () => {
     if (nav !== null) {
       nav.remove();
     }
-  }
-  rm();
-});
-
+  });
+}
 // make room for the nav menu
 function makeRoom() {
   addStyle(`[page-subtype="home"] ytd-two-column-browse-results-renderer,[page-subtype="trending"] ytd-two-column-browse-results-renderer,[page-subtype="subscriptions"] ytd-two-column-browse-results-renderer{margin-top:60px!important;}`);
 }
-makeRoom();*/
+
+// Apply settings
+chrome.storage.sync.get({
+  settingsDisableMP: true,
+  settingsGuideMenu: true,
+  settingsDisableAnim: true,
+  settingsOldLogo: false,
+  settingsListDisplay: false,
+  settingsOldNavBar: false
+}, function (settings) {
+  if (true === settings.settingsDisableMP) {
+    disableMP();
+  }
+  if (true === settings.settingsGuideMenu) {
+    hideGuide();
+  }
+  if (true === settings.settingsDisableAnim) {
+    disablePreview();
+  }
+  if (true === settings.settingsOldLogo) {
+    logotype();
+  }
+  if (true === settings.settingsListDisplay) {
+    listDisplay();
+  }
+  if (true === settings.settingsOldNavBar) {
+    navBar();
+    navBarNavigation();
+    makeRoom();
+  }
+});

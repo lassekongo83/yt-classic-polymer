@@ -65,12 +65,65 @@ function listDisplay() {
 [page-subtype="channels"] ytd-grid-video-renderer #video-title.yt-simple-endpoint.ytd-grid-video-renderer{font-size:15px!important;}
 `);
 }
+function navBar() {
+  const navItems = [
+    {href: '/', text: chrome.i18n.getMessage('c_home')},
+    {href: '/feed/trending', text: chrome.i18n.getMessage('c_trending')},
+    {href: '/feed/subscriptions', text: chrome.i18n.getMessage('c_subs')},
+  ];
+  let navElem = document.createElement("div"),
+    navList = document.createElement("ul"),
+    navItem, navLink;
+  for (let i = 0; i < navItems.length; i++) {
+    navItem = document.createElement("li");
+    navLink = document.createElement("a");
+    navLink.href = navItems[i].href;
+    navLink.innerHTML = navItems[i].text;
+    navItem.appendChild(navLink);
+    navList.appendChild(navItem);
+  }
+  const homeGrid = document.querySelector('ytd-browse[role="main"][page-subtype="home"]');
+  const trendGrid = document.querySelector('ytd-browse[role="main"][page-subtype="trending"]');
+  const subGrid = document.querySelector('ytd-browse[role="main"][page-subtype="subscriptions"]');
+  if (homeGrid !== null) {
+    homeGrid.appendChild(navElem).appendChild(navList);
+  }
+  if (trendGrid !== null) {
+    trendGrid.appendChild(navElem).appendChild(navList);
+  }
+  if (subGrid !== null) {
+    subGrid.appendChild(navElem).appendChild(navList);
+  }
+  navElem.className = "ytcp-main-appbar";
+  navList.className = "ytcp-appbar-nav";
+  navList.childNodes[0].className = "ytcp-nav-home ytcp-nav-item";
+  navList.childNodes[1].className = "ytcp-nav-trending ytcp-nav-item";
+  navList.childNodes[2].className = "ytcp-nav-subs ytcp-nav-item";
+}
+function navBarNavigation() {
+  document.body.addEventListener('yt-navigate-finish', () => {
+    navBar();
+    for(const next of document.body.querySelectorAll('.ytcp-main-appbar')) {
+      if(next.nextElementSibling) {
+        next.nextElementSibling.remove();
+      }
+    }
+    const nav = document.querySelector('[hidden] .ytcp-main-appbar');
+    if (nav !== null) {
+      nav.remove();
+    }
+  });
+}
+function makeRoom() {
+  addStyle(`[page-subtype="home"] ytd-two-column-browse-results-renderer,[page-subtype="trending"] ytd-two-column-browse-results-renderer,[page-subtype="subscriptions"] ytd-two-column-browse-results-renderer{margin-top:60px!important;}`);
+}
 chrome.storage.sync.get({
   settingsDisableMP: true,
   settingsGuideMenu: true,
   settingsDisableAnim: true,
   settingsOldLogo: false,
-  settingsListDisplay: false
+  settingsListDisplay: false,
+  settingsOldNavBar: false
 }, function (settings) {
   if (true === settings.settingsDisableMP) {
     disableMP();
@@ -86,5 +139,10 @@ chrome.storage.sync.get({
   }
   if (true === settings.settingsListDisplay) {
     listDisplay();
+  }
+  if (true === settings.settingsOldNavBar) {
+    navBar();
+    navBarNavigation();
+    makeRoom();
   }
 });
