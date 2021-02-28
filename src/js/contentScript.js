@@ -26,19 +26,14 @@ function disableMP() {
     if (elm){ elm.click(); }
   }
 
-  function clickIt(){
-    clickButton('.ytp-miniplayer-close-button');
-  }
-
-  //setInterval(clickIt, 1000);
-
   // autoclick the close button on the miniplayer when the progressbar is finished
+  // yt-navigate-finish would be better, but it seems to be too fast
   document.addEventListener('transitionend', function(e) {
-    checkElement('#progress').then((selector) => {
+    if (document.getElementById('progress') !== null) {
       if (e.target.id === 'progress') {
-        clickIt();
+        clickButton('.ytp-miniplayer-close-button');
       }
-    });
+    }
   });
 
   // hide the miniplayer icon
@@ -56,7 +51,7 @@ function disableMP() {
 function hideGuide() {
   if (window.location.pathname != "/watch") {
     document.getElementById('guide-button').click(function() {
-      if (document.querySelectorAll('app-drawer#guide')[0].hasAttribute('opened')) {
+      if (document.querySelectorAll('tp-yt-app-drawer#guide')[0].hasAttribute('opened')) {
         setTimeout(function(){
           document.getElementById('input-subs-autocomplete').focus();
         },50);
