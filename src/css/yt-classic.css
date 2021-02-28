@@ -389,3 +389,11 @@ html[dark="true"] [page-subtype="trending"] .ytcp-nav-trending a { box-shadow: i
 html[dark="true"] [page-subtype="subscriptions"] .ytcp-nav-subs a { box-shadow: inset 0 -3px #dcdcdc; color: var(--yt-primary-text-color); }
 
 html[dark="true"] .ytcp-appbar-nav { display: inline-block; vertical-align: top; overflow: hidden; }
+
+.ytcp-load-more-button { margin: 20px auto; display: block; border: 1px solid #d3d3d3; height: 28px; box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05); background-color: #f8f8f8; color: #333; border-radius: 2px; cursor: pointer; font: 11px Roboto,arial,sans-serif; padding: 0 10px; font-weight: 500; outline: 0; }
+
+.ytcp-load-more-button:hover { border-color: #c6c6c6; background-color: #f0f0f0; box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1); }
+
+.ytcp-load-more-button:active { border-color: #c6c6c6; background: #e9e9e9; box-shadow: inset 0 1px 0 #ddd; }
+
+.ytcp-load-more-button.ytcp-related { margin: 0 auto !important; }

@@ -189,3 +189,79 @@ chrome.storage.sync.get({
     makeRoom();
   }
 });
+
+// Show more button option
+// Options to replace infinite scrolling with a "Show more" button on selected elements
+/*function startScroll() {
+  document.querySelector('ytd-continuation-item-renderer').style.setProperty('display', 'flex');
+}
+// Called after clicking the show more button to stop the infinite scroll once again
+function stopOnScroll() {
+  document.querySelector('ytd-continuation-item-renderer').style.setProperty('display', 'none');
+}
+function homeScroll() { // Option to replace it on the home grid
+  // stop scroll
+  const scrollstopper = document.createElement('style');
+  scrollstopper.innerHTML = 'ytd-two-column-browse-results-renderer[page-subtype="home"] ytd-continuation-item-renderer {display:none;}';
+  document.body.appendChild(scrollstopper);
+
+  const grid = document.querySelector('ytd-two-column-browse-results-renderer[page-subtype="home"] ytd-rich-grid-renderer');
+  const btn = document.createElement('button');
+  btn.classList.add("ytcp-load-more-button");
+  btn.innerHTML = chrome.i18n.getMessage('c_loadmore');
+  if (grid !== null) {
+    grid.appendChild(btn);
+    document.body.addEventListener('yt-navigate-finish', () => {
+      grid.appendChild(btn);
+    });
+  }
+
+  const button =  document.querySelector('.ytcp-load-more-button');
+  if (button !== null) {
+    button.addEventListener('click', () => {
+      startScroll();
+
+      // Workaround to get the scroll to start if the last row of thumbnails are less than max amount
+      // I have no idea why it requires a mousover event
+      // FIXME: Doesn't work all the time
+      const mouseoverEvent = new Event('mouseover');
+      const link = document.querySelector("ytd-rich-item-renderer:last-child #video-title-link");
+      link.dispatchEvent(mouseoverEvent);
+      link.focus();
+
+      document.addEventListener('scroll', stopOnScroll);
+    });
+  }
+}
+homeScroll();
+
+function relatedScroll() { // Option to replace it on the related videos section
+  // stop scroll
+  const scrollstopper = document.createElement('style');
+  scrollstopper.innerHTML = 'ytd-watch-next-secondary-results-renderer ytd-continuation-item-renderer {display:none;}';
+  document.body.appendChild(scrollstopper);
+
+  const related = document.querySelector('#items.ytd-watch-next-secondary-results-renderer');
+  const relbtn = document.createElement('button');
+  //btn.classList.add("ytcp-load-more-button");
+  relbtn.className = "ytcp-load-more-button ytcp-related";
+  relbtn.innerHTML = chrome.i18n.getMessage('c_loadmore');
+  if (related !== null) {
+    related.appendChild(relbtn);
+    document.body.addEventListener('yt-navigate-finish', () => {
+      related.appendChild(relbtn);
+    });
+  }
+
+  if (relbtn !== null) {
+    relbtn.addEventListener('click', () => {
+      startScroll();
+      document.addEventListener('scroll', stopOnScroll);
+    });
+  }
+}
+relatedScroll();
+
+function subScroll() { // Option to replace it on the subscriptions grid
+  
+}*/
