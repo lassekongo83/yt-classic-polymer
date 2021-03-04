@@ -1,17 +1,5 @@
 'use strict';
 
-// Check if element exists
-const checkElement = async selector => {
-  while ( document.querySelector(selector) === null) {
-    await new Promise( resolve =>  requestAnimationFrame(resolve) )
-  }
-  return document.querySelector(selector); 
-};
-// usage
-//checkElement('.some-element').then((selector) => {
-//  console.log(selector);
-//});
-
 // Add style
 function addStyle(styleString) {
   const style = document.createElement('style');
@@ -190,52 +178,53 @@ chrome.storage.sync.get({
   }
 });
 
-// Show more button option
-// Options to replace infinite scrolling with a "Show more" button on selected elements
-/*function startScroll() {
-  document.querySelector('ytd-continuation-item-renderer').style.setProperty('display', 'flex');
+// Options to replace infinite scrolling with a "Load more" button on selected elements
+function startScroll() {
+  document.querySelector('ytd-continuation-item-renderer').style.visibility = 'visible';
 }
-// Called after clicking the show more button to stop the infinite scroll once again
-function stopOnScroll() {
-  document.querySelector('ytd-continuation-item-renderer').style.setProperty('display', 'none');
+// Called after clicking the load more button to stop the infinite scroll once again
+function stopScroll() {
+  document.querySelector('ytd-continuation-item-renderer').style.visibility = 'hidden';
 }
 function homeScroll() { // Option to replace it on the home grid
-  // stop scroll
+  // stop scroll by making ytd-continuation-item-renderer invisible
+  // removing it would be preferable, but it keeps reinserting itself
   const scrollstopper = document.createElement('style');
-  scrollstopper.innerHTML = 'ytd-two-column-browse-results-renderer[page-subtype="home"] ytd-continuation-item-renderer {display:none;}';
+  scrollstopper.innerHTML = '[page-subtype="home"] ytd-continuation-item-renderer {visibility:hidden; height:1px;}';
   document.body.appendChild(scrollstopper);
 
-  const grid = document.querySelector('ytd-two-column-browse-results-renderer[page-subtype="home"] ytd-rich-grid-renderer');
+  const grid = document.querySelector('[page-subtype="home"] ytd-rich-grid-renderer');
   const btn = document.createElement('button');
   btn.classList.add("ytcp-load-more-button");
   btn.innerHTML = chrome.i18n.getMessage('c_loadmore');
   if (grid !== null) {
     grid.appendChild(btn);
-    document.body.addEventListener('yt-navigate-finish', () => {
+    // insert the button again when navigating to the home grid
+    window.addEventListener('yt-navigate-finish', () => {
       grid.appendChild(btn);
     });
   }
 
   const button =  document.querySelector('.ytcp-load-more-button');
   if (button !== null) {
-    button.addEventListener('click', () => {
+    button.onclick = function() {
+      // Workaround: quickly removing and inserting the element again to make it load new items without the user having to hover a thumbnail for it to start
+      // FIXME: User may have to click the button twice after yt-navigation-finish
+      const cont = document.querySelector('[page-subtype="home"] #contents.ytd-rich-grid-renderer > ytd-continuation-item-renderer');
+      const richGrid = document.querySelector('[page-subtype="home"] #contents.ytd-rich-grid-renderer');
+      if (cont !== null) {
+        cont.remove();
+      }
+      richGrid.append(cont);
       startScroll();
-
-      // Workaround to get the scroll to start if the last row of thumbnails are less than max amount
-      // I have no idea why it requires a mousover event
-      // FIXME: Doesn't work all the time
-      const mouseoverEvent = new Event('mouseover');
-      const link = document.querySelector("ytd-rich-item-renderer:last-child #video-title-link");
-      link.dispatchEvent(mouseoverEvent);
-      link.focus();
-
-      document.addEventListener('scroll', stopOnScroll);
-    });
+      // Stop the infinite loading when the user scrolls down
+      window.addEventListener('scroll', stopScroll, { passive: true });
+    };
   }
 }
-homeScroll();
+//homeScroll();
 
-function relatedScroll() { // Option to replace it on the related videos section
+/*function relatedScroll() { // Option to replace it on the related videos section
   // stop scroll
   const scrollstopper = document.createElement('style');
   scrollstopper.innerHTML = 'ytd-watch-next-secondary-results-renderer ytd-continuation-item-renderer {display:none;}';
