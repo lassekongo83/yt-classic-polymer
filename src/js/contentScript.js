@@ -178,25 +178,60 @@ chrome.storage.sync.get({
   }
 });
 
+// TODO
+// Observer to see which page the user is on
+// Should be helpful to add the "Load more" buttons to the DOM when yt-navigate-finish completes.
+/*async function pageHome() {
+  const ytdBrowse = document.querySelector('ytd-browse[role="main"]');
+  const gridObserver = new MutationObserver(mutations => {
+    mutations.every(_ => {
+      if (ytdBrowse.getAttribute('page-subtype') == 'home') {
+        console.log('page-subtype is home');
+        gridObserver.disconnect();
+      }
+      if (ytdBrowse.getAttribute('page-subtype') == 'subscriptions') {
+        console.log('page-subtype is subscriptions');
+        gridObserver.disconnect();
+      }
+      if (ytdBrowse.getAttribute('page-subtype') == 'trending') {
+        console.log('page-subtype is trending');
+        gridObserver.disconnect();
+      }
+    });
+  });
+
+  // FIXME: May have to observe pathname instead
+  if(window.location.pathname.indexOf('/watch') !== null) {
+    gridObserver.observe(ytdBrowse, {
+      attributes: true,
+      subtree: true
+    });
+  }
+}
+window.addEventListener('yt-navigate-finish', pageHome, { passive: true });*/
+
 // Options to replace infinite scrolling with a "Load more" button on selected elements
-function startScroll() {
+/*function startScroll() {
   document.querySelector('ytd-continuation-item-renderer').style.visibility = 'visible';
 }
 // Called after clicking the load more button to stop the infinite scroll once again
 function stopScroll() {
-  document.querySelector('ytd-continuation-item-renderer').style.visibility = 'hidden';
+  if (document.querySelector('ytd-continuation-item-renderer') !== null) {
+    document.querySelector('ytd-continuation-item-renderer').style.visibility = 'hidden';
+  }
 }
 function homeScroll() { // Option to replace it on the home grid
   // stop scroll by making ytd-continuation-item-renderer invisible
   // removing it would be preferable, but it keeps reinserting itself
-  const scrollstopper = document.createElement('style');
-  scrollstopper.innerHTML = '[page-subtype="home"] ytd-continuation-item-renderer {visibility:hidden; height:1px;}';
-  document.body.appendChild(scrollstopper);
+  const gridstopper = document.createElement('style');
+  gridstopper.innerHTML = '[page-subtype="home"] ytd-continuation-item-renderer {visibility:hidden; height:1px;}';
+  document.body.appendChild(gridstopper);
 
   const grid = document.querySelector('[page-subtype="home"] ytd-rich-grid-renderer');
   const btn = document.createElement('button');
   btn.classList.add("ytcp-load-more-button");
   btn.innerHTML = chrome.i18n.getMessage('c_loadmore');
+  // FIXME: Will only work if user started the navigation on the home grid, as the grid is created as the user navigates there
   if (grid !== null) {
     grid.appendChild(btn);
     // insert the button again when navigating to the home grid
@@ -205,52 +240,106 @@ function homeScroll() { // Option to replace it on the home grid
     });
   }
 
-  const button =  document.querySelector('.ytcp-load-more-button');
+  const button = document.querySelector('.ytcp-load-more-button');
   if (button !== null) {
     button.onclick = function() {
       // Workaround: quickly removing and inserting the element again to make it load new items without the user having to hover a thumbnail for it to start
-      // FIXME: User may have to click the button twice after yt-navigation-finish
       const cont = document.querySelector('[page-subtype="home"] #contents.ytd-rich-grid-renderer > ytd-continuation-item-renderer');
       const richGrid = document.querySelector('[page-subtype="home"] #contents.ytd-rich-grid-renderer');
       if (cont !== null) {
         cont.remove();
       }
-      richGrid.append(cont);
+      if (richGrid !== null) {
+        richGrid.append(cont);
+      }
       startScroll();
       // Stop the infinite loading when the user scrolls down
       window.addEventListener('scroll', stopScroll, { passive: true });
     };
   }
 }
-//homeScroll();
+homeScroll();*/
 
-/*function relatedScroll() { // Option to replace it on the related videos section
-  // stop scroll
-  const scrollstopper = document.createElement('style');
-  scrollstopper.innerHTML = 'ytd-watch-next-secondary-results-renderer ytd-continuation-item-renderer {display:none;}';
-  document.body.appendChild(scrollstopper);
+// Channel videos
+/*function channelScroll() {
+  const channelstopper = document.createElement('style');
+  channelstopper.innerHTML = '[page-subtype="channels"] ytd-continuation-item-renderer {visibility:hidden; height:1px;}';
+  document.body.appendChild(channelstopper);
+
+  const channelGrid = document.querySelector('[page-subtype="channels"] ytd-grid-renderer');
+  const channelBtn = document.createElement('button');
+  channelBtn.classList.add("ytcp-load-more-button");
+  channelBtn.innerHTML = chrome.i18n.getMessage('c_loadmore');
+  if (channelGrid !== null) {
+    channelGrid.appendChild(channelBtn);
+    document.querySelector('ytd-page-manager').addEventListener('yt-page-manager-navigate-start', () => {
+      channelGrid.appendChild(channelBtn);
+    });
+  }
+
+  const chanButton = document.querySelector('.ytcp-load-more-button');
+  const chanCont = document.querySelector('[page-subtype="channels"] #items.ytd-grid-renderer > ytd-continuation-item-renderer');
+  const chanGrid = document.querySelector('[page-subtype="channels"] #items.ytd-grid-renderer');
+  if (chanButton !== null || chanCont !== null) {
+    chanButton.onclick = function() {
+      if (chanCont !== null) {
+        chanCont.remove();
+      }
+      if (chanGrid !== null) {
+        chanGrid.append(chanCont);
+      }
+      startScroll();
+      window.addEventListener('scroll', stopScroll, { passive: true });
+    };
+  }
+}
+channelScroll();*/
+
+// Option to replace it on the related videos section
+/*function relatedScroll() {
+  const related = document.querySelector('ytd-watch-next-secondary-results-renderer .ytd-item-section-renderer:not(ytd-continuation-item-renderer)');
+  const relCont = document.querySelector('#items.ytd-watch-next-secondary-results-renderer ytd-continuation-item-renderer');
+  const relatedElement = document.querySelector('#items.ytd-watch-next-secondary-results-renderer');
+
+
+  const relstopper = document.createElement('style');
+  relstopper.innerHTML = 'ytd-watch-next-secondary-results-renderer ytd-continuation-item-renderer {visibility:hidden;}';
+  document.body.appendChild(relstopper);
 
   const related = document.querySelector('#items.ytd-watch-next-secondary-results-renderer');
   const relbtn = document.createElement('button');
-  //btn.classList.add("ytcp-load-more-button");
   relbtn.className = "ytcp-load-more-button ytcp-related";
   relbtn.innerHTML = chrome.i18n.getMessage('c_loadmore');
   if (related !== null) {
     related.appendChild(relbtn);
-    document.body.addEventListener('yt-navigate-finish', () => {
+    window.addEventListener('yt-navigate-finish', () => {
+      related.appendChild(relbtn);
+    });
+    document.querySelector('ytd-watch-next-secondary-results-renderer').addEventListener('can-show-more-changed', () => {
       related.appendChild(relbtn);
     });
   }
 
-  if (relbtn !== null) {
-    relbtn.addEventListener('click', () => {
-      startScroll();
-      document.addEventListener('scroll', stopOnScroll);
-    });
+  const relButton = document.querySelector('[is-watch-page] #items.ytd-watch-next-secondary-results-renderer .ytcp-load-more-button');
+  if (relButton !== null) {
+    relButton.onclick = function() {
+      const relCont = document.querySelector('[is-watch-page] #items.ytd-watch-next-secondary-results-renderer > ytd-continuation-item-renderer');
+      const relItems = document.querySelector('[is-watch-page] #items.ytd-watch-next-secondary-results-renderer');
+      if (relCont !== null) {
+        relCont.remove();
+      }
+      if (relItems !== null) {
+        relItems.append(relCont);
+      }
+      //startScroll();
+      if (relCont !== null) {
+        relCont.style.visibility = 'visible';
+      }
+      //window.addEventListener('scroll', stopScroll, { passive: true });
+      window.addEventListener('scroll', function() {
+        document.querySelector('[is-watch-page] #items.ytd-watch-next-secondary-results-renderer > ytd-continuation-item-renderer').style.visibility = 'hidden';
+      });
+    };
   }
 }
-relatedScroll();
-
-function subScroll() { // Option to replace it on the subscriptions grid
-  
-}*/
+//relatedScroll();*/
