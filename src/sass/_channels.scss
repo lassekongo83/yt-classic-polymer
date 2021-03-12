@@ -64,34 +64,37 @@ ytd-browse[page-subtype~=channels] ytd-two-column-browse-results-renderer.ytd-br
 }
 
 // tabs
-#tabs-container.ytd-c4-tabbed-header-renderer,app-toolbar.ytd-c4-tabbed-header-renderer,
-paper-tabs.ytd-c4-tabbed-header-renderer,
-tp-yt-app-toolbar.ytd-c4-tabbed-header-renderer {
+tp-yt-app-toolbar.ytd-c4-tabbed-header-renderer,
+#tabs-container.ytd-c4-tabbed-header-renderer,
+tp-yt-paper-tabs.ytd-c4-tabbed-header-renderer {
   height: 32px !important;
 }
 #tabs-container.ytd-c4-tabbed-header-renderer {
   margin-left: 8px !important;
 }
-paper-tab.ytd-c4-tabbed-header-renderer {
+tp-yt-paper-tab.ytd-c4-tabbed-header-renderer {
   padding: 0 12px !important;
 }
-paper-tabs.ytd-c4-tabbed-header-renderer {
+tp-yt-paper-tabs.ytd-c4-tabbed-header-renderer {
   margin-left: 0 !important;
   padding-bottom: 0 !important;
 }
 #channel-header.ytd-c4-tabbed-header-renderer {
   padding: 15px !important;
 }
+[page-subtype="channels"] .not-visible.tp-yt-paper-tabs {
+  display: none !important;
+}
 html {
   &:not([dark]) {
     ytd-c4-tabbed-header-renderer { --yt-lightsource-section1-color: $secondary_bg !important; }
     app-toolbar.ytd-c4-tabbed-header-renderer, tp-yt-app-toolbar.ytd-c4-tabbed-header-renderer { background-color: $secondary_bg !important; }
-    paper-tabs.ytd-c4-tabbed-header-renderer { --paper-tabs-selection-bar-color: $theme_red !important; }
-    paper-tab:not(.iron-selected) > .tab-content.paper-tab:hover,
-    paper-tab.iron-selected.ytd-c4-tabbed-header-renderer > .tab-content.paper-tab {
+    tp-yt-paper-tabs.ytd-c4-tabbed-header-renderer { --paper-tabs-selection-bar-color: $theme_red !important; }
+    tp-yt-paper-tab:not(.iron-selected) > .tab-content.tp-yt-paper-tab:hover,
+    tp-yt-paper-tab.iron-selected.ytd-c4-tabbed-header-renderer > .tab-content.paper-tab {
       box-shadow: inset 0 -3px $theme_red !important;
     }
-    paper-tab:not(.iron-selected) > .tab-content.paper-tab {
+    tp-yt-paper-tab:not(.iron-selected) > .tab-content.tp-yt-paper-tab {
       opacity: 0.8 !important;
       font-weight: normal !important;
     }
@@ -99,25 +102,25 @@ html {
   &[dark] {
     ytd-c4-tabbed-header-renderer { --yt-lightsource-section1-color: $secondary_bg_dark !important; }
     app-toolbar.ytd-c4-tabbed-header-renderer, tp-yt-app-toolbar.ytd-c4-tabbed-header-renderer { background-color: $secondary_bg_dark !important; }
-    paper-tabs.ytd-c4-tabbed-header-renderer { --paper-tabs-selection-bar-color: $theme_red_dark !important; }
-    paper-tab:not(.iron-selected) > .tab-content.paper-tab:hover,
-    paper-tab.iron-selected.ytd-c4-tabbed-header-renderer > .tab-content.paper-tab {
+    tp-yt-paper-tabs.ytd-c4-tabbed-header-renderer { --paper-tabs-selection-bar-color: $theme_red_dark !important; }
+    tp-yt-paper-tab:not(.iron-selected) > .tab-content.tp-yt-paper-tab:hover,
+    tp-yt-paper-tab.iron-selected.ytd-c4-tabbed-header-renderer > .tab-content.tp-yt-paper-tab {
       box-shadow: inset 0 -3px $theme_red_dark !important;
     }
   }
 }
 
 // videos page
-ytd-section-list-renderer[page-subtype=channels] #items.ytd-grid-renderer > ytd-grid-video-renderer.ytd-grid-renderer {
+ytd-section-list-renderer[page-subtype="channels"] #items.ytd-grid-renderer > ytd-grid-video-renderer.ytd-grid-renderer {
   width: 196px !important;
 }
 
-ytd-section-list-renderer[page-subtype=channels] #items.ytd-grid-renderer ytd-thumbnail.ytd-grid-video-renderer {
+ytd-section-list-renderer[page-subtype="channels"] #items.ytd-grid-renderer ytd-thumbnail.ytd-grid-video-renderer {
   width: 196px !important;
   height: 110px !important;
 }
 
-ytd-section-list-renderer[page-subtype=channels] #items.ytd-grid-renderer {
+ytd-section-list-renderer[page-subtype="channels"] #items.ytd-grid-renderer {
   margin-right: -15px !important;
 }
 
@@ -135,7 +138,7 @@ ytd-section-list-renderer[page-subtype=channels] #items.ytd-grid-renderer {
   margin-top: 7px !important;
 }
 
-ytd-browse[page-subtype~=channels] #contents.ytd-shelf-renderer,
-ytd-browse[page-subtype~=channels] .grid-subheader.ytd-shelf-renderer {
+ytd-browse[page-subtype~="channels"] #contents.ytd-shelf-renderer,
+ytd-browse[page-subtype~="channels"] .grid-subheader.ytd-shelf-renderer {
   margin-top: 15px !important;
 }

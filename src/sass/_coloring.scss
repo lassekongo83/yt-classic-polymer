@@ -32,7 +32,7 @@ html {
     // text colors
     #title.ytd-rich-grid-renderer,
     #title.ytd-rich-shelf-renderer,
-    paper-tabs.ytd-c4-tabbed-header-renderer,
+    tp-yt-paper-tabs.ytd-c4-tabbed-header-renderer,
     #title.ytd-vertical-channel-section-renderer {
       color: $primary_text !important;
     }
@@ -89,7 +89,7 @@ html {
     // text colors
     #title.ytd-rich-grid-renderer,
     #title.ytd-rich-shelf-renderer,
-    paper-tabs.ytd-c4-tabbed-header-renderer {
+    tp-yt-paper-tabs.ytd-c4-tabbed-header-renderer {
       color: $primary_text_dark !important;
     }
     #video-title.ytd-rich-grid-video-renderer,

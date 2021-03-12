@@ -153,7 +153,8 @@ ytd-comment-replies-renderer *> ytd-button-renderer yt-formatted-string.ytd-butt
 
 ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer,
 ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-button-end.ytd-comment-action-buttons-renderer ytd-button-renderer.ytd-comment-action-buttons-renderer:not([is-icon-button]).ytd-comment-action-buttons-renderer,
-paper-tabs.ytd-c4-tabbed-header-renderer,#autoplay.ytd-compact-autoplay-renderer,
+tp-yt-paper-tab.ytd-c4-tabbed-header-renderer,
+#autoplay.ytd-compact-autoplay-renderer,
 #title.ytd-vertical-channel-section-renderer {
   text-transform: initial !important;
 }
