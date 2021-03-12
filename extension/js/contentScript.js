@@ -1,10 +1,4 @@
 'use strict';
-const checkElement = async selector => {
-  while ( document.querySelector(selector) === null) {
-    await new Promise( resolve => requestAnimationFrame(resolve) )
-  }
-  return document.querySelector(selector);
-};
 function addStyle(styleString) {
   const style = document.createElement('style');
   style.textContent = styleString;
@@ -15,15 +9,12 @@ function disableMP() {
     let elm = document.querySelectorAll(selector)[0];
     if (elm){ elm.click(); }
   }
-  function clickIt(){
-    clickButton('.ytp-miniplayer-close-button');
-  }
   document.addEventListener('transitionend', function(e) {
-    checkElement('#progress').then((selector) => {
+    if (document.getElementById('progress') !== null) {
       if (e.target.id === 'progress') {
-        clickIt();
+        clickButton('.ytp-miniplayer-close-button');
       }
-    });
+    }
   });
   if (window.location.pathname === "/watch") {
     document.querySelector('.ytp-miniplayer-button').style.display = "none";
@@ -37,7 +28,7 @@ function disableMP() {
 function hideGuide() {
   if (window.location.pathname != "/watch") {
     document.getElementById('guide-button').click(function() {
-      if (document.querySelectorAll('app-drawer#guide')[0].hasAttribute('opened')) {
+      if (document.querySelectorAll('tp-yt-app-drawer#guide')[0].hasAttribute('opened')) {
         setTimeout(function(){
           document.getElementById('input-subs-autocomplete').focus();
         },50);

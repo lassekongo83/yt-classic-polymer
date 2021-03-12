@@ -1,7 +1,7 @@
 {
   "name": "YouTube Classic Polymer Theme",
   "short_name": "YT Classic Theme",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "manifest_version": 2,
   "description": "__MSG_ext_desc__",
   "author": "Frellwit",
@@ -50,7 +50,7 @@
     "gecko": {
       "id": "{389389aa-6501-4759-90a0-a2269a405ee0}",
       "strict_min_version": "56.0",
-      "update_url": "https://github.com/lassekongo83/yt-classic-polymer/extension/updates.json"
+      "update_url": "https://raw.githubusercontent.com/lassekongo83/yt-classic-polymer/master/extension/updates.json"
     }
   }
 }
