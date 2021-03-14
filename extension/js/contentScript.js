@@ -108,7 +108,11 @@ function navBarNavigation() {
 function makeRoom() {
   addStyle(`[page-subtype="home"] ytd-two-column-browse-results-renderer,[page-subtype="trending"] ytd-two-column-browse-results-renderer,[page-subtype="subscriptions"] ytd-two-column-browse-results-renderer{margin-top:60px!important;}`);
 }
+function restoreScrollbar() {
+  document.body.removeAttribute('themed-scrollbar');
+}
 chrome.storage.sync.get({
+  settingsRestoreScroll: true,
   settingsDisableMP: true,
   settingsGuideMenu: true,
   settingsDisableAnim: true,
@@ -116,6 +120,9 @@ chrome.storage.sync.get({
   settingsListDisplay: false,
   settingsOldNavBar: false
 }, function (settings) {
+  if (true === settings.settingsRestoreScroll) {
+    restoreScrollbar();
+  }
   if (true === settings.settingsDisableMP) {
     disableMP();
   }

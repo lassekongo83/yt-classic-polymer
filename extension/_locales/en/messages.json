@@ -43,6 +43,10 @@
     "message": "Display the old horizontal navigation bar",
     "description": "The option to display the old horizontal navigation bar"
   },
+  "ext_scrollbar": {
+    "message": "Use the browser's default scrollbar",
+    "description": "The option to use the browser's default scrollbar"
+  },
   "c_home": {
     "message": "Home",
     "description": "The home link on the nav bar menu"

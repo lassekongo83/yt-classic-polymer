@@ -43,6 +43,10 @@
     "message": "Visa det gamla horisontella navigeringsfältet",
     "description": "The option to display the old horizontal navigation bar"
   },
+  "ext_scrollbar": {
+    "message": "Använd webbläsarens rullningslist",
+    "description": "The option to use the browser's default scrollbar"
+  },
   "c_home": {
     "message": "Hem",
     "description": "The home link on the nav bar menu"
