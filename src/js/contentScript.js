@@ -150,6 +150,12 @@ function makeRoom() {
 // Option to restore browser default scrollbar
 function restoreScrollbar() {
   document.body.removeAttribute('themed-scrollbar');
+  // For Firefox
+  document.querySelector('html').removeAttribute('themed-scrollbar');
+  Element.prototype.removeAttributes = function(...attrs) {
+    attrs.forEach(attr => this.removeAttribute(attr));
+  }
+  document.querySelector('ytd-app').removeAttributes('scrollbar-rework', 'scrollbar-color');
 }
 
 // Apply settings
