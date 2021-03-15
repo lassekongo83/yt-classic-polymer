@@ -1,4 +1,21 @@
 'use strict';
+function waitForElm(selector) {
+  return new Promise(resolve => {
+    if (document.querySelector(selector)) {
+      return resolve(document.querySelector(selector));
+    }
+    const observer = new MutationObserver(mutations => {
+      if (document.querySelector(selector)) {
+        resolve(document.querySelector(selector));
+        observer.disconnect();
+      }
+    });
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+  });
+}
 function addStyle(styleString) {
   const style = document.createElement('style');
   style.textContent = styleString;
@@ -110,6 +127,47 @@ function makeRoom() {
 }
 function restoreScrollbar() {
   document.body.removeAttribute('themed-scrollbar');
+  document.querySelector('html').removeAttribute('themed-scrollbar');
+  Element.prototype.removeAttributes = function(...attrs) {
+    attrs.forEach(attr => this.removeAttribute(attr));
+  }
+  document.querySelector('ytd-app').removeAttributes('scrollbar-rework', 'scrollbar-color');
+}
+function homeScroll() {
+  waitForElm('[role="main"][page-subtype="home"] ytd-continuation-item-renderer').then(
+    elm => elm.style.visibility = 'hidden'
+  );
+  const homeGrid = document.querySelector('[role="main"][page-subtype="home"] ytd-rich-grid-renderer');
+  const homeBtn = document.createElement('button');
+  homeBtn.classList.add("ytcp-load-more-button");
+  homeBtn.innerHTML = chrome.i18n.getMessage('c_loadmore');
+  waitForElm('[role="main"][page-subtype="home"] ytd-rich-grid-renderer').then(function(elm) {
+    if (homeGrid !== null) {
+      homeGrid.appendChild(homeBtn);
+      for(const next of document.body.querySelectorAll('.ytcp-load-more-button')) {
+        if(next.nextElementSibling) {
+          next.nextElementSibling.remove();
+        }
+      }
+    }
+    const homeButton = document.querySelector('[page-subtype="home"] .ytcp-load-more-button');
+    homeButton.onclick = function() {
+      const homeCont = document.querySelector('[page-subtype="home"] #contents.ytd-rich-grid-renderer > ytd-continuation-item-renderer');
+      const richGrid = document.querySelector('[page-subtype="home"] #contents.ytd-rich-grid-renderer');
+      if (homeCont !== null) {
+        homeCont.remove();
+      }
+      if (richGrid !== null) {
+        richGrid.append(homeCont);
+      }
+      if (homeCont !== null) {
+        document.querySelector('[page-subtype="home"] #contents.ytd-rich-grid-renderer ytd-continuation-item-renderer').style.visibility = 'visible';
+        window.addEventListener('scroll', function() {
+          document.querySelector('[page-subtype="home"] #contents.ytd-rich-grid-renderer ytd-continuation-item-renderer').style.visibility = 'hidden';
+        });
+      }
+    };
+  });
 }
 chrome.storage.sync.get({
   settingsRestoreScroll: true,
@@ -118,7 +176,8 @@ chrome.storage.sync.get({
   settingsDisableAnim: true,
   settingsOldLogo: false,
   settingsListDisplay: false,
-  settingsOldNavBar: false
+  settingsOldNavBar: false,
+  settingsHomeScroll: false
 }, function (settings) {
   if (true === settings.settingsRestoreScroll) {
     restoreScrollbar();
@@ -142,5 +201,9 @@ chrome.storage.sync.get({
     navBar();
     navBarNavigation();
     makeRoom();
+  }
+  if (true === settings.settingsHomeScroll) {
+    homeScroll();
+    window.addEventListener('yt-navigate-finish', homeScroll, { passive: true });
   }
 });
