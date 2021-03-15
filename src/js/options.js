@@ -7,6 +7,7 @@ function save_options() {
   const settingsOldLogo = document.getElementById('options-old-logo').checked;
   const settingsListDisplay = document.getElementById('options-list-display').checked;
   const settingsOldNavBar = document.getElementById('options-navbar').checked;
+  const settingsHomeScroll = document.getElementById('options-homescroll').checked;
   chrome.storage.sync.set({
     settingsRestoreScroll: settingsRestoreScroll,
     settingsGuideMenu: settingsGuideMenu,
@@ -14,7 +15,8 @@ function save_options() {
     settingsDisableAnim: settingsDisableAnim,
     settingsOldLogo: settingsOldLogo,
     settingsListDisplay: settingsListDisplay,
-    settingsOldNavBar: settingsOldNavBar
+    settingsOldNavBar: settingsOldNavBar,
+    settingsHomeScroll: settingsHomeScroll
   });
 }
 
@@ -27,7 +29,8 @@ function restore_options() {
     settingsDisableAnim: true,
     settingsOldLogo: false,
     settingsListDisplay: false,
-    settingsOldNavBar: false
+    settingsOldNavBar: false,
+    settingsHomeScroll: false
   }, function(items) {
     document.getElementById('options-scrollbar').checked = items.settingsRestoreScroll;
     document.getElementById('options-guide-menu').checked = items.settingsGuideMenu;
@@ -36,6 +39,7 @@ function restore_options() {
     document.getElementById('options-old-logo').checked = items.settingsOldLogo;
     document.getElementById('options-list-display').checked = items.settingsListDisplay;
     document.getElementById('options-navbar').checked = items.settingsOldNavBar;
+    document.getElementById('options-homescroll').checked = items.settingsHomeScroll;
   });
 }
 
@@ -48,4 +52,5 @@ document.addEventListener('DOMContentLoaded', function () {
   document.getElementById("options-old-logo").addEventListener('click', save_options);
   document.getElementById("options-list-display").addEventListener('click', save_options);
   document.getElementById("options-navbar").addEventListener('click', save_options);
+  document.getElementById("options-homescroll").addEventListener('click', save_options);
 });

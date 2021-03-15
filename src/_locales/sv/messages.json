@@ -47,6 +47,10 @@
     "message": "Använd webbläsarens rullningslist",
     "description": "The option to use the browser's default scrollbar"
   },
+  "ext_homescroll": {
+    "message": "Ersätt oändlig scroll med en ladda mer-knapp på rekommenderade videor",
+    "description": "The option to use replace inifite scrolling with a load more button on the home recommendations grid"
+  },
   "c_home": {
     "message": "Hem",
     "description": "The home link on the nav bar menu"

@@ -1,5 +1,27 @@
 'use strict';
 
+// Wait for element helper
+// https://stackoverflow.com/a/61511955
+function waitForElm(selector) {
+  return new Promise(resolve => {
+    if (document.querySelector(selector)) {
+      return resolve(document.querySelector(selector));
+    }
+
+    const observer = new MutationObserver(mutations => {
+      if (document.querySelector(selector)) {
+        resolve(document.querySelector(selector));
+        observer.disconnect();
+      }
+    });
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+  });
+}
+
 // Add style
 function addStyle(styleString) {
   const style = document.createElement('style');
@@ -158,157 +180,92 @@ function restoreScrollbar() {
   document.querySelector('ytd-app').removeAttributes('scrollbar-rework', 'scrollbar-color');
 }
 
-// Apply settings
-chrome.storage.sync.get({
-  settingsRestoreScroll: true,
-  settingsDisableMP: true,
-  settingsGuideMenu: true,
-  settingsDisableAnim: true,
-  settingsOldLogo: false,
-  settingsListDisplay: false,
-  settingsOldNavBar: false
-}, function (settings) {
-  if (true === settings.settingsRestoreScroll) {
-    restoreScrollbar();
-  }
-  if (true === settings.settingsDisableMP) {
-    disableMP();
-  }
-  if (true === settings.settingsGuideMenu) {
-    hideGuide();
-  }
-  if (true === settings.settingsDisableAnim) {
-    disablePreview();
-  }
-  if (true === settings.settingsOldLogo) {
-    logotype();
-  }
-  if (true === settings.settingsListDisplay) {
-    listDisplay();
-  }
-  if (true === settings.settingsOldNavBar) {
-    navBar();
-    navBarNavigation();
-    makeRoom();
-  }
-});
-
-// TODO
-// Observer to see which page the user is on
-// Should be helpful to add the "Load more" buttons to the DOM when yt-navigate-finish completes.
-/*async function pageHome() {
-  const ytdBrowse = document.querySelector('ytd-browse[role="main"]');
-  const gridObserver = new MutationObserver(mutations => {
-    mutations.every(_ => {
-      if (ytdBrowse.getAttribute('page-subtype') == 'home') {
-        console.log('page-subtype is home');
-        gridObserver.disconnect();
-      }
-      if (ytdBrowse.getAttribute('page-subtype') == 'subscriptions') {
-        console.log('page-subtype is subscriptions');
-        gridObserver.disconnect();
-      }
-      if (ytdBrowse.getAttribute('page-subtype') == 'trending') {
-        console.log('page-subtype is trending');
-        gridObserver.disconnect();
-      }
-    });
-  });
-
-  // FIXME: May have to observe pathname instead
-  if(window.location.pathname.indexOf('/watch') !== null) {
-    gridObserver.observe(ytdBrowse, {
-      attributes: true,
-      subtree: true
-    });
-  }
-}
-window.addEventListener('yt-navigate-finish', pageHome, { passive: true });*/
-
 // Options to replace infinite scrolling with a "Load more" button on selected elements
-/*function startScroll() {
-  document.querySelector('ytd-continuation-item-renderer').style.visibility = 'visible';
-}
-// Called after clicking the load more button to stop the infinite scroll once again
-function stopScroll() {
-  if (document.querySelector('ytd-continuation-item-renderer') !== null) {
-    document.querySelector('ytd-continuation-item-renderer').style.visibility = 'hidden';
-  }
-}
-function homeScroll() { // Option to replace it on the home grid
-  // stop scroll by making ytd-continuation-item-renderer invisible
-  // removing it would be preferable, but it keeps reinserting itself
-  const gridstopper = document.createElement('style');
-  gridstopper.innerHTML = '[page-subtype="home"] ytd-continuation-item-renderer {visibility:hidden; height:1px;}';
-  document.body.appendChild(gridstopper);
+function homeScroll() {
+  // stop infinite scrolling by hiding the element
+  waitForElm('[role="main"][page-subtype="home"] ytd-continuation-item-renderer').then(
+    elm => elm.style.visibility = 'hidden'
+  );
 
-  const grid = document.querySelector('[page-subtype="home"] ytd-rich-grid-renderer');
-  const btn = document.createElement('button');
-  btn.classList.add("ytcp-load-more-button");
-  btn.innerHTML = chrome.i18n.getMessage('c_loadmore');
-  // FIXME: Will only work if user started the navigation on the home grid, as the grid is created as the user navigates there
-  if (grid !== null) {
-    grid.appendChild(btn);
-    // insert the button again when navigating to the home grid
-    window.addEventListener('yt-navigate-finish', () => {
-      grid.appendChild(btn);
-    });
-  }
+  const homeGrid = document.querySelector('[role="main"][page-subtype="home"] ytd-rich-grid-renderer');
+  const homeBtn = document.createElement('button');
+  homeBtn.classList.add("ytcp-load-more-button");
+  homeBtn.innerHTML = chrome.i18n.getMessage('c_loadmore');
+  waitForElm('[role="main"][page-subtype="home"] ytd-rich-grid-renderer').then(function(elm) {
+    if (homeGrid !== null) {
+      homeGrid.appendChild(homeBtn);
+      // Remove newly inserted buttons on yt-navigation-finish, otherwise there will be a lot of buttons. There's probably a better way to do this.
+      for(const next of document.body.querySelectorAll('.ytcp-load-more-button')) {
+        if(next.nextElementSibling) {
+          next.nextElementSibling.remove();
+        }
+      }
+    }
 
-  const button = document.querySelector('.ytcp-load-more-button');
-  if (button !== null) {
-    button.onclick = function() {
+    const homeButton = document.querySelector('[page-subtype="home"] .ytcp-load-more-button');
+    homeButton.onclick = function() {
       // Workaround: quickly removing and inserting the element again to make it load new items without the user having to hover a thumbnail for it to start
-      const cont = document.querySelector('[page-subtype="home"] #contents.ytd-rich-grid-renderer > ytd-continuation-item-renderer');
+      const homeCont = document.querySelector('[page-subtype="home"] #contents.ytd-rich-grid-renderer > ytd-continuation-item-renderer');
       const richGrid = document.querySelector('[page-subtype="home"] #contents.ytd-rich-grid-renderer');
-      if (cont !== null) {
-        cont.remove();
+      if (homeCont !== null) {
+        homeCont.remove();
       }
       if (richGrid !== null) {
-        richGrid.append(cont);
+        richGrid.append(homeCont);
       }
-      startScroll();
-      // Stop the infinite loading when the user scrolls down
-      window.addEventListener('scroll', stopScroll, { passive: true });
+      if (homeCont !== null) {
+        document.querySelector('[page-subtype="home"] #contents.ytd-rich-grid-renderer ytd-continuation-item-renderer').style.visibility = 'visible';
+        // Stop the infinite loading when the user scrolls down
+        window.addEventListener('scroll', function() {
+          document.querySelector('[page-subtype="home"] #contents.ytd-rich-grid-renderer ytd-continuation-item-renderer').style.visibility = 'hidden';
+        });
+      }
     };
-  }
+  });
 }
-homeScroll();*/
 
 // Channel videos
 /*function channelScroll() {
-  const channelstopper = document.createElement('style');
-  channelstopper.innerHTML = '[page-subtype="channels"] ytd-continuation-item-renderer {visibility:hidden; height:1px;}';
-  document.body.appendChild(channelstopper);
+  waitForElm('[role="main"][page-subtype="channels"] ytd-continuation-item-renderer').then(
+    elm => elm.style.visibility = 'hidden'
+  );
 
-  const channelGrid = document.querySelector('[page-subtype="channels"] ytd-grid-renderer');
+  const channelGrid = document.querySelector('[role="main"][page-subtype="channels"] #contents.ytd-section-list-renderer');
   const channelBtn = document.createElement('button');
   channelBtn.classList.add("ytcp-load-more-button");
   channelBtn.innerHTML = chrome.i18n.getMessage('c_loadmore');
-  if (channelGrid !== null) {
-    channelGrid.appendChild(channelBtn);
-    document.querySelector('ytd-page-manager').addEventListener('yt-page-manager-navigate-start', () => {
+  waitForElm('[role="main"][page-subtype="channels"] #items.ytd-grid-renderer').then(function(elm) {
+    if (channelGrid !== null) {
       channelGrid.appendChild(channelBtn);
-    });
-  }
+      for(const next of document.body.querySelectorAll('.ytcp-load-more-button')) {
+        if(next.nextElementSibling) {
+          next.nextElementSibling.remove();
+        }
+      }
+    }
 
-  const chanButton = document.querySelector('.ytcp-load-more-button');
-  const chanCont = document.querySelector('[page-subtype="channels"] #items.ytd-grid-renderer > ytd-continuation-item-renderer');
-  const chanGrid = document.querySelector('[page-subtype="channels"] #items.ytd-grid-renderer');
-  if (chanButton !== null || chanCont !== null) {
-    chanButton.onclick = function() {
-      if (chanCont !== null) {
-        chanCont.remove();
+    const channelButton = document.querySelector('[page-subtype="channels"] .ytcp-load-more-button');
+    channelButton.onclick = function() {
+      const channelCont = document.querySelector('[page-subtype="channels"] #items.ytd-grid-renderer > ytd-continuation-item-renderer');
+      const channelRichGrid = document.querySelector('[page-subtype="channels"] #items.ytd-grid-renderer');
+      if (channelCont !== null) {
+        channelCont.remove();
       }
-      if (chanGrid !== null) {
-        chanGrid.append(chanCont);
+      if (channelRichGrid !== null) {
+        channelRichGrid.append(channelCont);
       }
-      startScroll();
-      window.addEventListener('scroll', stopScroll, { passive: true });
+      // FIXME: Element is still null on some pages
+      if (document.querySelector('[page-subtype="channels"] #items.ytd-grid-renderer ytd-continuation-item-renderer') !== null) {
+        document.querySelector('[page-subtype="channels"] #items.ytd-grid-renderer ytd-continuation-item-renderer').style.visibility = 'visible';
+        window.addEventListener('scroll', function() {
+          document.querySelector('[page-subtype="channels"] #items.ytd-grid-renderer ytd-continuation-item-renderer').style.visibility = 'hidden';
+        });
+      }
     };
-  }
+  });
 }
-channelScroll();*/
+channelScroll();
+window.addEventListener('yt-navigate-finish', channelScroll, { passive: true });*/
 
 // Option to replace it on the related videos section
 /*function relatedScroll() {
@@ -358,3 +315,43 @@ channelScroll();*/
   }
 }
 //relatedScroll();*/
+
+// Apply settings
+chrome.storage.sync.get({
+  settingsRestoreScroll: true,
+  settingsDisableMP: true,
+  settingsGuideMenu: true,
+  settingsDisableAnim: true,
+  settingsOldLogo: false,
+  settingsListDisplay: false,
+  settingsOldNavBar: false,
+  settingsHomeScroll: false
+}, function (settings) {
+  if (true === settings.settingsRestoreScroll) {
+    restoreScrollbar();
+  }
+  if (true === settings.settingsDisableMP) {
+    disableMP();
+  }
+  if (true === settings.settingsGuideMenu) {
+    hideGuide();
+  }
+  if (true === settings.settingsDisableAnim) {
+    disablePreview();
+  }
+  if (true === settings.settingsOldLogo) {
+    logotype();
+  }
+  if (true === settings.settingsListDisplay) {
+    listDisplay();
+  }
+  if (true === settings.settingsOldNavBar) {
+    navBar();
+    navBarNavigation();
+    makeRoom();
+  }
+  if (true === settings.settingsHomeScroll) {
+    homeScroll();
+    window.addEventListener('yt-navigate-finish', homeScroll, { passive: true });
+  }
+});
