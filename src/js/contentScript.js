@@ -22,6 +22,28 @@ function waitForElm(selector) {
   });
 }
 
+// Check if element was removed from DOM
+// https://stackoverflow.com/a/50397148
+function onRemove(element, callback) {
+  const parent = element.parentNode;
+  if (!parent) throw new Error("The node must already be attached");
+
+  const obs = new MutationObserver(mutations => {
+    for (const mutation of mutations) {
+      for (const el of mutation.removedNodes) {
+        if (el === element) {
+          obs.disconnect();
+          callback();
+        }
+      }
+    }
+  });
+  obs.observe(parent, {
+    childList: true,
+  });
+}
+// Usage onRemove(element, () => doSomething);
+
 // Add style
 function addStyle(styleString) {
   const style = document.createElement('style');
@@ -183,17 +205,18 @@ function restoreScrollbar() {
 // Options to replace infinite scrolling with a "Load more" button on selected elements
 function homeScroll() {
   // stop infinite scrolling by hiding the element
-  waitForElm('[role="main"][page-subtype="home"] ytd-continuation-item-renderer').then(
-    elm => elm.style.visibility = 'hidden'
-  );
+  waitForElm('[role="main"][page-subtype="home"] ytd-continuation-item-renderer').then(function(elm) {
+    elm.style.visibility = 'hidden';
+    elm.style.height = '1px';
+    document.querySelector('[role="main"][page-subtype="home"] ytd-continuation-item-renderer #ghost-cards').style.display = 'none';
+  });
 
-  const homeGrid = document.querySelector('[role="main"][page-subtype="home"] ytd-rich-grid-renderer');
   const homeBtn = document.createElement('button');
   homeBtn.classList.add("ytcp-load-more-button");
   homeBtn.innerHTML = chrome.i18n.getMessage('c_loadmore');
   waitForElm('[role="main"][page-subtype="home"] ytd-rich-grid-renderer').then(function(elm) {
-    if (homeGrid !== null) {
-      homeGrid.appendChild(homeBtn);
+    if (elm !== null) {
+      elm.appendChild(homeBtn);
       // Remove newly inserted buttons on yt-navigation-finish, otherwise there will be a lot of buttons. There's probably a better way to do this.
       for(const next of document.body.querySelectorAll('.ytcp-load-more-button')) {
         if(next.nextElementSibling) {
@@ -220,6 +243,13 @@ function homeScroll() {
           document.querySelector('[page-subtype="home"] #contents.ytd-rich-grid-renderer ytd-continuation-item-renderer').style.visibility = 'hidden';
         });
       }
+      // Remove the button when no more results are available
+      function removeButton() {
+        if (document.querySelector('[page-subtype="home"] #contents.ytd-rich-grid-renderer ytd-continuation-item-renderer') === null) {
+          homeButton.remove();
+        }
+      }
+      onRemove(document.querySelector('[page-subtype="home"] #contents.ytd-rich-grid-renderer ytd-continuation-item-renderer'), () => removeButton());
     };
   });
 }
