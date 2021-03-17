@@ -16,6 +16,23 @@ function waitForElm(selector) {
     });
   });
 }
+function onRemove(element, callback) {
+  const parent = element.parentNode;
+  if (!parent) throw new Error("The node must already be attached");
+  const obs = new MutationObserver(mutations => {
+    for (const mutation of mutations) {
+      for (const el of mutation.removedNodes) {
+        if (el === element) {
+          obs.disconnect();
+          callback();
+        }
+      }
+    }
+  });
+  obs.observe(parent, {
+    childList: true,
+  });
+}
 function addStyle(styleString) {
   const style = document.createElement('style');
   style.textContent = styleString;
@@ -134,16 +151,17 @@ function restoreScrollbar() {
   document.querySelector('ytd-app').removeAttributes('scrollbar-rework', 'scrollbar-color');
 }
 function homeScroll() {
-  waitForElm('[role="main"][page-subtype="home"] ytd-continuation-item-renderer').then(
-    elm => elm.style.visibility = 'hidden'
-  );
-  const homeGrid = document.querySelector('[role="main"][page-subtype="home"] ytd-rich-grid-renderer');
+  waitForElm('[role="main"][page-subtype="home"] ytd-continuation-item-renderer').then(function(elm) {
+    elm.style.visibility = 'hidden';
+    elm.style.height = '1px';
+    document.querySelector('[role="main"][page-subtype="home"] ytd-continuation-item-renderer #ghost-cards').style.display = 'none';
+  });
   const homeBtn = document.createElement('button');
   homeBtn.classList.add("ytcp-load-more-button");
   homeBtn.innerHTML = chrome.i18n.getMessage('c_loadmore');
   waitForElm('[role="main"][page-subtype="home"] ytd-rich-grid-renderer').then(function(elm) {
-    if (homeGrid !== null) {
-      homeGrid.appendChild(homeBtn);
+    if (elm !== null) {
+      elm.appendChild(homeBtn);
       for(const next of document.body.querySelectorAll('.ytcp-load-more-button')) {
         if(next.nextElementSibling) {
           next.nextElementSibling.remove();
@@ -166,6 +184,12 @@ function homeScroll() {
           document.querySelector('[page-subtype="home"] #contents.ytd-rich-grid-renderer ytd-continuation-item-renderer').style.visibility = 'hidden';
         });
       }
+      function removeButton() {
+        if (document.querySelector('[page-subtype="home"] #contents.ytd-rich-grid-renderer ytd-continuation-item-renderer') === null) {
+          homeButton.remove();
+        }
+      }
+      onRemove(document.querySelector('[page-subtype="home"] #contents.ytd-rich-grid-renderer ytd-continuation-item-renderer'), () => removeButton());
     };
   });
 }
