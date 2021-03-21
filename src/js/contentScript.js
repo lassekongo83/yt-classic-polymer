@@ -204,13 +204,6 @@ function restoreScrollbar() {
 
 // Options to replace infinite scrolling with a "Load more" button on selected elements
 function homeScroll() {
-  // stop infinite scrolling by hiding the element
-  waitForElm('[role="main"][page-subtype="home"] ytd-continuation-item-renderer').then(function(elm) {
-    elm.style.visibility = 'hidden';
-    elm.style.height = '1px';
-    document.querySelector('[role="main"][page-subtype="home"] ytd-continuation-item-renderer #ghost-cards').style.display = 'none';
-  });
-
   const homeBtn = document.createElement('button');
   homeBtn.classList.add("ytcp-load-more-button");
   homeBtn.innerHTML = chrome.i18n.getMessage('c_loadmore');
@@ -244,14 +237,17 @@ function homeScroll() {
         });
       }
       // Remove the button when no more results are available
-      function removeButton() {
+      function removeHomeScrollButton() {
         if (document.querySelector('[page-subtype="home"] #contents.ytd-rich-grid-renderer ytd-continuation-item-renderer') === null) {
           homeButton.remove();
         }
       }
-      onRemove(document.querySelector('[page-subtype="home"] #contents.ytd-rich-grid-renderer ytd-continuation-item-renderer'), () => removeButton());
+      onRemove(document.querySelector('[page-subtype="home"] #contents.ytd-rich-grid-renderer ytd-continuation-item-renderer'), () => removeHomeScrollButton());
     };
   });
+}
+function stopHomeScroll() { // CSS to always block the infinite scrolling and getting rid of the "ghost-cards"
+  addStyle(`[page-subtype="home"] #contents.ytd-rich-grid-renderer ytd-continuation-item-renderer{height:1px; visibility:hidden;} [page-subtype="home"] ytd-continuation-item-renderer #ghost-cards{display:none;}`);
 }
 
 // Channel videos
@@ -381,6 +377,7 @@ chrome.storage.sync.get({
     makeRoom();
   }
   if (true === settings.settingsHomeScroll) {
+    stopHomeScroll();
     homeScroll();
     window.addEventListener('yt-navigate-finish', homeScroll, { passive: true });
   }
