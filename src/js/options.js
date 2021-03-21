@@ -8,6 +8,7 @@ function save_options() {
   const settingsListDisplay = document.getElementById('options-list-display').checked;
   const settingsOldNavBar = document.getElementById('options-navbar').checked;
   const settingsHomeScroll = document.getElementById('options-homescroll').checked;
+  const settingsChannelScroll = document.getElementById('options-channelscroll').checked;
   chrome.storage.sync.set({
     settingsRestoreScroll: settingsRestoreScroll,
     settingsGuideMenu: settingsGuideMenu,
@@ -16,7 +17,8 @@ function save_options() {
     settingsOldLogo: settingsOldLogo,
     settingsListDisplay: settingsListDisplay,
     settingsOldNavBar: settingsOldNavBar,
-    settingsHomeScroll: settingsHomeScroll
+    settingsHomeScroll: settingsHomeScroll,
+    settingsChannelScroll: settingsChannelScroll
   });
 }
 
@@ -30,7 +32,8 @@ function restore_options() {
     settingsOldLogo: false,
     settingsListDisplay: false,
     settingsOldNavBar: false,
-    settingsHomeScroll: false
+    settingsHomeScroll: false,
+    settingsChannelScroll: false
   }, function(items) {
     document.getElementById('options-scrollbar').checked = items.settingsRestoreScroll;
     document.getElementById('options-guide-menu').checked = items.settingsGuideMenu;
@@ -40,6 +43,7 @@ function restore_options() {
     document.getElementById('options-list-display').checked = items.settingsListDisplay;
     document.getElementById('options-navbar').checked = items.settingsOldNavBar;
     document.getElementById('options-homescroll').checked = items.settingsHomeScroll;
+    document.getElementById('options-channelscroll').checked = items.settingsChannelScroll;
   });
 }
 
@@ -53,4 +57,5 @@ document.addEventListener('DOMContentLoaded', function () {
   document.getElementById("options-list-display").addEventListener('click', save_options);
   document.getElementById("options-navbar").addEventListener('click', save_options);
   document.getElementById("options-homescroll").addEventListener('click', save_options);
+  document.getElementById('options-channelscroll').addEventListener('click', save_options);
 });

@@ -49,7 +49,11 @@
   },
   "ext_homescroll": {
     "message": "Ersätt oändlig scroll med en ladda mer-knapp på rekommenderade videor",
-    "description": "The option to use replace inifite scrolling with a load more button on the home recommendations grid"
+    "description": "The option to replace inifite scrolling with a load more button on the home recommendations grid"
+  },
+  "ext_channelscroll": {
+    "message": "Ersätt oändlig scroll med en ladda mer-knapp på kanalvideor och spellistor",
+    "description": "The option to replace inifite scrolling with a load more button on the channel videos grid"
   },
   "c_home": {
     "message": "Hem",

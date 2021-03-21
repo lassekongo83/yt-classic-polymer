@@ -251,17 +251,14 @@ function stopHomeScroll() { // CSS to always block the infinite scrolling and ge
 }
 
 // Channel videos
-/*function channelScroll() {
-  waitForElm('[role="main"][page-subtype="channels"] ytd-continuation-item-renderer').then(
-    elm => elm.style.visibility = 'hidden'
-  );
-
+function channelScroll() {
   const channelGrid = document.querySelector('[role="main"][page-subtype="channels"] #contents.ytd-section-list-renderer');
   const channelBtn = document.createElement('button');
   channelBtn.classList.add("ytcp-load-more-button");
   channelBtn.innerHTML = chrome.i18n.getMessage('c_loadmore');
-  waitForElm('[role="main"][page-subtype="channels"] #items.ytd-grid-renderer').then(function(elm) {
+  waitForElm('[role="main"][page-subtype="channels"] #items.ytd-grid-renderer ytd-continuation-item-renderer').then(function(elm) {
     if (channelGrid !== null) {
+      // FIXME: Button not available if user clicks twice on "videos" tab
       channelGrid.appendChild(channelBtn);
       for(const next of document.body.querySelectorAll('.ytcp-load-more-button')) {
         if(next.nextElementSibling) {
@@ -280,18 +277,24 @@ function stopHomeScroll() { // CSS to always block the infinite scrolling and ge
       if (channelRichGrid !== null) {
         channelRichGrid.append(channelCont);
       }
-      // FIXME: Element is still null on some pages
-      if (document.querySelector('[page-subtype="channels"] #items.ytd-grid-renderer ytd-continuation-item-renderer') !== null) {
-        document.querySelector('[page-subtype="channels"] #items.ytd-grid-renderer ytd-continuation-item-renderer').style.visibility = 'visible';
+      if (document.querySelector('[role="main"][page-subtype="channels"] #items.ytd-grid-renderer ytd-continuation-item-renderer') !== null) {
+        channelCont.style.visibility = 'visible';
         window.addEventListener('scroll', function() {
           document.querySelector('[page-subtype="channels"] #items.ytd-grid-renderer ytd-continuation-item-renderer').style.visibility = 'hidden';
         });
       }
+      function removeChannelScrollButton() {
+        if (document.querySelector('[page-subtype="channels"] #items.ytd-grid-renderer ytd-continuation-item-renderer') === null) {
+          channelButton.remove();
+        }
+      }
+      onRemove(document.querySelector('[page-subtype="channels"] #items.ytd-grid-renderer ytd-continuation-item-renderer'), () => removeChannelScrollButton());
     };
   });
 }
-channelScroll();
-window.addEventListener('yt-navigate-finish', channelScroll, { passive: true });*/
+function stopChannelScroll() {
+  addStyle(`[page-subtype="channels"] #items.ytd-grid-renderer ytd-continuation-item-renderer{height:1px; visibility:hidden;} [page-subtype="channels"] ytd-continuation-item-renderer #ghost-cards{display:none;}`);
+}
 
 // Option to replace it on the related videos section
 /*function relatedScroll() {
@@ -351,7 +354,8 @@ chrome.storage.sync.get({
   settingsOldLogo: false,
   settingsListDisplay: false,
   settingsOldNavBar: false,
-  settingsHomeScroll: false
+  settingsHomeScroll: false,
+  settingsChannelScroll: false
 }, function (settings) {
   if (true === settings.settingsRestoreScroll) {
     restoreScrollbar();
@@ -380,5 +384,10 @@ chrome.storage.sync.get({
     stopHomeScroll();
     homeScroll();
     window.addEventListener('yt-navigate-finish', homeScroll, { passive: true });
+  }
+  if (true === settings.settingsChannelScroll) {
+    stopChannelScroll();
+    channelScroll();
+    window.addEventListener('yt-navigate-finish', channelScroll, { passive: true });
   }
 });
