@@ -1,6 +1,5 @@
 // Saves options to extensionApi.storage
 function save_options() {
-  const settingsRestoreScroll = document.getElementById('options-scrollbar').checked;
   const settingsGuideMenu = document.getElementById('options-guide-menu').checked;
   const settingsDisableMP = document.getElementById('options-disable-mp').checked;
   const settingsDisableAnim = document.getElementById('options-disable-anim').checked;
@@ -10,7 +9,6 @@ function save_options() {
   const settingsHomeScroll = document.getElementById('options-homescroll').checked;
   const settingsChannelScroll = document.getElementById('options-channelscroll').checked;
   chrome.storage.sync.set({
-    settingsRestoreScroll: settingsRestoreScroll,
     settingsGuideMenu: settingsGuideMenu,
     settingsDisableMP: settingsDisableMP,
     settingsDisableAnim: settingsDisableAnim,
@@ -25,7 +23,6 @@ function save_options() {
 // Restores select box and checkbox state using the preferences
 function restore_options() {
   chrome.storage.sync.get({
-    settingsRestoreScroll: true,
     settingsGuideMenu: true,
     settingsDisableMP: true,
     settingsDisableAnim: true,
@@ -35,7 +32,6 @@ function restore_options() {
     settingsHomeScroll: false,
     settingsChannelScroll: false
   }, function(items) {
-    document.getElementById('options-scrollbar').checked = items.settingsRestoreScroll;
     document.getElementById('options-guide-menu').checked = items.settingsGuideMenu;
     document.getElementById('options-disable-mp').checked = items.settingsDisableMP;
     document.getElementById('options-disable-anim').checked = items.settingsDisableAnim;
@@ -49,7 +45,6 @@ function restore_options() {
 
 document.addEventListener('DOMContentLoaded', function () {
   restore_options();
-  document.getElementById("options-scrollbar").addEventListener('click', save_options);
   document.getElementById("options-guide-menu").addEventListener('click', save_options);
   document.getElementById("options-disable-mp").addEventListener('click', save_options);
   document.getElementById("options-disable-anim").addEventListener('click', save_options);

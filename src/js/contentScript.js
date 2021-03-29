@@ -191,17 +191,6 @@ function makeRoom() {
   addStyle(`[page-subtype="home"] ytd-two-column-browse-results-renderer,[page-subtype="trending"] ytd-two-column-browse-results-renderer,[page-subtype="subscriptions"] ytd-two-column-browse-results-renderer{margin-top:60px!important;}`);
 }
 
-// Option to restore browser default scrollbar
-function restoreScrollbar() {
-  document.body.removeAttribute('themed-scrollbar');
-  // For Firefox
-  document.querySelector('html').removeAttribute('themed-scrollbar');
-  Element.prototype.removeAttributes = function(...attrs) {
-    attrs.forEach(attr => this.removeAttribute(attr));
-  }
-  document.querySelector('ytd-app').removeAttributes('scrollbar-rework', 'scrollbar-color');
-}
-
 // Options to replace infinite scrolling with a "Load more" button on selected elements
 function homeScroll() {
   const homeBtn = document.createElement('button');
@@ -347,7 +336,6 @@ function stopChannelScroll() {
 
 // Apply settings
 chrome.storage.sync.get({
-  settingsRestoreScroll: true,
   settingsDisableMP: true,
   settingsGuideMenu: true,
   settingsDisableAnim: true,
@@ -357,9 +345,6 @@ chrome.storage.sync.get({
   settingsHomeScroll: false,
   settingsChannelScroll: false
 }, function (settings) {
-  if (true === settings.settingsRestoreScroll) {
-    restoreScrollbar();
-  }
   if (true === settings.settingsDisableMP) {
     disableMP();
   }
