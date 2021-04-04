@@ -8,6 +8,7 @@ function save_options() {
   const settingsOldNavBar = document.getElementById('options-navbar').checked;
   const settingsHomeScroll = document.getElementById('options-homescroll').checked;
   const settingsChannelScroll = document.getElementById('options-channelscroll').checked;
+  const settingsFullScreenScroll = document.getElementById('options-fs-scroll').checked;
   chrome.storage.sync.set({
     settingsGuideMenu: settingsGuideMenu,
     settingsDisableMP: settingsDisableMP,
@@ -16,7 +17,8 @@ function save_options() {
     settingsListDisplay: settingsListDisplay,
     settingsOldNavBar: settingsOldNavBar,
     settingsHomeScroll: settingsHomeScroll,
-    settingsChannelScroll: settingsChannelScroll
+    settingsChannelScroll: settingsChannelScroll,
+    settingsFullScreenScroll: settingsFullScreenScroll
   });
 }
 
@@ -30,7 +32,8 @@ function restore_options() {
     settingsListDisplay: false,
     settingsOldNavBar: false,
     settingsHomeScroll: false,
-    settingsChannelScroll: false
+    settingsChannelScroll: false,
+    settingsFullScreenScroll: false
   }, function(items) {
     document.getElementById('options-guide-menu').checked = items.settingsGuideMenu;
     document.getElementById('options-disable-mp').checked = items.settingsDisableMP;
@@ -40,6 +43,7 @@ function restore_options() {
     document.getElementById('options-navbar').checked = items.settingsOldNavBar;
     document.getElementById('options-homescroll').checked = items.settingsHomeScroll;
     document.getElementById('options-channelscroll').checked = items.settingsChannelScroll;
+    document.getElementById('options-fs-scroll').checked = items.settingsFullScreenScroll;
   });
 }
 
@@ -53,4 +57,5 @@ document.addEventListener('DOMContentLoaded', function () {
   document.getElementById("options-navbar").addEventListener('click', save_options);
   document.getElementById("options-homescroll").addEventListener('click', save_options);
   document.getElementById('options-channelscroll').addEventListener('click', save_options);
+  document.getElementById('options-fs-scroll').addEventListener('click', save_options);
 });

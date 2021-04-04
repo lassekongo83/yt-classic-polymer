@@ -51,6 +51,10 @@
     "message": "Ersätt oändlig scroll med en ladda mer-knapp på kanalvideor och spellistor",
     "description": "The option to replace inifite scrolling with a load more button on the channel videos grid"
   },
+  "ext_fsscroll": {
+    "message": "Inaktivera rullning på helskärmsvideor",
+    "description": "The option to disable scrolling on full screen videos"
+  },
   "c_home": {
     "message": "Hem",
     "description": "The home link on the nav bar menu"

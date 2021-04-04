@@ -334,6 +334,17 @@ function stopChannelScroll() {
 }
 //relatedScroll();*/
 
+// Disable scrolling on fullscreen videos
+function fullScreenScroll() {
+  document.addEventListener('wheel', (e) => {
+    if (document.body.classList.contains('no-scroll')) {
+      e.preventDefault();
+    }
+  }, { passive: false });
+
+  addStyle(`.ytp-fullerscreen-edu-button {display:none!important;}`);
+}
+
 // Apply settings
 chrome.storage.sync.get({
   settingsDisableMP: true,
@@ -343,7 +354,8 @@ chrome.storage.sync.get({
   settingsListDisplay: false,
   settingsOldNavBar: false,
   settingsHomeScroll: false,
-  settingsChannelScroll: false
+  settingsChannelScroll: false,
+  settingsFullScreenScroll: false
 }, function (settings) {
   if (true === settings.settingsDisableMP) {
     disableMP();
@@ -374,5 +386,8 @@ chrome.storage.sync.get({
     stopChannelScroll();
     channelScroll();
     window.addEventListener('yt-navigate-finish', channelScroll, { passive: true });
+  }
+  if (true === settings.settingsFullScreenScroll) {
+    fullScreenScroll();
   }
 });
