@@ -43,9 +43,9 @@
     "message": "Display the old horizontal navigation bar",
     "description": "The option to display the old horizontal navigation bar"
   },
-  "ext_homescroll": {
-    "message": "Replace infinite scrolling with a load more button on the recommended videos section",
-    "description": "The option to replace inifite scrolling with a load more button on the home recommendations grid"
+  "ext_scrollbar": {
+    "message": "Use the browser's default scrollbar",
+    "description": "The option to use the browser's default scrollbar"
   },
   "ext_channelscroll": {
     "message": "Replace infinite scrolling with a load more button on channel videos and playlists",

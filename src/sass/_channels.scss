@@ -142,3 +142,19 @@ ytd-browse[page-subtype~="channels"] #contents.ytd-shelf-renderer,
 ytd-browse[page-subtype~="channels"] .grid-subheader.ytd-shelf-renderer {
   margin-top: 15px !important;
 }
+
+// Channel avatar
+#avatar.ytd-c4-tabbed-header-renderer {
+  border-radius: 0 !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 15px !important;
+  margin: 0 !important;
+  width: 100px !important;
+  height: 100px !important;
+  
+  img.yt-img-shadow {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
