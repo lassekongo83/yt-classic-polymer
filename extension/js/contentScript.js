@@ -225,7 +225,24 @@ function channelScroll() {
 function stopChannelScroll() {
   addStyle(`[page-subtype="channels"] #items.ytd-grid-renderer ytd-continuation-item-renderer{height:1px; visibility:hidden;} [page-subtype="channels"] ytd-continuation-item-renderer #ghost-cards{display:none;}`);
 }
+function fullScreenScroll() {
+  document.addEventListener('wheel', (e) => {
+    if (document.body.classList.contains('no-scroll')) {
+      e.preventDefault();
+    }
+  }, { passive: false });
+  addStyle(`.ytp-fullerscreen-edu-button {display:none!important;}`);
+}
+function restoreScrollbar() {
+  document.body.removeAttribute('standardized-themed-scrollbar');
+  document.querySelector('html').removeAttribute('standardized-themed-scrollbar');
+  Element.prototype.removeAttributes = function(...attrs) {
+    attrs.forEach(attr => this.removeAttribute(attr));
+  }
+  document.querySelector('ytd-app').removeAttributes('scrollbar-rework', 'standardized-themed-scrollbar');
+}
 chrome.storage.sync.get({
+  settingsRestoreScroll: true,
   settingsDisableMP: true,
   settingsGuideMenu: true,
   settingsDisableAnim: true,
@@ -233,8 +250,12 @@ chrome.storage.sync.get({
   settingsListDisplay: false,
   settingsOldNavBar: false,
   settingsHomeScroll: false,
-  settingsChannelScroll: false
+  settingsChannelScroll: false,
+  settingsFullScreenScroll: false
 }, function (settings) {
+  if (true === settings.settingsRestoreScroll) {
+    restoreScrollbar();
+  }
   if (true === settings.settingsDisableMP) {
     disableMP();
   }
@@ -264,5 +285,8 @@ chrome.storage.sync.get({
     stopChannelScroll();
     channelScroll();
     window.addEventListener('yt-navigate-finish', channelScroll, { passive: true });
+  }
+  if (true === settings.settingsFullScreenScroll) {
+    fullScreenScroll();
   }
 });

@@ -1,4 +1,5 @@
 function save_options() {
+  const settingsRestoreScroll = document.getElementById('options-scrollbar').checked;
   const settingsGuideMenu = document.getElementById('options-guide-menu').checked;
   const settingsDisableMP = document.getElementById('options-disable-mp').checked;
   const settingsDisableAnim = document.getElementById('options-disable-anim').checked;
@@ -7,7 +8,9 @@ function save_options() {
   const settingsOldNavBar = document.getElementById('options-navbar').checked;
   const settingsHomeScroll = document.getElementById('options-homescroll').checked;
   const settingsChannelScroll = document.getElementById('options-channelscroll').checked;
+  const settingsFullScreenScroll = document.getElementById('options-fs-scroll').checked;
   chrome.storage.sync.set({
+    settingsRestoreScroll: settingsRestoreScroll,
     settingsGuideMenu: settingsGuideMenu,
     settingsDisableMP: settingsDisableMP,
     settingsDisableAnim: settingsDisableAnim,
@@ -15,11 +18,13 @@ function save_options() {
     settingsListDisplay: settingsListDisplay,
     settingsOldNavBar: settingsOldNavBar,
     settingsHomeScroll: settingsHomeScroll,
-    settingsChannelScroll: settingsChannelScroll
+    settingsChannelScroll: settingsChannelScroll,
+    settingsFullScreenScroll: settingsFullScreenScroll
   });
 }
 function restore_options() {
   chrome.storage.sync.get({
+    settingsRestoreScroll: true,
     settingsGuideMenu: true,
     settingsDisableMP: true,
     settingsDisableAnim: true,
@@ -27,8 +32,10 @@ function restore_options() {
     settingsListDisplay: false,
     settingsOldNavBar: false,
     settingsHomeScroll: false,
-    settingsChannelScroll: false
+    settingsChannelScroll: false,
+    settingsFullScreenScroll: false
   }, function(items) {
+    document.getElementById('options-scrollbar').checked = items.settingsRestoreScroll;
     document.getElementById('options-guide-menu').checked = items.settingsGuideMenu;
     document.getElementById('options-disable-mp').checked = items.settingsDisableMP;
     document.getElementById('options-disable-anim').checked = items.settingsDisableAnim;
@@ -37,10 +44,12 @@ function restore_options() {
     document.getElementById('options-navbar').checked = items.settingsOldNavBar;
     document.getElementById('options-homescroll').checked = items.settingsHomeScroll;
     document.getElementById('options-channelscroll').checked = items.settingsChannelScroll;
+    document.getElementById('options-fs-scroll').checked = items.settingsFullScreenScroll;
   });
 }
 document.addEventListener('DOMContentLoaded', function () {
   restore_options();
+  document.getElementById("options-scrollbar").addEventListener('click', save_options);
   document.getElementById("options-guide-menu").addEventListener('click', save_options);
   document.getElementById("options-disable-mp").addEventListener('click', save_options);
   document.getElementById("options-disable-anim").addEventListener('click', save_options);
@@ -49,4 +58,5 @@ document.addEventListener('DOMContentLoaded', function () {
   document.getElementById("options-navbar").addEventListener('click', save_options);
   document.getElementById("options-homescroll").addEventListener('click', save_options);
   document.getElementById('options-channelscroll').addEventListener('click', save_options);
+  document.getElementById('options-fs-scroll').addEventListener('click', save_options);
 });
