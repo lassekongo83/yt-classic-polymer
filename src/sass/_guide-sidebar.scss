@@ -59,10 +59,10 @@ tp-yt-app-drawer, #contentContainer.tp-yt-app-drawer {
 #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer {
   min-height: 40px !important;
 }
-paper-item.ytd-guide-entry-renderer {
+tp-yt-paper-item.ytd-guide-entry-renderer {
   height: 28px !important;
 }
-#endpoint.yt-simple-endpoint.ytd-guide-entry-renderer, #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer > paper-item {
+#endpoint.yt-simple-endpoint.ytd-guide-entry-renderer, #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer > tp-yt-paper-item {
   min-height: 28px !important;
 }
 .guide-icon.ytd-guide-entry-renderer {
@@ -84,7 +84,7 @@ paper-item.ytd-guide-entry-renderer {
   padding: 1px 0 8px !important;
   margin: 0 5px !important;
 }
-paper-item.ytd-guide-entry-renderer {
+tp-yt-paper-item.ytd-guide-entry-renderer {
   padding: 0 8px 0 8px !important;
 }
 ytd-app[mini-guide-visible_] ytd-page-manager.ytd-app {

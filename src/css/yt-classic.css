@@ -228,9 +228,9 @@ tp-yt-app-drawer, #contentContainer.tp-yt-app-drawer { transition-duration: none
 
 #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer { min-height: 40px !important; }
 
-paper-item.ytd-guide-entry-renderer { height: 28px !important; }
+tp-yt-paper-item.ytd-guide-entry-renderer { height: 28px !important; }
 
-#endpoint.yt-simple-endpoint.ytd-guide-entry-renderer, #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer > paper-item { min-height: 28px !important; }
+#endpoint.yt-simple-endpoint.ytd-guide-entry-renderer, #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer > tp-yt-paper-item { min-height: 28px !important; }
 
 .guide-icon.ytd-guide-entry-renderer { --iron-icon-height: 20px !important; --iron-icon-width: 20px !important; }
 
@@ -242,7 +242,7 @@ paper-item.ytd-guide-entry-renderer { height: 28px !important; }
 
 #guide-section-title.ytd-guide-section-renderer { padding: 1px 0 8px !important; margin: 0 5px !important; }
 
-paper-item.ytd-guide-entry-renderer { padding: 0 8px 0 8px !important; }
+tp-yt-paper-item.ytd-guide-entry-renderer { padding: 0 8px 0 8px !important; }
 
 ytd-app[mini-guide-visible_] ytd-page-manager.ytd-app { margin-left: 0 !important; }
 
