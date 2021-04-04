@@ -345,8 +345,20 @@ function fullScreenScroll() {
   addStyle(`.ytp-fullerscreen-edu-button {display:none!important;}`);
 }
 
+// Option to restore browser default scrollbar
+function restoreScrollbar() {
+  document.body.removeAttribute('standardized-themed-scrollbar');
+  // For Firefox
+  document.querySelector('html').removeAttribute('standardized-themed-scrollbar');
+  Element.prototype.removeAttributes = function(...attrs) {
+    attrs.forEach(attr => this.removeAttribute(attr));
+  }
+  document.querySelector('ytd-app').removeAttributes('scrollbar-rework', 'standardized-themed-scrollbar');
+}
+
 // Apply settings
 chrome.storage.sync.get({
+  settingsRestoreScroll: true,
   settingsDisableMP: true,
   settingsGuideMenu: true,
   settingsDisableAnim: true,
@@ -357,6 +369,9 @@ chrome.storage.sync.get({
   settingsChannelScroll: false,
   settingsFullScreenScroll: false
 }, function (settings) {
+  if (true === settings.settingsRestoreScroll) {
+    restoreScrollbar();
+  }
   if (true === settings.settingsDisableMP) {
     disableMP();
   }
