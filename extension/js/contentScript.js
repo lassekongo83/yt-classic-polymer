@@ -38,11 +38,11 @@ function addStyle(styleString) {
   style.textContent = styleString;
   document.head.append(style);
 }
+function clickButton(selector){
+  let elm = document.querySelectorAll(selector)[0];
+  if (elm){ elm.click(); }
+}
 function disableMP() {
-  function clickButton(selector){
-    let elm = document.querySelectorAll(selector)[0];
-    if (elm){ elm.click(); }
-  }
   document.addEventListener('transitionend', function(e) {
     if (document.getElementById('progress') !== null) {
       if (e.target.id === 'progress') {
@@ -140,7 +140,7 @@ function navBarNavigation() {
   });
 }
 function makeRoom() {
-  addStyle(`[page-subtype="home"] ytd-two-column-browse-results-renderer,[page-subtype="trending"] ytd-two-column-browse-results-renderer,[page-subtype="subscriptions"] ytd-two-column-browse-results-renderer{margin-top:60px!important;}`);
+  addStyle(`[page-subtype="home"] ytd-two-column-browse-results-renderer,[page-subtype="trending"] ytd-two-column-browse-results-renderer,[page-subtype="subscriptions"] ytd-two-column-browse-results-renderer{margin-top:60px!important;} [page-subtype="trending"] tp-yt-app-header{top:60px!important;}`);
 }
 function homeScroll() {
   const homeBtn = document.createElement('button');
@@ -241,11 +241,19 @@ function restoreScrollbar() {
   }
   document.querySelector('ytd-app').removeAttributes('scrollbar-rework', 'standardized-themed-scrollbar');
 }
+function channelAutoplay() {
+  waitForElm('[role="main"][page-subtype="channels"] ytd-channel-video-player-renderer video').then(function(elm) {
+    if (elm !== null) {
+      elm.addEventListener('loadstart', (e) => e.target.pause(), { passive: true });
+    }
+  });
+}
 chrome.storage.sync.get({
   settingsRestoreScroll: true,
   settingsDisableMP: true,
   settingsGuideMenu: true,
   settingsDisableAnim: true,
+  settingsChannelAutoplay: true,
   settingsOldLogo: false,
   settingsListDisplay: false,
   settingsOldNavBar: false,
@@ -264,6 +272,9 @@ chrome.storage.sync.get({
   }
   if (true === settings.settingsDisableAnim) {
     disablePreview();
+  }
+  if (true === settings.settingsChannelAutoplay) {
+    channelAutoplay();
   }
   if (true === settings.settingsOldLogo) {
     logotype();

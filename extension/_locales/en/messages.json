@@ -59,6 +59,10 @@
     "message": "Disable scrolling on full screen videos",
     "description": "The option to disable scrolling on full screen videos"
   },
+  "ext_channelplay": {
+    "message": "Disable channel trailer autoplay",
+    "description": "The option to disable channel trailers from autoplaying"
+  },
   "c_home": {
     "message": "Home",
     "description": "The home link on the nav bar menu"
