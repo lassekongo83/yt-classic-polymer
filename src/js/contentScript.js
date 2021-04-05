@@ -193,7 +193,7 @@ function navBarNavigation() {
 }
 // make room for the nav menu
 function makeRoom() {
-  addStyle(`[page-subtype="home"] ytd-two-column-browse-results-renderer,[page-subtype="trending"] ytd-two-column-browse-results-renderer,[page-subtype="subscriptions"] ytd-two-column-browse-results-renderer{margin-top:60px!important;}`);
+  addStyle(`[page-subtype="home"] ytd-two-column-browse-results-renderer,[page-subtype="trending"] ytd-two-column-browse-results-renderer,[page-subtype="subscriptions"] ytd-two-column-browse-results-renderer{margin-top:60px!important;} [page-subtype="trending"] tp-yt-app-header{top:60px!important;}`);
 }
 
 // Options to replace infinite scrolling with a "Load more" button on selected elements
