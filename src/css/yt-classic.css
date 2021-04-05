@@ -310,7 +310,7 @@ html[dark] ytd-comment-action-buttons-renderer:not([use-comment-icon]) #reply-bu
 
 body[style="overflow: hidden;"] { overflow-y: auto !important; }
 
-#avatar-link.ytd-rich-grid-video-renderer, ytd-mini-guide-renderer.ytd-app, paper-ripple, ytd-compact-promoted-item-renderer, #selectionBar.paper-tabs, #avatar-link.ytd-rich-grid-media, [id*="skeleton"], .not-visible.paper-tabs, #masthead-ad, #offer-module, ytd-compact-movie-renderer.ytd-watch-next-secondary-results-renderer { display: none !important; }
+#avatar-link.ytd-rich-grid-video-renderer, ytd-mini-guide-renderer.ytd-app, paper-ripple, ytd-compact-promoted-item-renderer, #selectionBar.paper-tabs, [page-subtype="trending"] #avatar.ytd-c4-tabbed-header-renderer, #avatar-link.ytd-rich-grid-media, [id*="skeleton"], .not-visible.paper-tabs, #masthead-ad, #offer-module, ytd-compact-movie-renderer.ytd-watch-next-secondary-results-renderer { display: none !important; }
 
 #details.ytd-rich-grid-video-renderer { cursor: auto !important; pointer-events: none !important; }
 

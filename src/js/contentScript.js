@@ -1,5 +1,7 @@
 'use strict';
 
+// -- GLOBAL FUNCTIONS -- //
+
 // Wait for element helper
 // https://stackoverflow.com/a/61511955
 function waitForElm(selector) {
@@ -51,13 +53,16 @@ function addStyle(styleString) {
   document.head.append(style);
 }
 
+// Click something
+function clickButton(selector){
+  let elm = document.querySelectorAll(selector)[0];
+  if (elm){ elm.click(); }
+}
+
+// -- OPTIONS -- //
+
 // Disable miniplayer
 function disableMP() {
-  function clickButton(selector){
-    let elm = document.querySelectorAll(selector)[0];
-    if (elm){ elm.click(); }
-  }
-
   // autoclick the close button on the miniplayer when the progressbar is finished
   // yt-navigate-finish would be better, but it seems to be too fast
   document.addEventListener('transitionend', function(e) {
@@ -356,12 +361,22 @@ function restoreScrollbar() {
   document.querySelector('ytd-app').removeAttributes('scrollbar-rework', 'standardized-themed-scrollbar');
 }
 
+// Option to autopause the channel trailer
+function channelAutoplay() {
+  waitForElm('[role="main"][page-subtype="channels"] ytd-channel-video-player-renderer video').then(function(elm) {
+    if (elm !== null) {
+      elm.addEventListener('loadstart', (e) => e.target.pause(), { passive: true });
+    }
+  });
+}
+
 // Apply settings
 chrome.storage.sync.get({
   settingsRestoreScroll: true,
   settingsDisableMP: true,
   settingsGuideMenu: true,
   settingsDisableAnim: true,
+  settingsChannelAutoplay: true,
   settingsOldLogo: false,
   settingsListDisplay: false,
   settingsOldNavBar: false,
@@ -380,6 +395,9 @@ chrome.storage.sync.get({
   }
   if (true === settings.settingsDisableAnim) {
     disablePreview();
+  }
+  if (true === settings.settingsChannelAutoplay) {
+    channelAutoplay();
   }
   if (true === settings.settingsOldLogo) {
     logotype();

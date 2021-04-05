@@ -59,6 +59,10 @@
     "message": "Inaktivera rullning på helskärmsvideor",
     "description": "The option to disable scrolling on full screen videos"
   },
+  "ext_channelplay": {
+    "message": "Inaktivera autoplay för kanaltrailer",
+    "description": "The option to disable channel trailers from autoplaying"
+  },
   "c_home": {
     "message": "Hem",
     "description": "The home link on the nav bar menu"
