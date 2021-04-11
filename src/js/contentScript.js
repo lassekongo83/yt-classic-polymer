@@ -370,6 +370,15 @@ function channelAutoplay() {
   });
 }
 
+// Option to autopause videos to prevent autoplay
+function preventAutoplay() {
+  if (window.location.href.indexOf("/watch?") > -1) {
+    waitForElm('ytd-watch-flexy[role="main"] .html5-main-video').then(function(elm) {
+      document.querySelectorAll('.html5-main-video').forEach(vid => vid.pause());
+    });
+  }
+}
+
 // Apply settings
 chrome.storage.sync.get({
   settingsRestoreScroll: true,
@@ -377,6 +386,7 @@ chrome.storage.sync.get({
   settingsGuideMenu: true,
   settingsDisableAnim: true,
   settingsChannelAutoplay: true,
+  settingsPreventAutoplay: false,
   settingsOldLogo: false,
   settingsListDisplay: false,
   settingsOldNavBar: false,
@@ -397,6 +407,10 @@ chrome.storage.sync.get({
   }
   if (true === settings.settingsDisableAnim) {
     disablePreview();
+  }
+  if (true === settings.settingsPreventAutoplay) {
+    preventAutoplay();
+    document.querySelector('ytd-app').addEventListener('yt-visibility-refresh', preventAutoplay);
   }
   if (true === settings.settingsChannelAutoplay) {
     channelAutoplay();

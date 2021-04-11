@@ -63,6 +63,10 @@
     "message": "Disable channel trailer autoplay",
     "description": "The option to disable channel trailers from autoplaying"
   },
+  "ext_videoplay": {
+    "message": "Auto-pause videos to prevent autoplay",
+    "description": "The option to disable videos from autoplaying"
+  },
   "c_home": {
     "message": "Home",
     "description": "The home link on the nav bar menu"

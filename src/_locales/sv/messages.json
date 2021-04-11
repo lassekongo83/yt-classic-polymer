@@ -63,6 +63,10 @@
     "message": "Inaktivera autoplay för kanaltrailer",
     "description": "The option to disable channel trailers from autoplaying"
   },
+  "ext_videoplay": {
+    "message": "Pausa videor automatiskt för att förhindra automatisk uppspelning",
+    "description": "The option to disable videos from autoplaying"
+  },
   "c_home": {
     "message": "Hem",
     "description": "The home link on the nav bar menu"
