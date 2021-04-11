@@ -3,82 +3,82 @@
 <head>
   <title>Youtube Classic Polymer Options</title>
   <meta charset="utf-8">
-  <style type="text/css">
-    body {
-      padding:8px;
-      min-width:350px;
-      font-family:Arial,Helvetica,sans-serif;
-      font-size:14px;
-    }
-    ::selection { background: transparent; }
-    label:after {
-      content: "";
-      display: block;
-    }
-  </style>
+  <link rel="stylesheet" href="../css/options.css">
 </head>
 <body>
-  <label>
-    <input type="checkbox" id="options-scrollbar">
-    <span data-locale="ext_scrollbar">Use browser default scrollbar</span>
-  </label>
 
-  <label>
-    <input type="checkbox" id="options-disable-mp">
-    <span data-locale="ext_disablemp">Auto-close miniplayer</span>
-  </label>
+  <div id="logo"></div>
 
-  <label>
-    <input type="checkbox" id="options-guide-menu">
-    <span data-locale="ext_collapse">Collapse guide menu by default</span>
-  </label>
+  <div class="note">
+    <p data-locale="ext_refresh">Note: Refresh any open YouTube tabs for the settings to take effect.</p>
+  </div>
 
-  <label>
-    <input type="checkbox" id="options-disable-anim">
-    <span data-locale="ext_livepreviews">Disable live thumbnail previews</span>
-  </label>
+  <form class="form">
 
-  <label>
-    <input type="checkbox" id="options-channel-autoplay">
-    <span data-locale="ext_channelplay">Disable channel trailer autoplay</span>
-  </label>
+    <h1 data-locale="ext_title_general_options">General options</h1>
+    <div class="inputGroup">
+      <input type="checkbox" id="options-guide-menu" name="options-guide-menu">
+      <label data-locale="ext_collapse">Collapse guide menu by default</label>
+    </div>
 
-  <label>
-    <input type="checkbox" id="options-video-autoplay">
-    <span data-locale="ext_videoplay">Auto-pause videos to prevent autoplay</span>
-  </label>
+    <div class="inputGroup">
+      <input type="checkbox" id="options-disable-anim" name="options-disable-anim">
+      <label for="options-disable-anim" data-locale="ext_livepreviews">Disable live thumbnail previews</label>
+    </div>
 
-  <label>
-    <input type="checkbox" id="options-old-logo">
-    <span data-locale="ext_oldlogo">Use the YouTube logo from 2015</span>
-  </label>
+    <div class="inputGroup">
+      <input type="checkbox" id="options-old-logo" name="options-old-logo">
+      <label for="options-old-logo" data-locale="ext_oldlogo">Use the YouTube logo from 2015</label>
+    </div>
 
-  <label>
-    <input type="checkbox" id="options-list-display">
-    <span data-locale="ext_listdisplay">Display channel videos as a list</span>
-  </label>
+    <div class="inputGroup">
+      <input type="checkbox" id="options-navbar" name="options-navbar">
+      <label for="options-navbar" data-locale="ext_navbar">Display the old horizontal navigation bar</label>
+    </div>
 
-  <label>
-    <input type="checkbox" id="options-navbar">
-    <span data-locale="ext_navbar">Display the old horizontal navigation bar</span>
-  </label>
+    <div class="inputGroup">
+      <input type="checkbox" id="options-list-display" name="options-list-display">
+      <label for="options-list-display" data-locale="ext_listdisplay">Display channel videos as a list</label>
+    </div>
 
-  <label>
-    <input type="checkbox" id="options-homescroll">
-    <span data-locale="ext_homescroll">Replace infinite scrolling with a "Load more" button on the recommended videos section</span>
-  </label>
+    <h1 data-locale="ext_title_video_options">Video options</h1>
+    <div class="inputGroup">
+      <input type="checkbox" id="options-disable-mp" name="options-disable-mp">
+      <label for="options-disable-mp" data-locale="ext_disablemp">Auto-close miniplayer</label>
+    </div>
 
-  <label>
-    <input type="checkbox" id="options-channelscroll">
-    <span data-locale="ext_channelscroll">Replace infinite scrolling with a load more button on channel videos and playlists</span>
-  </label>
+    <div class="inputGroup">
+      <input type="checkbox" id="options-channel-autoplay" name="options-channel-autoplay">
+      <label for="options-channel-autoplay" data-locale="ext_channelplay">Disable channel trailer autoplay</label>
+    </div>
 
-  <label>
-    <input type="checkbox" id="options-fs-scroll">
-    <span data-locale="ext_fsscroll">Disable scrolling on full screen videos</span>
-  </label>
+    <div class="inputGroup">
+      <input type="checkbox" id="options-video-autoplay" name="options-video-autoplay">
+      <label for="options-video-autoplay" data-locale="ext_videoplay">Auto-pause videos to prevent autoplay</label>
+    </div>
 
-  <p data-locale="ext_refresh">Note: Refresh any open YouTube tabs for the settings to take effect.</p>
+    <h1 data-locale="ext_title_scroll_options">Scroll options</h1>
+    <div class="inputGroup">
+      <input type="checkbox" id="options-scrollbar" name="options-scrollbar">
+      <label for="options-scrollbar" data-locale="ext_scrollbar">Use browser default scrollbar</label>
+    </div>
+
+    <div class="inputGroup">
+      <input type="checkbox" id="options-homescroll" name="options-homescroll">
+      <label for="options-homescroll" data-locale="ext_homescroll">Replace infinite scrolling with a "Load more" button on the recommended videos section</label>
+    </div>
+
+    <div class="inputGroup">
+      <input type="checkbox" id="options-channelscroll" name="options-channelscroll">
+      <label for="options-channelscroll" data-locale="ext_channelscroll">Replace infinite scrolling with a load more button on channel videos and playlists</label>
+    </div>
+
+    <div class="inputGroup">
+      <input type="checkbox" id="options-fs-scroll" name="options-fs-scroll">
+      <label for="options-fs-scroll" data-locale="ext_fsscroll">Disable scrolling on full screen videos</label>
+    </div>
+
+  </form>
 
   <script src="../js/options.js"></script>
   <script src="../js/localize.js"></script>

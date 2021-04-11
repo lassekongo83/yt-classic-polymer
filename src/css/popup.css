@@ -1,0 +1,54 @@
+@media (prefers-color-scheme: light) {
+  :root {
+    --primary-color: 25, 118, 210;
+    --secondary-color: #cfd8dc;
+    --font-color: #333;
+    --bg-color: #f1f1f1;
+    --card-color: #fff;
+    --warning-color: #ffcdd2;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: 25, 118, 210;
+    --secondary-color: #cfd8dc;
+    --font-color: #c1c1c1;
+    --bg-color: #0f0f0f;
+    --card-color: #212121;
+    --warning-color: #b71c1c;
+  }
+}
+
+body {
+  background-color: var(--card-color);
+  font-family:'Roboto',Arial,Helvetica,sans-serif;
+  font-size: 14px;
+  min-width: 350px;
+}
+
+::selection { background: transparent; }
+
+#title {
+  width: 100%;
+  text-align: center;
+}
+
+#container {
+  display: flex;
+  align-items: center;
+}
+
+#settings-button {
+  background-color: rgba(var(--primary-color), 1);
+  color: #fff;
+  border: none;
+  display: inline-block;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+  min-width: 140px;
+  padding: 6px;
+  margin: 32px auto;
+  border-radius: 4px;
+}

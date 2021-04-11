@@ -3,23 +3,19 @@
 <head>
   <title>Youtube Classic Polymer Theme</title>
   <meta charset="utf-8">
-  <style type="text/css">
-    body {
-      padding:8px;
-      min-width:350px;
-      font-family:Arial,Helvetica,sans-serif;
-      font-size:14px;
-    }
-    ::selection { background: transparent; }
-  </style>
+  <link rel="stylesheet" href="../css/popup.css">
 </head>
 <body>
-<div><span data-locale="ext_name_by">YouTube Classic Polymer by lassekongo83</span>
-  <br>
-  <a href="options.html" id="settings" data-locale="ext_options">Options</a> | <a href="https://github.com/lassekongo83/yt-classic-polymer" target="_blank">GitHub</a> | <span id="version"></span>
-</div>
-<!-- <script src="../js/popup.js"></script> -->
-<script src="../js/version.js"></script>
-<script src="../js/localize.js"></script>
+  <span id="title" data-locale="ext_name">YouTube Classic Polymer Theme</span>
+  <div id="container">
+    <button id="settings-button" data-locale="ext_options">Settings</button>
+  </div>
+
+  <div id="footer">
+    <a href="options.html" id="settings" data-locale="ext_options">Options</a> | <a href="https://github.com/lassekongo83/yt-classic-polymer" target="_blank">GitHub</a> | <span id="version"></span>
+  </div>
+  <script src="../js/popup.js"></script>
+  <script src="../js/version.js"></script>
+  <script src="../js/localize.js"></script>
 </body>
 </html>

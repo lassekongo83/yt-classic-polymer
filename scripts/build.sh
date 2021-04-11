@@ -21,6 +21,8 @@ cpp -undef -P ../src/js/localize.js > ../extension/js/localize.js
 
 # copy the rest of the files
 cp ../src/css/yt-classic.min.css ../extension/css/
+cp ../src/css/options.css ../extension/css/
+cp ../src/css/popup.css ../extension/css/
 cp ../src/icons/*.png ../extension/icons/
 cp ../src/html/*.html ../extension/html/
 cp -r ../src/_locales/* ../extension/_locales/
