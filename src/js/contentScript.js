@@ -386,6 +386,8 @@ chrome.storage.sync.get({
 }, function (settings) {
   if (true === settings.settingsRestoreScroll) {
     restoreScrollbar();
+    // For some reason this is required on /watch pages in new tabs
+    document.querySelector('ytd-app').addEventListener('yt-visibility-refresh', restoreScrollbar);
   }
   if (true === settings.settingsDisableMP) {
     disableMP();
