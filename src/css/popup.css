@@ -1,24 +1,4 @@
-@media (prefers-color-scheme: light) {
-  :root {
-    --primary-color: 25, 118, 210;
-    --secondary-color: #cfd8dc;
-    --font-color: #333;
-    --bg-color: #f1f1f1;
-    --card-color: #fff;
-    --warning-color: #ffcdd2;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --primary-color: 25, 118, 210;
-    --secondary-color: #cfd8dc;
-    --font-color: #c1c1c1;
-    --bg-color: #0f0f0f;
-    --card-color: #212121;
-    --warning-color: #b71c1c;
-  }
-}
+@import url("colors.css");
 
 body {
   background-color: var(--card-color);
@@ -30,7 +10,16 @@ body {
 ::selection { background: transparent; }
 
 #title {
-  width: 100%;
+  width: 100%
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-size: 18px;
+}
+
+#title h1 {
+  font-size: 18px;
+  font-weight: 500;
   text-align: center;
 }
 
@@ -51,4 +40,13 @@ body {
   padding: 6px;
   margin: 32px auto;
   border-radius: 4px;
+}
+
+#settings-button:hover {
+  background-color: rgba(var(--primary-color), 0.9);
+}
+
+#footer {
+  display: flex;
+  justify-content: space-between;
 }
