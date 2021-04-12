@@ -248,12 +248,20 @@ function channelAutoplay() {
     }
   });
 }
+function preventAutoplay() {
+  if (window.location.href.indexOf("/watch?") > -1) {
+    waitForElm('ytd-watch-flexy[role="main"] .html5-main-video').then(function(elm) {
+      document.querySelectorAll('.html5-main-video').forEach(vid => vid.pause());
+    });
+  }
+}
 chrome.storage.sync.get({
   settingsRestoreScroll: true,
   settingsDisableMP: true,
   settingsGuideMenu: true,
   settingsDisableAnim: true,
   settingsChannelAutoplay: true,
+  settingsPreventAutoplay: false,
   settingsOldLogo: false,
   settingsListDisplay: false,
   settingsOldNavBar: false,
@@ -263,6 +271,7 @@ chrome.storage.sync.get({
 }, function (settings) {
   if (true === settings.settingsRestoreScroll) {
     restoreScrollbar();
+    document.querySelector('ytd-app').addEventListener('yt-visibility-refresh', restoreScrollbar);
   }
   if (true === settings.settingsDisableMP) {
     disableMP();
@@ -272,6 +281,10 @@ chrome.storage.sync.get({
   }
   if (true === settings.settingsDisableAnim) {
     disablePreview();
+  }
+  if (true === settings.settingsPreventAutoplay) {
+    preventAutoplay();
+    document.querySelector('ytd-app').addEventListener('yt-visibility-refresh', preventAutoplay);
   }
   if (true === settings.settingsChannelAutoplay) {
     channelAutoplay();

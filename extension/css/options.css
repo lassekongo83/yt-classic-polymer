@@ -1,0 +1,151 @@
+@import url("colors.css");
+
+body {
+  background-color: var(--bg-color);
+  font-family:'Roboto',Arial,Helvetica,sans-serif;
+}
+
+.note {
+  font-size: 16px;
+  margin: 8px auto;
+  padding: 8px;
+  width: 700px;
+  text-align: center;
+  background-color: var(--warning-color);
+  border-radius: 4px;
+  color: var(--font-color);
+}
+
+h1 {
+  font-size: 18px;
+  padding: 8px 22px 0 22px;
+  color: var(--font-color);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+::selection { background: transparent; }
+
+html {
+  box-sizing: border-box;
+}
+
+#logo {
+  background-image: url('../icons/icon48.png');
+  width: 48px;
+  height: 48px;
+  margin: 0 auto;
+}
+
+.form {
+  background-color: var(--card-color);
+  box-shadow: 0 1px 2px rgba(0,0,0,.1);
+  padding: 8px 16px;
+  max-width: 700px;
+  margin: 30px auto;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 26px;
+  border-radius: 4px;
+}
+
+#version {
+  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  font-size: smaller;
+  color: var(--font-color);
+}
+
+.inputGroup {
+  background-color: transparent;
+  display: block;
+  margin: 0;
+  position: relative;
+  border-bottom: 1px solid var(--bg-color);
+  height: 52px;
+}
+
+.inputGroup:last-child {
+  border-bottom: none;
+}
+
+.inputGroup:hover {
+  background-color: rgba(var(--primary-color), 0.1);
+}
+
+.inputGroup label {
+  padding: 14px 22px;
+  width: 100%;
+  display: block;
+  text-align: left;
+  color: var(--font-color);
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  transition: color 200ms ease-in;
+  overflow: hidden;
+}
+
+.inputGroup label::before {
+  width: 10px;
+  height: 10px;
+  content: '';
+  background-color: transparent;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  opacity: 0;
+  z-index: -1;
+}
+
+.inputGroup label::after {
+  width: 24px;
+  height: 24px;
+  content: '';
+  border: 2px solid var(--secondary-color);
+  border-radius: 4px;
+  background-color: transparent;
+  background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.414 11L4 12.414l5.414 5.414L20.828 6.414 19.414 5l-10 10z' fill='%23fff' fill-rule='nonzero'/%3E%3C/svg%3E ");
+  background-repeat: no-repeat;
+  background-position: -2px -1px;
+  z-index: 2;
+  position: absolute;
+  right: 22px;
+  top: 14px;
+  cursor: pointer;
+  transition: all 200ms ease-in;
+}
+
+.inputGroup input:checked ~ label {
+  color: var(--font-color);
+}
+
+.inputGroup input:not(:checked) ~ label::after {
+  background-image: none;
+}
+
+.inputGroup input:checked ~ label::before {
+  opacity: 1;
+}
+
+.inputGroup input:checked ~ label::after {
+  background-color: rgba(var(--primary-color), 1);
+  border-color: rgba(var(--primary-color), 1);
+}
+
+.inputGroup input {
+  width: 24px;
+  height: 24px;
+  order: 1;
+  z-index: 2;
+  position: absolute;
+  right: 22px;
+  top: 50%;
+  cursor: pointer;
+  visibility: hidden;
+}

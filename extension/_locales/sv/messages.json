@@ -7,17 +7,25 @@
     "message": "Surfa på YouTube som om det vore 2015!",
     "description": "Extension description"
   },
-  "ext_name_by": {
-    "message": "YouTube Classic Polymer Theme av Frellwit",
-    "description": "The name of the extension by author"
-  },
   "ext_options": {
     "message": "Inställningar",
-    "description": "The word for application options"
+    "description": "The word for application settings"
   },
   "ext_refresh": {
-    "message": "Uppdatera alla öppna YouTube-flikar så att inställningarna träder i kraft.",
+    "message": "Obs! För att inställningarna ska träda i kraft så måste du uppdatera alla öppna YouTube-flikar.",
     "description": "Telling the user to refresh any open youtube tabs"
+  },
+  "ext_title_general_options": {
+    "message": "Allmänna Inställningar",
+    "description": "General settings title"
+  },
+  "ext_title_video_options": {
+    "message": "Videoinställningar",
+    "description": "Video settings title"
+  },
+  "ext_title_scroll_options": {
+    "message": "Scroll-inställningar",
+    "description": "Scroll settings title"
   },
   "ext_disablemp": {
     "message": "Stäng minispelaren automatiskt",
@@ -62,6 +70,10 @@
   "ext_channelplay": {
     "message": "Inaktivera autoplay för kanaltrailer",
     "description": "The option to disable channel trailers from autoplaying"
+  },
+  "ext_videoplay": {
+    "message": "Pausa videor automatiskt för att förhindra automatisk uppspelning",
+    "description": "The option to disable videos from autoplaying"
   },
   "c_home": {
     "message": "Hem",

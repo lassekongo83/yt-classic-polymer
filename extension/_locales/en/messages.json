@@ -7,17 +7,25 @@
     "message": "Browse YouTube like it's 2015!",
     "description": "Extension description"
   },
-  "ext_name_by": {
-    "message": "YouTube Classic Polymer Theme by Frellwit",
-    "description": "The name of the extension by author"
-  },
   "ext_options": {
-    "message": "Options",
-    "description": "The word for application options"
+    "message": "Settings",
+    "description": "The word for application settings"
   },
   "ext_refresh": {
-    "message": "Refresh any open YouTube tabs for the settings to take effect.",
+    "message": "Note: For the settings to take effect you'll have to refresh any open YouTube tabs.",
     "description": "Telling the user to refresh any open youtube tabs"
+  },
+  "ext_title_general_options": {
+    "message": "General settings",
+    "description": "General settings title"
+  },
+  "ext_title_video_options": {
+    "message": "Video settings",
+    "description": "Video settings title"
+  },
+  "ext_title_scroll_options": {
+    "message": "Scroll settings",
+    "description": "Scroll settings title"
   },
   "ext_disablemp": {
     "message": "Auto-close the miniplayer",
@@ -62,6 +70,10 @@
   "ext_channelplay": {
     "message": "Disable channel trailer autoplay",
     "description": "The option to disable channel trailers from autoplaying"
+  },
+  "ext_videoplay": {
+    "message": "Auto-pause videos to prevent autoplay",
+    "description": "The option to disable videos from autoplaying"
   },
   "c_home": {
     "message": "Home",
