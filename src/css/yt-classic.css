@@ -320,19 +320,19 @@ body[style="overflow: hidden;"] { overflow-y: auto !important; }
 
 #author-thumbnail.ytd-comment-renderer yt-img-shadow.ytd-comment-renderer { width: 48px !important; height: 48px !important; }
 
-paper-button.ytd-expander { width: 100% !important; margin: 0px 0 -15px !important; }
+tp-yt-paper-button.ytd-expander { width: 100% !important; margin: 0px 0 -15px !important; }
 
-html:not([dark]) paper-button.ytd-expander { border-top: 1px solid #e2e2e2 !important; }
+html:not([dark]) tp-yt-paper-button.ytd-expander { border-top: 1px solid #e2e2e2 !important; }
 
-html:not([dark]) ytd-button-renderer.style-destructive[is-paper-button], html:not([dark]) paper-button.keyboard-focus.ytd-subscribe-button-renderer { border-color: transparent !important; box-shadow: none !important; }
+html:not([dark]) ytd-button-renderer.style-destructive[is-paper-button], html:not([dark]) tp-yt-paper-button.keyboard-focus.ytd-subscribe-button-renderer { border-color: transparent !important; box-shadow: none !important; }
 
-#subscribe-button paper-button.ytd-button-renderer, paper-button.keyboard-focus.ytd-subscribe-button-renderer, ytd-button-renderer.style-destructive[is-paper-button], paper-button.ytd-subscribe-button-renderer[subscribed] { text-transform: none !important; }
+#subscribe-button tp-yt-paper-button.ytd-button-renderer, tp-yt-paper-button.keyboard-focus.ytd-subscribe-button-renderer, ytd-button-renderer.style-destructive[is-paper-button], tp-yt-paper-button.ytd-subscribe-button-renderer[subscribed] { text-transform: none !important; }
 
-html:not([dark]) ytd-button-renderer.style-suggestive[is-paper-button] paper-button.ytd-button-renderer, html:not([dark]) paper-button.ytd-subscribe-button-renderer[subscribed], html:not([dark]) ytd-button-renderer.style-compact-gray[is-paper-button] { border: 1px solid #d3d3d3 !important; background-color: #f8f8f8 !important; color: #333 !important; box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05) !important; border-radius: 2px !important; text-transform: none !important; }
+html:not([dark]) ytd-button-renderer.style-suggestive[is-paper-button] tp-yt-paper-button.ytd-button-renderer, html:not([dark]) tp-yt-paper-button.ytd-subscribe-button-renderer[subscribed], html:not([dark]) ytd-button-renderer.style-compact-gray[is-paper-button] { border: 1px solid #d3d3d3 !important; background-color: #f8f8f8 !important; color: #333 !important; box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05) !important; border-radius: 2px !important; text-transform: none !important; }
 
-html:not([dark]) ytd-button-renderer.style-suggestive[is-paper-button] paper-button.ytd-button-renderer:hover, html:not([dark]) paper-button.ytd-subscribe-button-renderer[subscribed]:hover, html:not([dark]) ytd-button-renderer.style-compact-gray[is-paper-button]:hover { background-color: #f0f0f0 !important; border-color: #c6c6c6 !important; box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1) !important; }
+html:not([dark]) ytd-button-renderer.style-suggestive[is-paper-button] tp-yt-paper-button.ytd-button-renderer:hover, html:not([dark]) tp-yt-paper-button.ytd-subscribe-button-renderer[subscribed]:hover, html:not([dark]) ytd-button-renderer.style-compact-gray[is-paper-button]:hover { background-color: #f0f0f0 !important; border-color: #c6c6c6 !important; box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1) !important; }
 
-html:not([dark]) ytd-button-renderer.style-suggestive[is-paper-button] paper-button.ytd-button-renderer:active, html:not([dark]) paper-button.ytd-subscribe-button-renderer[subscribed]:active, html:not([dark]) ytd-button-renderer.style-compact-gray[is-paper-button]:active { background-color: #e9e9e9 !important; border-color: #c6c6c6 !important; box-shadow: inset 0 1px 0 #ddd !important; }
+html:not([dark]) ytd-button-renderer.style-suggestive[is-paper-button] tp-yt-paper-button.ytd-button-renderer:active, html:not([dark]) tp-yt-paper-button.ytd-subscribe-button-renderer[subscribed]:active, html:not([dark]) ytd-button-renderer.style-compact-gray[is-paper-button]:active { background-color: #e9e9e9 !important; border-color: #c6c6c6 !important; box-shadow: inset 0 1px 0 #ddd !important; }
 
 .toggle-container.paper-toggle-button { width: 37px !important; height: 15px !important; cursor: pointer !important; }
 

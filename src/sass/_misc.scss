@@ -48,17 +48,17 @@ yt-img-shadow.ytd-mini-channel-renderer,
 }
 
 // Buttons
-paper-button.ytd-expander {
+tp-yt-paper-button.ytd-expander {
   width: 100% !important;
   margin: 0px 0 -15px !important;
 }
 
 html:not([dark]) {
-  paper-button.ytd-expander {
+  tp-yt-paper-button.ytd-expander {
     border-top: 1px solid $primary_border !important;
   }
   ytd-button-renderer.style-destructive[is-paper-button],
-  paper-button.keyboard-focus.ytd-subscribe-button-renderer {
+  tp-yt-paper-button.keyboard-focus.ytd-subscribe-button-renderer {
     //background-color: $theme_red !important;
     border-color: transparent !important;
     box-shadow: none !important;
@@ -68,10 +68,10 @@ html:not([dark]) {
   }
 }
 
-#subscribe-button paper-button.ytd-button-renderer,
-paper-button.keyboard-focus.ytd-subscribe-button-renderer,
+#subscribe-button tp-yt-paper-button.ytd-button-renderer,
+tp-yt-paper-button.keyboard-focus.ytd-subscribe-button-renderer,
 ytd-button-renderer.style-destructive[is-paper-button],
-paper-button.ytd-subscribe-button-renderer[subscribed] {
+tp-yt-paper-button.ytd-subscribe-button-renderer[subscribed] {
   // Disabled because some buttons seems to have different paddings
   //padding: 0 8px !important;
   //--yt-button-padding: 0px 8px !important;
@@ -81,9 +81,9 @@ paper-button.ytd-subscribe-button-renderer[subscribed] {
 
 // TODO: Button color variables
 html:not([dark]) {
-  ytd-button-renderer.style-suggestive[is-paper-button] paper-button.ytd-button-renderer,
+  ytd-button-renderer.style-suggestive[is-paper-button] tp-yt-paper-button.ytd-button-renderer,
   //ytd-button-renderer.style-destructive[is-paper-button],
-  paper-button.ytd-subscribe-button-renderer[subscribed],
+  tp-yt-paper-button.ytd-subscribe-button-renderer[subscribed],
   ytd-button-renderer.style-compact-gray[is-paper-button] {
     border: 1px solid #d3d3d3 !important;
     background-color: #f8f8f8 !important;
