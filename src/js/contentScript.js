@@ -86,14 +86,9 @@ function disableMP() {
 
 // Collapse guide menu
 function hideGuide() {
-  if (window.location.pathname != "/watch") {
-    document.getElementById('guide-button').click(function() {
-      if (document.querySelectorAll('tp-yt-app-drawer#guide')[0].hasAttribute('opened')) {
-        setTimeout(function(){
-          document.getElementById('input-subs-autocomplete').focus();
-        },50);
-      }
-    });
+  const appDrawer = document.querySelector('tp-yt-app-drawer#guide');
+  if (window.location.pathname != "/watch" && appDrawer.hasAttribute('opened') && appDrawer !== null) {
+    appDrawer.removeAttribute('opened');
   }
 }
 
@@ -404,6 +399,7 @@ chrome.storage.sync.get({
   }
   if (true === settings.settingsGuideMenu) {
     hideGuide();
+    window.addEventListener('yt-navigate-finish', hideGuide);
   }
   if (true === settings.settingsDisableAnim) {
     disablePreview();
