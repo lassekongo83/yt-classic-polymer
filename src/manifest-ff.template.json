@@ -15,7 +15,11 @@
   },
   "page_action": {
     "default_popup": "html/popup.html",
-    "default_title": "YouTube Classic Polymer Theme"
+    "default_title": "YouTube Classic Polymer Theme",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png"
+    },
   },
   "options_ui": {
     "page": "html/options.html",
