@@ -285,54 +285,61 @@ function stopChannelScroll() {
   addStyle(`[page-subtype="channels"] #items.ytd-grid-renderer ytd-continuation-item-renderer{height:1px; visibility:hidden;} [page-subtype="channels"] ytd-continuation-item-renderer #ghost-cards{display:none;}`);
 }
 
-// Option to replace it on the related videos section
-/*function relatedScroll() {
-  const related = document.querySelector('ytd-watch-next-secondary-results-renderer .ytd-item-section-renderer:not(ytd-continuation-item-renderer)');
-  const relCont = document.querySelector('#items.ytd-watch-next-secondary-results-renderer ytd-continuation-item-renderer');
-  const relatedElement = document.querySelector('#items.ytd-watch-next-secondary-results-renderer');
-
-
-  const relstopper = document.createElement('style');
-  relstopper.innerHTML = 'ytd-watch-next-secondary-results-renderer ytd-continuation-item-renderer {visibility:hidden;}';
-  document.body.appendChild(relstopper);
-
-  const related = document.querySelector('#items.ytd-watch-next-secondary-results-renderer');
-  const relbtn = document.createElement('button');
-  relbtn.className = "ytcp-load-more-button ytcp-related";
-  relbtn.innerHTML = chrome.i18n.getMessage('c_loadmore');
-  if (related !== null) {
-    related.appendChild(relbtn);
-    window.addEventListener('yt-navigate-finish', () => {
+// Option to replace infinite scroll on the related videos section
+/*function relScroll() {
+  waitForElm('[is-watch-page] #items.ytd-watch-next-secondary-results-renderer > ytd-continuation-item-renderer').then(function(elm) {
+    const related = document.querySelector('#items.ytd-watch-next-secondary-results-renderer');
+    const relbtn = document.createElement('button');
+    relbtn.className = "ytcp-load-more-button ytcp-related";
+    relbtn.innerHTML = chrome.i18n.getMessage('c_loadmore');
+    if (related !== null) {
       related.appendChild(relbtn);
-    });
-    document.querySelector('ytd-watch-next-secondary-results-renderer').addEventListener('can-show-more-changed', () => {
-      related.appendChild(relbtn);
-    });
-  }
-
-  const relButton = document.querySelector('[is-watch-page] #items.ytd-watch-next-secondary-results-renderer .ytcp-load-more-button');
-  if (relButton !== null) {
-    relButton.onclick = function() {
-      const relCont = document.querySelector('[is-watch-page] #items.ytd-watch-next-secondary-results-renderer > ytd-continuation-item-renderer');
-      const relItems = document.querySelector('[is-watch-page] #items.ytd-watch-next-secondary-results-renderer');
-      if (relCont !== null) {
-        relCont.remove();
-      }
-      if (relItems !== null) {
-        relItems.append(relCont);
-      }
-      //startScroll();
-      if (relCont !== null) {
-        relCont.style.visibility = 'visible';
-      }
-      //window.addEventListener('scroll', stopScroll, { passive: true });
-      window.addEventListener('scroll', function() {
-        document.querySelector('[is-watch-page] #items.ytd-watch-next-secondary-results-renderer > ytd-continuation-item-renderer').style.visibility = 'hidden';
+      document.querySelector('ytd-watch-next-secondary-results-renderer').addEventListener('can-show-more-changed', () => {
+        related.appendChild(relbtn);
       });
-    };
-  }
+      for(const next of document.body.querySelectorAll('.ytcp-load-more-button')) {
+        if(next.nextElementSibling) {
+          next.nextElementSibling.remove();
+        }
+      }
+      // FIXME: The button needs to be created again when navigating within the related videos section. This works with the exception that the button requires 2 clicks.
+      // Not sure this is the best event listener to use. Also need to figure out how to create it again when navigating backwards.
+      document.addEventListener('yt-visibility-refresh', function(e) {
+        if (relbtn !== null) {
+          related.appendChild(relbtn);
+        }
+      });
+    }
+    const relButton = document.querySelector('[is-watch-page] #items.ytd-watch-next-secondary-results-renderer .ytcp-load-more-button');
+    if (relButton !== null) {
+      relButton.onclick = function() {
+        const relCont = document.querySelector('[is-watch-page] #items.ytd-watch-next-secondary-results-renderer > ytd-continuation-item-renderer');
+        const relItems = document.querySelector('[is-watch-page] #items.ytd-watch-next-secondary-results-renderer');
+        if (relCont !== null) {
+          relCont.remove();
+        }
+        if (relItems !== null) {
+          relItems.append(relCont);
+        }
+        if (relCont !== null) {
+          relCont.style.visibility = 'visible';
+        }
+        window.addEventListener('scroll', function() {
+          document.querySelector('[is-watch-page] #items.ytd-watch-next-secondary-results-renderer > ytd-continuation-item-renderer').style.visibility = 'hidden';
+        });
+      };
+    }
+    function removeRelatedScrollButton() {
+      if (document.querySelector('[is-watch-page] #items.ytd-watch-next-secondary-results-renderer > ytd-continuation-item-renderer') === null) {
+        relButton.remove();
+      }
+    }
+    onRemove(document.querySelector('[is-watch-page] #items.ytd-watch-next-secondary-results-renderer > ytd-continuation-item-renderer'), () => removeRelatedScrollButton());
+  });
 }
-//relatedScroll();*/
+function stopRelScroll() {
+  addStyle(`[is-watch-page] #items.ytd-watch-next-secondary-results-renderer > ytd-continuation-item-renderer{visibility:hidden;}`);
+}*/
 
 // Disable scrolling on fullscreen videos
 function fullScreenScroll() {
@@ -387,6 +394,7 @@ chrome.storage.sync.get({
   settingsOldNavBar: false,
   settingsHomeScroll: false,
   settingsChannelScroll: false,
+  //settingsRelScroll: false,
   settingsFullScreenScroll: false
 }, function (settings) {
   if (true === settings.settingsRestoreScroll) {
@@ -432,6 +440,11 @@ chrome.storage.sync.get({
     channelScroll();
     window.addEventListener('yt-navigate-finish', channelScroll, { passive: true });
   }
+  /*if (true === settings.settingsRelScroll) {
+    relScroll();
+    stopRelScroll();
+    window.addEventListener('yt-navigate-finish', relScroll, { passive: true });
+  }*/
   if (true === settings.settingsFullScreenScroll) {
     fullScreenScroll();
   }

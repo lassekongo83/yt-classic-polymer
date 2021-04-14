@@ -11,6 +11,7 @@ function save_options() {
   const settingsOldNavBar = document.getElementById('options-navbar').checked;
   const settingsHomeScroll = document.getElementById('options-homescroll').checked;
   const settingsChannelScroll = document.getElementById('options-channelscroll').checked;
+  //const settingsRelScroll = document.getElementById('options-relscroll').checked;
   const settingsFullScreenScroll = document.getElementById('options-fs-scroll').checked;
   chrome.storage.sync.set({
     settingsRestoreScroll: settingsRestoreScroll,
@@ -24,6 +25,7 @@ function save_options() {
     settingsOldNavBar: settingsOldNavBar,
     settingsHomeScroll: settingsHomeScroll,
     settingsChannelScroll: settingsChannelScroll,
+    //settingsRelScroll: settingsRelScroll,
     settingsFullScreenScroll: settingsFullScreenScroll
   });
 }
@@ -42,6 +44,7 @@ function restore_options() {
     settingsOldNavBar: false,
     settingsHomeScroll: false,
     settingsChannelScroll: false,
+    //settingsRelScroll: false,
     settingsFullScreenScroll: false
   }, function(items) {
     document.getElementById('options-scrollbar').checked = items.settingsRestoreScroll;
@@ -55,6 +58,7 @@ function restore_options() {
     document.getElementById('options-navbar').checked = items.settingsOldNavBar;
     document.getElementById('options-homescroll').checked = items.settingsHomeScroll;
     document.getElementById('options-channelscroll').checked = items.settingsChannelScroll;
+    //document.getElementById('options-relscroll').checked = items.settingsRelScroll;
     document.getElementById('options-fs-scroll').checked = items.settingsFullScreenScroll;
   });
 }
@@ -72,5 +76,6 @@ document.addEventListener('DOMContentLoaded', function () {
   document.getElementById("options-navbar").addEventListener('click', save_options);
   document.getElementById("options-homescroll").addEventListener('click', save_options);
   document.getElementById('options-channelscroll').addEventListener('click', save_options);
+  //document.getElementById('options-relscroll').addEventListener('click', save_options);
   document.getElementById('options-fs-scroll').addEventListener('click', save_options);
 });

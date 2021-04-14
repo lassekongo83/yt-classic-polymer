@@ -63,6 +63,10 @@
     "message": "Ersätt oändlig scroll med en ladda mer-knapp på kanalvideor och spellistor",
     "description": "The option to replace inifite scrolling with a load more button on the channel videos grid"
   },
+  "ext_relscroll": {
+    "message": "Ersätt oändlig rullning med en ladda mer-knapp på relaterade videor (Experimentell)",
+    "description": "The option to replace inifite scrolling with a load more button on related videos"
+  },
   "ext_fsscroll": {
     "message": "Inaktivera rullning på helskärmsvideor",
     "description": "The option to disable scrolling on full screen videos"
