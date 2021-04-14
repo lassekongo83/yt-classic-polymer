@@ -144,8 +144,8 @@ ytd-browse[page-subtype~="channels"] .grid-subheader.ytd-shelf-renderer {
 }
 
 // Channel avatar
-#avatar.ytd-c4-tabbed-header-renderer {
-  border-radius: 0 !important;
+ytd-c4-tabbed-header-renderer[has-channel-art] #avatar.ytd-c4-tabbed-header-renderer,
+ytd-c4-tabbed-header-renderer[has-channel-art] yt-img-shadow.ytd-channel-avatar-editor {
   position: fixed !important;
   top: 0 !important;
   left: 15px !important;
@@ -157,4 +157,9 @@ ytd-browse[page-subtype~="channels"] .grid-subheader.ytd-shelf-renderer {
     margin-left: 0 !important;
     margin-right: 0 !important;
   }
+}
+
+#avatar.ytd-c4-tabbed-header-renderer,
+yt-img-shadow.ytd-channel-avatar-editor {
+  border-radius: 0 !important;
 }

@@ -162,9 +162,11 @@ ytd-section-list-renderer[page-subtype="channels"] #items.ytd-grid-renderer { ma
 
 ytd-browse[page-subtype~="channels"] #contents.ytd-shelf-renderer, ytd-browse[page-subtype~="channels"] .grid-subheader.ytd-shelf-renderer { margin-top: 15px !important; }
 
-#avatar.ytd-c4-tabbed-header-renderer { border-radius: 0 !important; position: fixed !important; top: 0 !important; left: 15px !important; margin: 0 !important; width: 100px !important; height: 100px !important; }
+ytd-c4-tabbed-header-renderer[has-channel-art] #avatar.ytd-c4-tabbed-header-renderer, ytd-c4-tabbed-header-renderer[has-channel-art] yt-img-shadow.ytd-channel-avatar-editor { position: fixed !important; top: 0 !important; left: 15px !important; margin: 0 !important; width: 100px !important; height: 100px !important; }
 
-#avatar.ytd-c4-tabbed-header-renderer img.yt-img-shadow { margin-left: 0 !important; margin-right: 0 !important; }
+ytd-c4-tabbed-header-renderer[has-channel-art] #avatar.ytd-c4-tabbed-header-renderer img.yt-img-shadow, ytd-c4-tabbed-header-renderer[has-channel-art] yt-img-shadow.ytd-channel-avatar-editor img.yt-img-shadow { margin-left: 0 !important; margin-right: 0 !important; }
+
+#avatar.ytd-c4-tabbed-header-renderer, yt-img-shadow.ytd-channel-avatar-editor { border-radius: 0 !important; }
 
 #items.ytd-watch-next-secondary-results-renderer { padding: 15px !important; }
 
