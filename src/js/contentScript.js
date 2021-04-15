@@ -286,7 +286,7 @@ function stopChannelScroll() {
 }
 
 // Option to replace infinite scroll on the related videos section
-/*function relScroll() {
+function relScroll() {
   waitForElm('[is-watch-page] #items.ytd-watch-next-secondary-results-renderer > ytd-continuation-item-renderer').then(function(elm) {
     const related = document.querySelector('#items.ytd-watch-next-secondary-results-renderer');
     const relbtn = document.createElement('button');
@@ -297,13 +297,8 @@ function stopChannelScroll() {
       document.querySelector('ytd-watch-next-secondary-results-renderer').addEventListener('can-show-more-changed', () => {
         related.appendChild(relbtn);
       });
-      for(const next of document.body.querySelectorAll('.ytcp-load-more-button')) {
-        if(next.nextElementSibling) {
-          next.nextElementSibling.remove();
-        }
-      }
-      // FIXME: The button needs to be created again when navigating within the related videos section. This works with the exception that the button requires 2 clicks.
-      // Not sure this is the best event listener to use. Also need to figure out how to create it again when navigating backwards.
+      // FIXME: Not sure this is the best event listener to use. Also need to figure out how to create it again when navigating backwards.
+      // The button may also sometimes require 2 clicks
       document.addEventListener('yt-visibility-refresh', function(e) {
         if (relbtn !== null) {
           related.appendChild(relbtn);
@@ -325,7 +320,9 @@ function stopChannelScroll() {
           relCont.style.visibility = 'visible';
         }
         window.addEventListener('scroll', function() {
-          document.querySelector('[is-watch-page] #items.ytd-watch-next-secondary-results-renderer > ytd-continuation-item-renderer').style.visibility = 'hidden';
+          if (document.querySelector('[is-watch-page] #items.ytd-watch-next-secondary-results-renderer > ytd-continuation-item-renderer') !== null) {
+            document.querySelector('[is-watch-page] #items.ytd-watch-next-secondary-results-renderer > ytd-continuation-item-renderer').style.visibility = 'hidden';
+          }
         });
       };
     }
@@ -339,7 +336,7 @@ function stopChannelScroll() {
 }
 function stopRelScroll() {
   addStyle(`[is-watch-page] #items.ytd-watch-next-secondary-results-renderer > ytd-continuation-item-renderer{visibility:hidden;}`);
-}*/
+}
 
 // Disable scrolling on fullscreen videos
 function fullScreenScroll() {
@@ -394,7 +391,7 @@ chrome.storage.sync.get({
   settingsOldNavBar: false,
   settingsHomeScroll: false,
   settingsChannelScroll: false,
-  //settingsRelScroll: false,
+  settingsRelScroll: false,
   settingsFullScreenScroll: false
 }, function (settings) {
   if (true === settings.settingsRestoreScroll) {
@@ -440,11 +437,10 @@ chrome.storage.sync.get({
     channelScroll();
     window.addEventListener('yt-navigate-finish', channelScroll, { passive: true });
   }
-  /*if (true === settings.settingsRelScroll) {
+  if (true === settings.settingsRelScroll) {
     relScroll();
     stopRelScroll();
-    window.addEventListener('yt-navigate-finish', relScroll, { passive: true });
-  }*/
+  }
   if (true === settings.settingsFullScreenScroll) {
     fullScreenScroll();
   }
