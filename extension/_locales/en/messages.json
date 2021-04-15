@@ -63,6 +63,10 @@
     "message": "Replace infinite scrolling with a load more button on channel videos and playlists",
     "description": "The option to replace inifite scrolling with a load more button on the channel videos grid"
   },
+  "ext_relscroll": {
+    "message": "Replace infinite scrolling with a load more button on related videos (Experimental)",
+    "description": "The option to replace inifite scrolling with a load more button on related videos"
+  },
   "ext_fsscroll": {
     "message": "Disable scrolling on full screen videos",
     "description": "The option to disable scrolling on full screen videos"

@@ -220,6 +220,55 @@ function channelScroll() {
 function stopChannelScroll() {
   addStyle(`[page-subtype="channels"] #items.ytd-grid-renderer ytd-continuation-item-renderer{height:1px; visibility:hidden;} [page-subtype="channels"] ytd-continuation-item-renderer #ghost-cards{display:none;}`);
 }
+function relScroll() {
+  waitForElm('[is-watch-page] #items.ytd-watch-next-secondary-results-renderer > ytd-continuation-item-renderer').then(function(elm) {
+    const related = document.querySelector('#items.ytd-watch-next-secondary-results-renderer');
+    const relbtn = document.createElement('button');
+    relbtn.className = "ytcp-load-more-button ytcp-related";
+    relbtn.innerHTML = chrome.i18n.getMessage('c_loadmore');
+    if (related !== null) {
+      related.appendChild(relbtn);
+      document.querySelector('ytd-watch-next-secondary-results-renderer').addEventListener('can-show-more-changed', () => {
+        related.appendChild(relbtn);
+      });
+      document.addEventListener('yt-visibility-refresh', function(e) {
+        if (relbtn !== null) {
+          related.appendChild(relbtn);
+        }
+      });
+    }
+    const relButton = document.querySelector('[is-watch-page] #items.ytd-watch-next-secondary-results-renderer .ytcp-load-more-button');
+    if (relButton !== null) {
+      relButton.onclick = function() {
+        const relCont = document.querySelector('[is-watch-page] #items.ytd-watch-next-secondary-results-renderer > ytd-continuation-item-renderer');
+        const relItems = document.querySelector('[is-watch-page] #items.ytd-watch-next-secondary-results-renderer');
+        if (relCont !== null) {
+          relCont.remove();
+        }
+        if (relItems !== null) {
+          relItems.append(relCont);
+        }
+        if (relCont !== null) {
+          relCont.style.visibility = 'visible';
+        }
+        window.addEventListener('scroll', function() {
+          if (document.querySelector('[is-watch-page] #items.ytd-watch-next-secondary-results-renderer > ytd-continuation-item-renderer') !== null) {
+            document.querySelector('[is-watch-page] #items.ytd-watch-next-secondary-results-renderer > ytd-continuation-item-renderer').style.visibility = 'hidden';
+          }
+        });
+      };
+    }
+    function removeRelatedScrollButton() {
+      if (document.querySelector('[is-watch-page] #items.ytd-watch-next-secondary-results-renderer > ytd-continuation-item-renderer') === null) {
+        relButton.remove();
+      }
+    }
+    onRemove(document.querySelector('[is-watch-page] #items.ytd-watch-next-secondary-results-renderer > ytd-continuation-item-renderer'), () => removeRelatedScrollButton());
+  });
+}
+function stopRelScroll() {
+  addStyle(`[is-watch-page] #items.ytd-watch-next-secondary-results-renderer > ytd-continuation-item-renderer{visibility:hidden;}`);
+}
 function fullScreenScroll() {
   document.addEventListener('wheel', (e) => {
     if (document.body.classList.contains('no-scroll')) {
@@ -262,6 +311,7 @@ chrome.storage.sync.get({
   settingsOldNavBar: false,
   settingsHomeScroll: false,
   settingsChannelScroll: false,
+  settingsRelScroll: false,
   settingsFullScreenScroll: false
 }, function (settings) {
   if (true === settings.settingsRestoreScroll) {
@@ -305,6 +355,10 @@ chrome.storage.sync.get({
     stopChannelScroll();
     channelScroll();
     window.addEventListener('yt-navigate-finish', channelScroll, { passive: true });
+  }
+  if (true === settings.settingsRelScroll) {
+    relScroll();
+    stopRelScroll();
   }
   if (true === settings.settingsFullScreenScroll) {
     fullScreenScroll();
