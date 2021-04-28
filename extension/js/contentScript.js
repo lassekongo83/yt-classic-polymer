@@ -72,10 +72,12 @@ function disablePreview() {
 }
 function logotype() {
   const spritemap = chrome.runtime.getURL('../img/spritemap.png');
-  document.getElementById('logo-icon').style.backgroundImage = "url(" + spritemap + ")";
-  document.querySelector('#masthead #logo-icon svg').style.display = "none";
-  addStyle(`#masthead #logo-icon{width:73px!important; height:30px!important; background-position:-558px -346px!important; background-size:auto!important;}
-html[dark="true"] #masthead #logo-icon{filter:grayscale(1) invert(1)!important;}`);
+  waitForElm('yt-icon.ytd-topbar-logo-renderer').then(function(elm) {
+    elm.style.backgroundImage = "url(" + spritemap + ")";
+    document.querySelector('#contentContainer.tp-yt-app-drawer yt-icon.ytd-topbar-logo-renderer').style.backgroundImage = "url(" + spritemap + ")";
+  });
+  addStyle(`yt-icon.ytd-topbar-logo-renderer{width:73px!important; height:30px!important; background-position:-558px -346px!important; background-size:auto!important;}
+html[dark="true"] yt-icon.ytd-topbar-logo-renderer{filter:grayscale(1) invert(1)!important;} yt-icon.ytd-topbar-logo-renderer svg{display:none!important;}`);
 }
 function listDisplay() {
   addStyle(`[page-subtype="channels"] #items.ytd-grid-renderer{flex-direction:column!important;}
