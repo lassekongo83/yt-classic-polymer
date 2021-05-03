@@ -286,6 +286,8 @@ html:not([dark]) .ytd-masthead button.yt-icon-button > yt-icon { opacity: .75 !i
 
 ytd-searchbox.ytd-masthead { margin: 0 0 0 25px !important; }
 
+ytd-masthead #avatar-btn yt-img-shadow.ytd-topbar-menu-button-renderer { border-radius: 0 !important; }
+
 html:not(.style-scope):not([dark]) { --yt-spec-brand-background-primary: #fff !important; --yt-spec-general-background-a: #f1f1f1 !important; --yt-lightsource-section1-color: #fff !important; --yt-spec-text-secondary: #767676 !important; --yt-spec-call-to-action: #167ac6 !important; --yt-spec-text-primary: #222 !important; }
 
 html:not([dark]) #primary.ytd-two-column-browse-results-renderer, html:not([dark]) ytd-browse-secondary-contents-renderer.ytd-two-column-browse-results-renderer, html:not([dark]) #items.ytd-watch-next-secondary-results-renderer, html:not([dark]) #info.ytd-watch-flexy, html:not([dark]) #meta.ytd-watch-flexy, html:not([dark]) ytd-comments, html:not([dark]) ytd-two-column-search-results-renderer[center-results] #primary.ytd-two-column-search-results-renderer, html:not([dark]) #header.ytd-c4-tabbed-header-renderer { box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) !important; background-color: #fff !important; }
