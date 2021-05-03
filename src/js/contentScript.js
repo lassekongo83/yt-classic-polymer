@@ -72,16 +72,8 @@ function disableMP() {
       }
     }
   });
-
   // hide the miniplayer icon
-  if (window.location.pathname === "/watch") {
-    document.querySelector('.ytp-miniplayer-button').style.display = "none";
-  }
-  document.body.addEventListener("yt-navigate-finish", function(event) {
-    if (document.getElementsByClassName('ytp-miniplayer-button').length) {
-      document.querySelector('.ytp-miniplayer-button').style.display = "none";
-    }
-  });
+  addStyle(`.ytp-miniplayer-button {display:none!important;}`);
 }
 
 // Collapse guide menu
