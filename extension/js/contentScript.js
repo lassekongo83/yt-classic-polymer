@@ -42,6 +42,17 @@ function clickButton(selector){
   let elm = document.querySelectorAll(selector)[0];
   if (elm){ elm.click(); }
 }
+function lightHeader() {
+  const lightMasthead = document.querySelector('html:not([dark]) ytd-masthead');
+  if (lightMasthead !== null && lightMasthead.hasAttribute('dark')) {
+    lightMasthead.removeAttribute('dark');
+  }
+  document.querySelector('html:not([dark]) ytd-app').addEventListener('yt-set-theater-mode-enabled', () => {
+    lightMasthead.removeAttribute('dark');
+  });
+}
+lightHeader();
+document.querySelector('html:not([dark]) ytd-app').addEventListener('yt-visibility-refresh', lightHeader);
 function disableMP() {
   document.addEventListener('transitionend', function(e) {
     if (document.getElementById('progress') !== null) {
@@ -50,14 +61,7 @@ function disableMP() {
       }
     }
   });
-  if (window.location.pathname === "/watch") {
-    document.querySelector('.ytp-miniplayer-button').style.display = "none";
-  }
-  document.body.addEventListener("yt-navigate-finish", function(event) {
-    if (document.getElementsByClassName('ytp-miniplayer-button').length) {
-      document.querySelector('.ytp-miniplayer-button').style.display = "none";
-    }
-  });
+  addStyle(`.ytp-miniplayer-button {display:none!important;}`);
 }
 function hideGuide() {
   const appDrawer = document.querySelector('tp-yt-app-drawer#guide');
