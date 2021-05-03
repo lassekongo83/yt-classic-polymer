@@ -256,7 +256,7 @@ ytd-browse[mini-guide-visible] ytd-playlist-sidebar-renderer.ytd-browse { left: 
 
 yt-img-shadow.ytd-guide-entry-renderer { border-radius: 0 !important; }
 
-html:not(.style-scope) { --ytd-masthead-height: 49px !important; }
+html:not(.style-scope), ytd-app:not([masthead-hidden_]) { --ytd-masthead-height: 49px !important; }
 
 ytd-masthead.shell, #container.ytd-masthead, #header.ytd-app { height: 49px !important; }
 

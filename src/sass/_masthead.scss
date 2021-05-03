@@ -1,4 +1,4 @@
-html:not(.style-scope) {
+html:not(.style-scope), ytd-app:not([masthead-hidden_]) {
   --ytd-masthead-height: 49px !important; // Plus 1px border = 50px
 }
 
