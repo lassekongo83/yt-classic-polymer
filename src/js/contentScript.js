@@ -59,6 +59,20 @@ function clickButton(selector){
   if (elm){ elm.click(); }
 }
 
+// Remove the dark attribute from the masthead on the light theme when in theater mode
+function lightHeader() {
+  const lightMasthead = document.querySelector('html:not([dark]) ytd-masthead');
+  if (lightMasthead !== null && lightMasthead.hasAttribute('dark')) {
+    lightMasthead.removeAttribute('dark');
+  }
+  // Remove it when first enabled
+  document.querySelector('html:not([dark]) ytd-app').addEventListener('yt-set-theater-mode-enabled', () => {
+    lightMasthead.removeAttribute('dark');
+  });
+}
+lightHeader();
+document.querySelector('ytd-app').addEventListener('yt-visibility-refresh', lightHeader);
+
 // -- OPTIONS -- //
 
 // Disable miniplayer
