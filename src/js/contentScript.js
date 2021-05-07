@@ -66,9 +66,11 @@ function lightHeader() {
     lightMasthead.removeAttribute('dark');
   }
   // Remove it when first enabled
-  document.querySelector('html:not([dark]) ytd-app').addEventListener('yt-set-theater-mode-enabled', () => {
-    lightMasthead.removeAttribute('dark');
-  });
+  if (lightMasthead !== null) {
+    document.querySelector('html:not([dark]) ytd-app').addEventListener('yt-set-theater-mode-enabled', () => {
+      lightMasthead.removeAttribute('dark');
+    });
+  }
 }
 lightHeader();
 document.querySelector('html:not([dark]) ytd-app').addEventListener('yt-visibility-refresh', lightHeader);
