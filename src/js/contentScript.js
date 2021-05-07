@@ -65,15 +65,10 @@ function lightHeader() {
   if (lightMasthead !== null && lightMasthead.hasAttribute('dark')) {
     lightMasthead.removeAttribute('dark');
   }
-  // Remove it when first enabled
-  if (lightMasthead !== null) {
-    document.querySelector('html:not([dark]) ytd-app').addEventListener('yt-set-theater-mode-enabled', () => {
-      lightMasthead.removeAttribute('dark');
-    });
-  }
 }
 lightHeader();
 document.querySelector('html:not([dark]) ytd-app').addEventListener('yt-visibility-refresh', lightHeader);
+document.querySelector('html:not([dark]) ytd-app').addEventListener('yt-set-theater-mode-enabled', lightHeader);
 
 // -- OPTIONS -- //
 
