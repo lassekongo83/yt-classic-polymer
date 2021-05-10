@@ -47,12 +47,10 @@ function lightHeader() {
   if (lightMasthead !== null && lightMasthead.hasAttribute('dark')) {
     lightMasthead.removeAttribute('dark');
   }
-  document.querySelector('html:not([dark]) ytd-app').addEventListener('yt-set-theater-mode-enabled', () => {
-    lightMasthead.removeAttribute('dark');
-  });
 }
 lightHeader();
-document.querySelector('html:not([dark]) ytd-app').addEventListener('yt-visibility-refresh', lightHeader);
+document.querySelector('ytd-app').addEventListener('yt-visibility-refresh', lightHeader);
+document.querySelector('ytd-app').addEventListener('yt-set-theater-mode-enabled', lightHeader);
 function disableMP() {
   document.addEventListener('transitionend', function(e) {
     if (document.getElementById('progress') !== null) {
@@ -76,12 +74,20 @@ function disablePreview() {
 }
 function logotype() {
   const spritemap = chrome.runtime.getURL('../img/spritemap.png');
+  const darkLogo = chrome.runtime.getURL('../img/logo-dark.png');
+  const darkTheme = document.querySelector('html').hasAttribute('dark');
   waitForElm('yt-icon.ytd-topbar-logo-renderer').then(function(elm) {
-    elm.style.backgroundImage = "url(" + spritemap + ")";
-    document.querySelector('#contentContainer.tp-yt-app-drawer yt-icon.ytd-topbar-logo-renderer').style.backgroundImage = "url(" + spritemap + ")";
+    if (darkTheme) {
+      elm.style.backgroundImage = "url(" + darkLogo + ")";
+      document.querySelector('#contentContainer.tp-yt-app-drawer yt-icon.ytd-topbar-logo-renderer').style.backgroundImage = "url(" + darkLogo + ")";
+    }
+    else {
+      elm.style.backgroundImage = "url(" + spritemap + ")";
+      document.querySelector('#contentContainer.tp-yt-app-drawer yt-icon.ytd-topbar-logo-renderer').style.backgroundImage = "url(" + spritemap + ")";
+    }
   });
-  addStyle(`yt-icon.ytd-topbar-logo-renderer{width:73px!important; height:30px!important; background-position:-558px -346px!important; background-size:auto!important;}
-html[dark="true"] yt-icon.ytd-topbar-logo-renderer{filter:grayscale(1) invert(1)!important;} yt-icon.ytd-topbar-logo-renderer svg{display:none!important;}`);
+  addStyle(`html:not([dark="true"]) yt-icon.ytd-topbar-logo-renderer{width:73px!important; height:30px!important; background-position:-558px -346px!important; background-size:auto!important;}
+html[dark="true"] yt-icon.ytd-topbar-logo-renderer{width:73px!important; height:30px!important; background-size:auto!important;} yt-icon.ytd-topbar-logo-renderer svg{display:none!important;}`);
 }
 function listDisplay() {
   addStyle(`[page-subtype="channels"] #items.ytd-grid-renderer{flex-direction:column!important;}
