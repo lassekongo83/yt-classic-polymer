@@ -67,8 +67,8 @@ function lightHeader() {
   }
 }
 lightHeader();
-document.querySelector('html:not([dark]) ytd-app').addEventListener('yt-visibility-refresh', lightHeader);
-document.querySelector('html:not([dark]) ytd-app').addEventListener('yt-set-theater-mode-enabled', lightHeader);
+document.querySelector('ytd-app').addEventListener('yt-visibility-refresh', lightHeader);
+document.querySelector('ytd-app').addEventListener('yt-set-theater-mode-enabled', lightHeader);
 
 // -- OPTIONS -- //
 

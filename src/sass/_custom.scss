@@ -66,7 +66,7 @@ html[dark="true"] {
 
     a {
       display:inline-block;
-      color: var(--yt-secondary-text-color);
+      color: $secondary_text_dark;
       text-decoration: none;
 
       &:hover {
@@ -76,15 +76,15 @@ html[dark="true"] {
   }
   [page-subtype="home"] .ytcp-nav-home a {
     box-shadow:inset 0 -3px #dcdcdc;
-    color: var(--yt-primary-text-color);
+    color: $primary_text_dark;
   }
   [page-subtype="trending"] .ytcp-nav-trending a {
     box-shadow: inset 0 -3px #dcdcdc;
-    color: var(--yt-primary-text-color);
+    color: $primary_text_dark;
   }
   [page-subtype="subscriptions"] .ytcp-nav-subs a {
     box-shadow: inset 0 -3px #dcdcdc;
-    color: var(--yt-primary-text-color);
+    color: $primary_text_dark;
   }
   .ytcp-appbar-nav {
     display: inline-block;
