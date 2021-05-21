@@ -118,7 +118,10 @@ function logotype() {
     }
   });
   addStyle(`html:not([dark="true"]) yt-icon.ytd-topbar-logo-renderer{width:73px!important; height:30px!important; background-position:-558px -346px!important; background-size:auto!important;}
-html[dark="true"] yt-icon.ytd-topbar-logo-renderer{width:73px!important; height:30px!important; background-size:auto!important;} yt-icon.ytd-topbar-logo-renderer svg{display:none!important;}`);
+html[dark="true"] yt-icon.ytd-topbar-logo-renderer{width:73px!important; height:30px!important; background-size:auto!important;} yt-icon.ytd-topbar-logo-renderer svg{display:none!important;}
+ytd-topbar-logo-renderer[is-logo-updated] yt-icon.ytd-topbar-logo-renderer{width:73px!important; height:30px!important; background-repeat:no-repeat!important; padding:0!important;}
+ytd-masthead[is-logo-updated] yt-icon.ytd-topbar-logo-renderer{margin-left:16px!important;}
+ytd-topbar-logo-renderer[is-logo-updated] #country-code.ytd-topbar-logo-renderer{margin:unset!important;}`);
 }
 
 // Display channel /user/x/videos as a list
