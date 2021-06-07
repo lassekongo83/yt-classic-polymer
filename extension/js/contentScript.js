@@ -52,14 +52,10 @@ lightHeader();
 document.querySelector('ytd-app').addEventListener('yt-visibility-refresh', lightHeader);
 document.querySelector('ytd-app').addEventListener('yt-set-theater-mode-enabled', lightHeader);
 function disableMP() {
-  document.addEventListener('transitionend', function(e) {
-    if (document.getElementById('progress') !== null) {
-      if (e.target.id === 'progress') {
-        clickButton('.ytp-miniplayer-close-button');
-      }
-    }
+  document.addEventListener('yt-visibility-refresh', function(e) {
+    clickButton('.ytp-miniplayer-close-button');
   });
-  addStyle(`.ytp-miniplayer-button {display:none!important;}`);
+  addStyle(`.ytp-miniplayer-button{display:none!important;}`);
 }
 function hideGuide() {
   const appDrawer = document.querySelector('tp-yt-app-drawer#guide');
@@ -314,6 +310,26 @@ function preventAutoplay() {
     });
   }
 }
+function classicPlaylist() {
+  waitForElm('ytd-watch-flexy[role="main"] #playlist.ytd-watch-flexy').then(function(elm) {
+    const videoElem = document.querySelector('.html5-main-video');
+    const resizeObserver = new ResizeObserver(function() {
+      const videoHeight = videoElem.scrollHeight;
+      const playlist = document.querySelector('#container.ytd-playlist-panel-renderer');
+      elm.setAttribute('style', 'min-height: '+videoHeight+'px!important;');
+      playlist.setAttribute('style', 'min-height: '+videoHeight+'px!important;');
+    });
+    resizeObserver.observe(videoElem);
+    document.querySelector('ytd-watch-flexy[role="main"] #playlist.ytd-watch-flexy').removeAttribute('standardized-themed-scrollbar');
+  });
+}
+function playlistStyle() {
+  let link = document.createElement("link");
+  link.href = chrome.extension.getURL("../css/playlist.css");
+  link.type = "text/css";
+  link.rel = "stylesheet";
+  document.getElementsByTagName("head")[0].appendChild(link);
+}
 chrome.storage.sync.get({
   settingsRestoreScroll: true,
   settingsDisableMP: true,
@@ -327,7 +343,8 @@ chrome.storage.sync.get({
   settingsHomeScroll: false,
   settingsChannelScroll: false,
   settingsRelScroll: false,
-  settingsFullScreenScroll: false
+  settingsFullScreenScroll: false,
+  settingsClassicPlaylist: false
 }, function (settings) {
   if (true === settings.settingsRestoreScroll) {
     restoreScrollbar();
@@ -377,5 +394,10 @@ chrome.storage.sync.get({
   }
   if (true === settings.settingsFullScreenScroll) {
     fullScreenScroll();
+  }
+  if (true === settings.settingsClassicPlaylist) {
+    playlistStyle();
+    classicPlaylist();
+    document.querySelector('ytd-app').addEventListener('yt-visibility-refresh', classicPlaylist);
   }
 });

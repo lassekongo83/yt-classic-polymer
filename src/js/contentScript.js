@@ -427,45 +427,11 @@ function classicPlaylist() {
   });
 }
 function playlistStyle() {
-  addStyle(`#playlist.ytd-watch-flexy {
-  margin-bottom:10px!important; border:none!important; position:relative!important; right:10px!important; width:calc(var(--ytd-watch-flexy-sidebar-width) + 10px)!important;
-}
-#container.ytd-playlist-panel-renderer { border:none!important; }
-.header.ytd-playlist-panel-renderer {
-  background-color:#1a1a1a!important;
-}
-.title.ytd-playlist-panel-renderer a.yt-simple-endpoint.yt-formatted-string:hover,
-yt-formatted-string[has-link-only_]:not([force-default-style]) a.yt-simple-endpoint.yt-formatted-string:visited {
-  color:white!important; --yt-endpoint-color:white!important;
-}
-#video-title.ytd-playlist-panel-video-renderer,
-h4.ytd-playlist-panel-video-renderer {
-  color:#cacaca!important;
-  font-size:13px!important;
-}
-.playlist-items.ytd-playlist-panel-renderer {
-  background-color:#222!important;
-}
-ytd-playlist-panel-video-renderer[selected][watch-color-update] {
-  background-color:#3a3a3a!important;
-}
-ytd-playlist-panel-video-renderer[watch-color-update]:hover:not(.dragging) {
-  background-color:#525252!important;
-}
-#header-top-row.ytd-playlist-panel-renderer {
-  border-bottom:1px solid #3a3a3a!important;
-  padding-bottom:6px!important;
-}
-ytd-playlist-panel-video-renderer[watch-color-update] #byline.ytd-playlist-panel-video-renderer,
-ytd-playlist-panel-video-renderer[watch-color-update] #index.ytd-playlist-panel-video-renderer,
-ytd-playlist-panel-renderer[collapsible] .publisher.ytd-playlist-panel-renderer > a,
-.index-message-wrapper.ytd-playlist-panel-renderer,
-.publisher.ytd-playlist-panel-renderer:not(:empty) + .index-message-wrapper.ytd-playlist-panel-renderer::before,
-ytd-playlist-panel-renderer[has-playlist-buttons] #playlist-action-menu.ytd-playlist-panel-renderer ytd-toggle-button-renderer #button.ytd-toggle-button-renderer,
-#expand-button.ytd-playlist-panel-renderer {
-  color:#8c8c8c!important;
-}
-  `);
+  let link = document.createElement("link");
+  link.href = chrome.extension.getURL("../css/playlist.css");
+  link.type = "text/css";
+  link.rel = "stylesheet";
+  document.getElementsByTagName("head")[0].appendChild(link);
 }
 
 // Apply settings

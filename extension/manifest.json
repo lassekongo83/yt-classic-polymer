@@ -1,7 +1,7 @@
 {
   "name": "YouTube Classic Polymer Theme",
   "short_name": "YT Classic Theme",
-  "version": "0.3.6",
+  "version": "0.3.7",
   "manifest_version": 2,
   "description": "__MSG_ext_desc__",
   "author": "Frellwit",
@@ -48,7 +48,8 @@
     }
   ],
   "web_accessible_resources": [
-    "img/*.png"
+    "img/*.png",
+    "css/playlist.css"
   ],
   "browser_specific_settings": {
     "gecko": {
