@@ -411,7 +411,6 @@ function preventAutoplay() {
 smallPlayer();*/
 
 // Classic playlist option
-// TODO
 function classicPlaylist() {
   waitForElm('ytd-watch-flexy[role="main"] #playlist.ytd-watch-flexy').then(function(elm) {
     // Resize the playlist to the same height as the videoplayer even when the document is resized
@@ -423,6 +422,8 @@ function classicPlaylist() {
       playlist.setAttribute('style', 'min-height: '+videoHeight+'px!important;');
     });
     resizeObserver.observe(videoElem);
+    // Make the round scrollbar square
+    document.querySelector('ytd-watch-flexy[role="main"] #playlist.ytd-watch-flexy').removeAttribute('standardized-themed-scrollbar');
   });
 }
 function playlistStyle() {
