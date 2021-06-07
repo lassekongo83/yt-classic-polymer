@@ -13,6 +13,7 @@ function save_options() {
   const settingsChannelScroll = document.getElementById('options-channelscroll').checked;
   const settingsRelScroll = document.getElementById('options-relscroll').checked;
   const settingsFullScreenScroll = document.getElementById('options-fs-scroll').checked;
+  const settingsClassicPlaylist = document.getElementById('options-classic-playlist').checked;
   chrome.storage.sync.set({
     settingsRestoreScroll: settingsRestoreScroll,
     settingsGuideMenu: settingsGuideMenu,
@@ -26,7 +27,8 @@ function save_options() {
     settingsHomeScroll: settingsHomeScroll,
     settingsChannelScroll: settingsChannelScroll,
     settingsRelScroll: settingsRelScroll,
-    settingsFullScreenScroll: settingsFullScreenScroll
+    settingsFullScreenScroll: settingsFullScreenScroll,
+    settingsClassicPlaylist: settingsClassicPlaylist
   });
 }
 
@@ -45,7 +47,8 @@ function restore_options() {
     settingsHomeScroll: false,
     settingsChannelScroll: false,
     settingsRelScroll: false,
-    settingsFullScreenScroll: false
+    settingsFullScreenScroll: false,
+    settingsClassicPlaylist: false
   }, function(items) {
     document.getElementById('options-scrollbar').checked = items.settingsRestoreScroll;
     document.getElementById('options-guide-menu').checked = items.settingsGuideMenu;
@@ -60,6 +63,7 @@ function restore_options() {
     document.getElementById('options-channelscroll').checked = items.settingsChannelScroll;
     document.getElementById('options-relscroll').checked = items.settingsRelScroll;
     document.getElementById('options-fs-scroll').checked = items.settingsFullScreenScroll;
+    document.getElementById('options-classic-playlist').checked = items.settingsClassicPlaylist;
   });
 }
 
@@ -78,4 +82,5 @@ document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('options-channelscroll').addEventListener('click', save_options);
   document.getElementById('options-relscroll').addEventListener('click', save_options);
   document.getElementById('options-fs-scroll').addEventListener('click', save_options);
+  document.getElementById('options-classic-playlist').addEventListener('click', save_options);
 });

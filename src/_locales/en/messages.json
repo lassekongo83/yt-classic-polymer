@@ -79,6 +79,10 @@
     "message": "Auto-pause videos to prevent autoplay",
     "description": "The option to disable videos from autoplaying"
   },
+  "ext_classicplaylist": {
+    "message": "Use the classic playlist style",
+    "description": "The option to use the classic playlist style"
+  },
   "c_home": {
     "message": "Home",
     "description": "The home link on the nav bar menu"

@@ -74,17 +74,11 @@ document.querySelector('ytd-app').addEventListener('yt-set-theater-mode-enabled'
 
 // Disable miniplayer
 function disableMP() {
-  // autoclick the close button on the miniplayer when the progressbar is finished
-  // yt-navigate-finish would be better, but it seems to be too fast
-  document.addEventListener('transitionend', function(e) {
-    if (document.getElementById('progress') !== null) {
-      if (e.target.id === 'progress') {
-        clickButton('.ytp-miniplayer-close-button');
-      }
-    }
+  document.addEventListener('yt-visibility-refresh', function(e) {
+    clickButton('.ytp-miniplayer-close-button');
   });
   // hide the miniplayer icon
-  addStyle(`.ytp-miniplayer-button {display:none!important;}`);
+  addStyle(`.ytp-miniplayer-button{display:none!important;}`);
 }
 
 // Collapse guide menu
@@ -394,6 +388,85 @@ function preventAutoplay() {
   }
 }
 
+// Smaller player option
+// FIXME: Not working with the progressbar and other stuff
+/*function smallPlayer() {
+  addStyle(`ytd-watch-flexy[flexy]{max-width:1280px!important;margin:0 auto!important;} ytd-watch-flexy[flexy][flexy-large-window_]:not([is-extra-wide-video_]){--ytd-watch-flexy-min-player-height:480px!important;
+--ytd-watch-flexy-scrollbar-width:15px!important; --ytd-watch-flexy-space-below-player:136px!important; --ytd-watch-flexy-panel-max-height:451px!important; --ytd-watch-flexy-chat-max-height:451px!important;}`);
+  waitForElm('ytd-watch-flexy[flexy]').then(function(elm) {
+    //document.getElementById('large-window-query').remove();
+    if (elm.hasAttribute('flexy-large-window_')) {
+      elm.removeAttribute('flexy-large-window_');
+      elm.setAttribute('flexy-small-window_', '');
+    }
+    document.getElementById('large-window-query').addEventListener('query-matches-changed', function (e) {
+      elm.removeAttribute('flexy-large-window_');
+      elm.setAttribute('flexy-small-window_', '');
+    });
+    document.getElementById('small-window-query').addEventListener('query-matches-changed', function (e) {
+      elm.removeAttribute('flexy-large-window_');
+    });
+  });
+}
+smallPlayer();*/
+
+// Classic playlist option
+// TODO
+function classicPlaylist() {
+  waitForElm('ytd-watch-flexy[role="main"] #playlist.ytd-watch-flexy').then(function(elm) {
+    // Resize the playlist to the same height as the videoplayer even when the document is resized
+    const videoElem = document.querySelector('.html5-main-video');
+    const resizeObserver = new ResizeObserver(function() {
+      const videoHeight = videoElem.scrollHeight;
+      const playlist = document.querySelector('#container.ytd-playlist-panel-renderer');
+      elm.setAttribute('style', 'min-height: '+videoHeight+'px!important;');
+      playlist.setAttribute('style', 'min-height: '+videoHeight+'px!important;');
+    });
+    resizeObserver.observe(videoElem);
+  });
+}
+function playlistStyle() {
+  addStyle(`#playlist.ytd-watch-flexy {
+  margin-bottom:10px!important; border:none!important; position:relative!important; right:10px!important; width:calc(var(--ytd-watch-flexy-sidebar-width) + 10px)!important;
+}
+#container.ytd-playlist-panel-renderer { border:none!important; }
+.header.ytd-playlist-panel-renderer {
+  background-color:#1a1a1a!important;
+}
+.title.ytd-playlist-panel-renderer a.yt-simple-endpoint.yt-formatted-string:hover,
+yt-formatted-string[has-link-only_]:not([force-default-style]) a.yt-simple-endpoint.yt-formatted-string:visited {
+  color:white!important; --yt-endpoint-color:white!important;
+}
+#video-title.ytd-playlist-panel-video-renderer,
+h4.ytd-playlist-panel-video-renderer {
+  color:#cacaca!important;
+  font-size:13px!important;
+}
+.playlist-items.ytd-playlist-panel-renderer {
+  background-color:#222!important;
+}
+ytd-playlist-panel-video-renderer[selected][watch-color-update] {
+  background-color:#3a3a3a!important;
+}
+ytd-playlist-panel-video-renderer[watch-color-update]:hover:not(.dragging) {
+  background-color:#525252!important;
+}
+#header-top-row.ytd-playlist-panel-renderer {
+  border-bottom:1px solid #3a3a3a!important;
+  padding-bottom:6px!important;
+}
+ytd-playlist-panel-video-renderer[watch-color-update] #byline.ytd-playlist-panel-video-renderer,
+ytd-playlist-panel-video-renderer[watch-color-update] #index.ytd-playlist-panel-video-renderer,
+ytd-playlist-panel-renderer[collapsible] .publisher.ytd-playlist-panel-renderer > a,
+.index-message-wrapper.ytd-playlist-panel-renderer,
+.publisher.ytd-playlist-panel-renderer:not(:empty) + .index-message-wrapper.ytd-playlist-panel-renderer::before,
+ytd-playlist-panel-renderer[has-playlist-buttons] #playlist-action-menu.ytd-playlist-panel-renderer ytd-toggle-button-renderer #button.ytd-toggle-button-renderer,
+#expand-button.ytd-playlist-panel-renderer {
+  color:#8c8c8c!important;
+}
+  `);
+}
+
 // Apply settings
 chrome.storage.sync.get({
   settingsRestoreScroll: true,
@@ -408,7 +481,8 @@ chrome.storage.sync.get({
   settingsHomeScroll: false,
   settingsChannelScroll: false,
   settingsRelScroll: false,
-  settingsFullScreenScroll: false
+  settingsFullScreenScroll: false,
+  settingsClassicPlaylist: false
 }, function (settings) {
   if (true === settings.settingsRestoreScroll) {
     restoreScrollbar();
@@ -459,5 +533,10 @@ chrome.storage.sync.get({
   }
   if (true === settings.settingsFullScreenScroll) {
     fullScreenScroll();
+  }
+  if (true === settings.settingsClassicPlaylist) {
+    playlistStyle();
+    classicPlaylist();
+    document.querySelector('ytd-app').addEventListener('yt-visibility-refresh', classicPlaylist);
   }
 });
