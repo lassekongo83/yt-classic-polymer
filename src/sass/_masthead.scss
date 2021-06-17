@@ -58,12 +58,12 @@ html:not([dark]) {
   max-width: 650px !important;
 }
 
-ytd-masthead[is-logo-updated] #search-form.ytd-searchbox {
+ytd-masthead #search-form.ytd-searchbox {
   margin-left: 16px !important;
 }
 
 tp-yt-app-drawer {
-  ytd-topbar-logo-renderer[is-logo-updated] yt-icon.ytd-topbar-logo-renderer {
+  ytd-topbar-logo-renderer yt-icon.ytd-topbar-logo-renderer {
     padding-left: 0 !important;
   }
 }

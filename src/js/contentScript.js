@@ -104,18 +104,18 @@ function logotype() {
   waitForElm('yt-icon.ytd-topbar-logo-renderer').then(function(elm) {
     if (darkTheme) { // FIXME: User will have to reload the document when switching themes to use the correct logo
       elm.style.backgroundImage = "url(" + darkLogo + ")";
-      document.querySelector('#contentContainer.tp-yt-app-drawer yt-icon.ytd-topbar-logo-renderer').style.backgroundImage = "url(" + darkLogo + ")";
+      document.querySelector('tp-yt-app-drawer ytd-topbar-logo-renderer').style.backgroundImage = "url(" + darkLogo + ")";
     }
     else {
       elm.style.backgroundImage = "url(" + spritemap + ")";
-      document.querySelector('#contentContainer.tp-yt-app-drawer yt-icon.ytd-topbar-logo-renderer').style.backgroundImage = "url(" + spritemap + ")";
+      document.querySelector('tp-yt-app-drawer ytd-topbar-logo-renderer').style.backgroundImage = "url(" + spritemap + ")";
     }
   });
-  addStyle(`html:not([dark="true"]) yt-icon.ytd-topbar-logo-renderer{width:73px!important; height:30px!important; background-position:-558px -346px!important; background-size:auto!important;}
-html[dark="true"] yt-icon.ytd-topbar-logo-renderer{width:73px!important; height:30px!important; background-size:auto!important;} yt-icon.ytd-topbar-logo-renderer svg{display:none!important;}
-ytd-topbar-logo-renderer[is-logo-updated] yt-icon.ytd-topbar-logo-renderer{width:73px!important; height:30px!important; background-repeat:no-repeat!important; padding:0!important;}
-ytd-masthead[is-logo-updated] yt-icon.ytd-topbar-logo-renderer{margin-left:16px!important;}
-ytd-topbar-logo-renderer[is-logo-updated] #country-code.ytd-topbar-logo-renderer{margin:unset!important;}`);
+  addStyle(`html:not([dark="true"]) yt-icon.ytd-topbar-logo-renderer,html:not([dark="true"]) tp-yt-app-drawer ytd-topbar-logo-renderer{width:73px!important; height:30px!important; background-position:-558px -346px!important; background-size:auto!important;}
+html[dark="true"] yt-icon.ytd-topbar-logo-renderer,html[dark="true"] tp-yt-app-drawer ytd-topbar-logo-renderer{width:73px!important; height:30px!important; background-size:auto!important;} yt-icon.ytd-topbar-logo-renderer svg{display:none!important;}
+ytd-topbar-logo-renderer yt-icon.ytd-topbar-logo-renderer{width:73px!important; height:30px!important; background-repeat:no-repeat!important; padding:0!important;}
+ytd-masthead yt-icon.ytd-topbar-logo-renderer{margin-left:16px!important;}
+ytd-topbar-logo-renderer #country-code.ytd-topbar-logo-renderer{margin:unset!important;}`);
 }
 
 // Display channel /user/x/videos as a list
