@@ -232,7 +232,7 @@ function stopChannelScroll() {
   addStyle(`[page-subtype="channels"] #items.ytd-grid-renderer ytd-continuation-item-renderer{height:1px; visibility:hidden;} [page-subtype="channels"] ytd-continuation-item-renderer #ghost-cards{display:none;}`);
 }
 function relScroll() {
-  waitForElm('[is-watch-page] #items.ytd-watch-next-secondary-results-renderer > ytd-continuation-item-renderer').then(function(elm) {
+  waitForElm('ytd-watch-flexy[role="main"] #items.ytd-watch-next-secondary-results-renderer > ytd-continuation-item-renderer').then(function(elm) {
     const related = document.querySelector('#items.ytd-watch-next-secondary-results-renderer');
     const relbtn = document.createElement('button');
     relbtn.className = "ytcp-load-more-button ytcp-related";
@@ -248,11 +248,11 @@ function relScroll() {
         }
       });
     }
-    const relButton = document.querySelector('[is-watch-page] #items.ytd-watch-next-secondary-results-renderer .ytcp-load-more-button');
+    const relButton = document.querySelector('ytd-watch-flexy[role="main"] #items.ytd-watch-next-secondary-results-renderer .ytcp-load-more-button');
     if (relButton !== null) {
       relButton.onclick = function() {
-        const relCont = document.querySelector('[is-watch-page] #items.ytd-watch-next-secondary-results-renderer > ytd-continuation-item-renderer');
-        const relItems = document.querySelector('[is-watch-page] #items.ytd-watch-next-secondary-results-renderer');
+        const relCont = document.querySelector('ytd-watch-flexy[role="main"] #items.ytd-watch-next-secondary-results-renderer > ytd-continuation-item-renderer');
+        const relItems = document.querySelector('ytd-watch-flexy[role="main"] #items.ytd-watch-next-secondary-results-renderer');
         if (relCont !== null) {
           relCont.remove();
         }
@@ -263,22 +263,22 @@ function relScroll() {
           relCont.style.visibility = 'visible';
         }
         window.addEventListener('scroll', function() {
-          if (document.querySelector('[is-watch-page] #items.ytd-watch-next-secondary-results-renderer > ytd-continuation-item-renderer') !== null) {
-            document.querySelector('[is-watch-page] #items.ytd-watch-next-secondary-results-renderer > ytd-continuation-item-renderer').style.visibility = 'hidden';
+          if (document.querySelector('ytd-watch-flexy[role="main"] #items.ytd-watch-next-secondary-results-renderer > ytd-continuation-item-renderer') !== null) {
+            document.querySelector('ytd-watch-flexy[role="main"] #items.ytd-watch-next-secondary-results-renderer > ytd-continuation-item-renderer').style.visibility = 'hidden';
           }
         });
       };
     }
     function removeRelatedScrollButton() {
-      if (document.querySelector('[is-watch-page] #items.ytd-watch-next-secondary-results-renderer > ytd-continuation-item-renderer') === null) {
+      if (document.querySelector('ytd-watch-flexy[role="main"] #items.ytd-watch-next-secondary-results-renderer > ytd-continuation-item-renderer') === null) {
         relButton.remove();
       }
     }
-    onRemove(document.querySelector('[is-watch-page] #items.ytd-watch-next-secondary-results-renderer > ytd-continuation-item-renderer'), () => removeRelatedScrollButton());
+    onRemove(document.querySelector('ytd-watch-flexy[role="main"] #items.ytd-watch-next-secondary-results-renderer > ytd-continuation-item-renderer'), () => removeRelatedScrollButton());
   });
 }
 function stopRelScroll() {
-  addStyle(`[is-watch-page] #items.ytd-watch-next-secondary-results-renderer > ytd-continuation-item-renderer{visibility:hidden;}`);
+  addStyle(`ytd-watch-flexy[role="main"] #items.ytd-watch-next-secondary-results-renderer > ytd-continuation-item-renderer{visibility:hidden;}`);
 }
 function fullScreenScroll() {
   document.addEventListener('wheel', (e) => {
