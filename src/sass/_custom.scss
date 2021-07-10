@@ -18,25 +18,26 @@ html:not([dark="true"]) {
     display: inline-block;
     margin-left: 30px;
 
-    a {
+    span {
       display:inline-block;
       color: #666;
       text-decoration: none;
+      cursor: pointer;
 
       &:hover {
         box-shadow: inset 0 -3px #cc181e;
       }
     }
   }
-  [page-subtype="home"] .ytcp-nav-home a {
+  [page-subtype="home"] .ytcp-nav-home span {
     box-shadow:inset 0 -3px #cc181e;
     color: #333;
   }
-  [page-subtype="trending"] .ytcp-nav-trending a {
+  [page-subtype="trending"] .ytcp-nav-trending span {
     box-shadow: inset 0 -3px #cc181e;
     color: #333;
   }
-  [page-subtype="subscriptions"] .ytcp-nav-subs a {
+  [page-subtype="subscriptions"] .ytcp-nav-subs span {
     box-shadow: inset 0 -3px #cc181e;
     color: #333;
   }
@@ -64,25 +65,26 @@ html[dark="true"] {
     display: inline-block;
     margin-left: 30px;
 
-    a {
+    span {
       display:inline-block;
       color: $secondary_text_dark;
       text-decoration: none;
+      cursor: pointer;
 
       &:hover {
         box-shadow: inset 0 -3px #dcdcdc;
       }
     }
   }
-  [page-subtype="home"] .ytcp-nav-home a {
+  [page-subtype="home"] .ytcp-nav-home span {
     box-shadow:inset 0 -3px #dcdcdc;
     color: $primary_text_dark;
   }
-  [page-subtype="trending"] .ytcp-nav-trending a {
+  [page-subtype="trending"] .ytcp-nav-trending span {
     box-shadow: inset 0 -3px #dcdcdc;
     color: $primary_text_dark;
   }
-  [page-subtype="subscriptions"] .ytcp-nav-subs a {
+  [page-subtype="subscriptions"] .ytcp-nav-subs span {
     box-shadow: inset 0 -3px #dcdcdc;
     color: $primary_text_dark;
   }
