@@ -141,9 +141,6 @@ function listDisplay() {
 function navBar() {
   // All items we'd like to add
   const navItems = [
-    //{href: '/', text: chrome.i18n.getMessage('c_home')},
-    //{href: '/feed/trending', text: chrome.i18n.getMessage('c_trending')},
-    //{href: '/feed/subscriptions', text: chrome.i18n.getMessage('c_subs')},
     {text: chrome.i18n.getMessage('c_home')},
     {text: chrome.i18n.getMessage('c_trending')},
     {text: chrome.i18n.getMessage('c_subs')},

@@ -38,6 +38,13 @@ function addStyle(styleString) {
   style.textContent = styleString;
   document.head.append(style);
 }
+function createScript(input, id) {
+  const a = document.body;
+  const b = document.createElement("script");
+  b.text = input;
+  b.setAttribute("id", id);
+  a.appendChild(b);
+}
 function clickButton(selector){
   let elm = document.querySelectorAll(selector)[0];
   if (elm){ elm.click(); }
@@ -98,16 +105,16 @@ function listDisplay() {
 }
 function navBar() {
   const navItems = [
-    {href: '/', text: chrome.i18n.getMessage('c_home')},
-    {href: '/feed/trending', text: chrome.i18n.getMessage('c_trending')},
-    {href: '/feed/subscriptions', text: chrome.i18n.getMessage('c_subs')},
+    {text: chrome.i18n.getMessage('c_home')},
+    {text: chrome.i18n.getMessage('c_trending')},
+    {text: chrome.i18n.getMessage('c_subs')},
   ];
   let navElem = document.createElement("div"),
     navList = document.createElement("ul"),
     navItem, navLink;
   for (let i = 0; i < navItems.length; i++) {
     navItem = document.createElement("li");
-    navLink = document.createElement("a");
+    navLink = document.createElement("span");
     navLink.href = navItems[i].href;
     navLink.innerHTML = navItems[i].text;
     navItem.appendChild(navLink);
@@ -130,6 +137,12 @@ function navBar() {
   navList.childNodes[0].className = "ytcp-nav-home ytcp-nav-item";
   navList.childNodes[1].className = "ytcp-nav-trending ytcp-nav-item";
   navList.childNodes[2].className = "ytcp-nav-subs ytcp-nav-item";
+  const navHome = document.querySelector('.ytcp-nav-home');
+  const navTrend = document.querySelector('.ytcp-nav-trending');
+  const navSubs = document.querySelector('.ytcp-nav-subs');
+  navHome.addEventListener('click', navigateToHome);
+  navTrend.addEventListener('click', navigateToTrending);
+  navSubs.addEventListener('click', navigateToSubs);
 }
 function navBarNavigation() {
   document.body.addEventListener('yt-navigate-finish', () => {
@@ -143,10 +156,88 @@ function navBarNavigation() {
     if (nav !== null) {
       nav.remove();
     }
+    const navHome = document.querySelector('.ytcp-nav-home');
+    const navTrend = document.querySelector('.ytcp-nav-trending');
+    const navSubs = document.querySelector('.ytcp-nav-subs');
+    navHome.addEventListener('click', navigateToHome);
+    navTrend.addEventListener('click', navigateToTrending);
+    navSubs.addEventListener('click', navigateToSubs);
   });
 }
 function makeRoom() {
   addStyle(`[page-subtype="home"] ytd-two-column-browse-results-renderer,[page-subtype="trending"] ytd-two-column-browse-results-renderer,[page-subtype="subscriptions"] ytd-two-column-browse-results-renderer{margin-top:60px!important;} [page-subtype="trending"] tp-yt-app-header{top:60px!important;}`);
+}
+function navigateToHome() {
+  document.querySelector('ytd-app').insertAdjacentHTML('beforeend',
+  '<ytd-guide-entry-renderer class="ytd-guide-entry-renderer navigateToHomeTemp"></ytd-guide-entry-renderer>');
+  createScript(
+  `document.querySelector('.navigateToHomeTemp').data = {};
+  document.querySelector('.navigateToHomeTemp').data.navigationEndpoint = {
+    "clickTrackingParams": "CJMBELUsGAAiEwi3y-qlp9bxAhVchuUHHSLSCts=",
+    "commandMetadata": {
+      "webCommandMetadata": {
+        "url": "/",
+        "webPageType": "WEB_PAGE_TYPE_BROWSE",
+        "rootVe": 3854,
+        "apiUrl": "/youtubei/v1/browse"
+      }
+    },
+    "browseEndpoint": {
+      "browseId": "FEwhat_to_watch"
+    }
+  };`,
+  'polymerNavigationScript');
+  document.querySelector('.navigateToHomeTemp').click();
+  document.querySelector('.navigateToHomeTemp').remove();
+  document.querySelector('#polymerNavigationScript').remove();
+}
+function navigateToTrending() {
+  document.querySelector('ytd-app').insertAdjacentHTML('beforeend',
+  '<ytd-guide-entry-renderer class="ytd-guide-entry-renderer navigateToTrendingTemp"></ytd-guide-entry-renderer>');
+  createScript(
+  `document.querySelector('.navigateToTrendingTemp').data = {};
+  document.querySelector('.navigateToTrendingTemp').data.navigationEndpoint = {
+    "clickTrackingParams": "CJIBELUsGAEiEwi3y-qlp9bxAhVchuUHHSLSCts=",
+    "commandMetadata": {
+      "webCommandMetadata": {
+        "url": "/feed/trending",
+        "webPageType": "WEB_PAGE_TYPE_BROWSE",
+        "rootVe": 6827,
+        "apiUrl": "/youtubei/v1/browse"
+      }
+    },
+    "browseEndpoint": {
+      "browseId": "FEexplore"
+    }
+  };`,
+  'polymerNavigationScript');
+  document.querySelector('.navigateToTrendingTemp').click();
+  document.querySelector('.navigateToTrendingTemp').remove();
+  document.querySelector('#polymerNavigationScript').remove();
+}
+function navigateToSubs() {
+  document.querySelector('ytd-app').insertAdjacentHTML('beforeend',
+  '<ytd-guide-entry-renderer class="ytd-guide-entry-renderer navigateToSubsTemp"></ytd-guide-entry-renderer>');
+  createScript(
+  `document.querySelector('.navigateToSubsTemp').data = {};
+  document.querySelector('.navigateToSubsTemp').data.navigationEndpoint = {
+    "clickTrackingParams": "CJEBELUsGAIiEwi3y-qlp9bxAhVchuUHHSLSCts=",
+    "commandMetadata": {
+      "webCommandMetadata": {
+        "url": "/feed/subscriptions",
+        "webPageType": "WEB_PAGE_TYPE_BROWSE",
+        "rootVe": 6827,
+        "apiUrl": "/youtubei/v1/browse"
+      }
+    },
+    "browseEndpoint": {
+      "browseId": "FEsubscriptions"
+    }
+  };`,
+  'polymerNavigationScript');
+  document.querySelector('.navigateToSubsTemp').click();
+  document.querySelector('.navigateToSubsTemp').remove();
+  document.querySelector('#polymerNavigationScript').remove();
 }
 function homeScroll() {
   const homeBtn = document.createElement('button');
