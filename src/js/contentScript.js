@@ -187,12 +187,14 @@ function navBar() {
   navList.childNodes[1].className = "ytcp-nav-trending ytcp-nav-item";
   navList.childNodes[2].className = "ytcp-nav-subs ytcp-nav-item";
 
-  const navHome = document.querySelector('.ytcp-nav-home');
-  const navTrend = document.querySelector('.ytcp-nav-trending');
-  const navSubs = document.querySelector('.ytcp-nav-subs');
-  navHome.addEventListener('click', navigateToHome);
-  navTrend.addEventListener('click', navigateToTrending);
-  navSubs.addEventListener('click', navigateToSubs);
+  if (window.location.href.indexOf("/watch?") === -1) {
+    const navHome = document.querySelector('.ytcp-nav-home');
+    const navTrend = document.querySelector('.ytcp-nav-trending');
+    const navSubs = document.querySelector('.ytcp-nav-subs');
+    navHome.addEventListener('click', navigateToHome);
+    navTrend.addEventListener('click', navigateToTrending);
+    navSubs.addEventListener('click', navigateToSubs);
+  }
 }
 // Insert the old nav menu again when navigating
 function navBarNavigation() {
@@ -209,12 +211,14 @@ function navBarNavigation() {
     if (nav !== null) {
       nav.remove();
     }
-    const navHome = document.querySelector('.ytcp-nav-home');
-    const navTrend = document.querySelector('.ytcp-nav-trending');
-    const navSubs = document.querySelector('.ytcp-nav-subs');
-    navHome.addEventListener('click', navigateToHome);
-    navTrend.addEventListener('click', navigateToTrending);
-    navSubs.addEventListener('click', navigateToSubs);
+    if (window.location.href.indexOf("/watch?") === -1) {
+      const navHome = document.querySelector('.ytcp-nav-home');
+      const navTrend = document.querySelector('.ytcp-nav-trending');
+      const navSubs = document.querySelector('.ytcp-nav-subs');
+      navHome.addEventListener('click', navigateToHome);
+      navTrend.addEventListener('click', navigateToTrending);
+      navSubs.addEventListener('click', navigateToSubs);
+    }
   });
 }
 // make room for the nav menu
@@ -485,28 +489,6 @@ function preventAutoplay() {
   }
 }
 
-// Smaller player option
-// FIXME: Not working with the progressbar and other stuff
-/*function smallPlayer() {
-  addStyle(`ytd-watch-flexy[flexy]{max-width:1280px!important;margin:0 auto!important;} ytd-watch-flexy[flexy][flexy-large-window_]:not([is-extra-wide-video_]){--ytd-watch-flexy-min-player-height:480px!important;
---ytd-watch-flexy-scrollbar-width:15px!important; --ytd-watch-flexy-space-below-player:136px!important; --ytd-watch-flexy-panel-max-height:451px!important; --ytd-watch-flexy-chat-max-height:451px!important;}`);
-  waitForElm('ytd-watch-flexy[flexy]').then(function(elm) {
-    //document.getElementById('large-window-query').remove();
-    if (elm.hasAttribute('flexy-large-window_')) {
-      elm.removeAttribute('flexy-large-window_');
-      elm.setAttribute('flexy-small-window_', '');
-    }
-    document.getElementById('large-window-query').addEventListener('query-matches-changed', function (e) {
-      elm.removeAttribute('flexy-large-window_');
-      elm.setAttribute('flexy-small-window_', '');
-    });
-    document.getElementById('small-window-query').addEventListener('query-matches-changed', function (e) {
-      elm.removeAttribute('flexy-large-window_');
-    });
-  });
-}
-smallPlayer();*/
-
 // Classic playlist option
 function classicPlaylist() {
   waitForElm('ytd-watch-flexy[role="main"] #playlist.ytd-watch-flexy').then(function(elm) {
@@ -577,7 +559,9 @@ chrome.storage.sync.get({
     listDisplay();
   }
   if (true === settings.settingsOldNavBar) {
-    navBar();
+    if (window.location.href.indexOf("/watch?") === -1) {
+      navBar();
+    }
     navBarNavigation();
     makeRoom();
   }
