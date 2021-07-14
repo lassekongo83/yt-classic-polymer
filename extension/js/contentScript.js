@@ -137,12 +137,14 @@ function navBar() {
   navList.childNodes[0].className = "ytcp-nav-home ytcp-nav-item";
   navList.childNodes[1].className = "ytcp-nav-trending ytcp-nav-item";
   navList.childNodes[2].className = "ytcp-nav-subs ytcp-nav-item";
-  const navHome = document.querySelector('.ytcp-nav-home');
-  const navTrend = document.querySelector('.ytcp-nav-trending');
-  const navSubs = document.querySelector('.ytcp-nav-subs');
-  navHome.addEventListener('click', navigateToHome);
-  navTrend.addEventListener('click', navigateToTrending);
-  navSubs.addEventListener('click', navigateToSubs);
+  if (window.location.href.indexOf("/watch?") === -1) {
+    const navHome = document.querySelector('.ytcp-nav-home');
+    const navTrend = document.querySelector('.ytcp-nav-trending');
+    const navSubs = document.querySelector('.ytcp-nav-subs');
+    navHome.addEventListener('click', navigateToHome);
+    navTrend.addEventListener('click', navigateToTrending);
+    navSubs.addEventListener('click', navigateToSubs);
+  }
 }
 function navBarNavigation() {
   document.body.addEventListener('yt-navigate-finish', () => {
@@ -156,12 +158,14 @@ function navBarNavigation() {
     if (nav !== null) {
       nav.remove();
     }
-    const navHome = document.querySelector('.ytcp-nav-home');
-    const navTrend = document.querySelector('.ytcp-nav-trending');
-    const navSubs = document.querySelector('.ytcp-nav-subs');
-    navHome.addEventListener('click', navigateToHome);
-    navTrend.addEventListener('click', navigateToTrending);
-    navSubs.addEventListener('click', navigateToSubs);
+    if (window.location.href.indexOf("/watch?") === -1) {
+      const navHome = document.querySelector('.ytcp-nav-home');
+      const navTrend = document.querySelector('.ytcp-nav-trending');
+      const navSubs = document.querySelector('.ytcp-nav-subs');
+      navHome.addEventListener('click', navigateToHome);
+      navTrend.addEventListener('click', navigateToTrending);
+      navSubs.addEventListener('click', navigateToSubs);
+    }
   });
 }
 function makeRoom() {
@@ -465,7 +469,9 @@ chrome.storage.sync.get({
     listDisplay();
   }
   if (true === settings.settingsOldNavBar) {
-    navBar();
+    if (window.location.href.indexOf("/watch?") === -1) {
+      navBar();
+    }
     navBarNavigation();
     makeRoom();
   }
