@@ -71,9 +71,7 @@ function hideGuide() {
   }
 }
 function disablePreview() {
-  const noLivePreview = document.createElement('style')
-  noLivePreview.innerHTML = "ytd-thumbnail #mouseover-overlay {display:none!important;}";
-  document.body.appendChild(noLivePreview);
+  addStyle(`ytd-thumbnail #mouseover-overlay,ytd-video-preview,ytd-thumbnail-overlay-loading-preview-renderer,ytd-thumbnail-overlay-inline-unplayable-renderer{display:none!important;} ytd-thumbnail[now-playing] ytd-thumbnail-overlay-time-status-renderer.ytd-thumbnail,ytd-thumbnail[is-preview-loading] ytd-thumbnail-overlay-time-status-renderer.ytd-thumbnail{display:unset!important;}`);
 }
 function logotype() {
   const spritemap = chrome.runtime.getURL('../img/spritemap.png');
