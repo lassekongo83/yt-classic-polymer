@@ -511,6 +511,20 @@ function playlistStyle() {
   document.getElementsByTagName("head")[0].appendChild(link);
 }
 
+// Option to restore the icons
+// https://www.reddit.com/r/oldyoutubelayout/comments/p3d89g/disabling_the_new_icons/
+function restoreIcons() {
+  createScript(`window['yt'] = window['yt'] || {};
+yt['config_'] = yt.config_ || {};
+yt.config_['EXPERIMENT_FLAGS'] = yt.config_.EXPERIMENT_FLAGS || {};
+yt.config_.EXPERIMENT_FLAGS.kevlar_updated_icons = false;
+yt.config_.EXPERIMENT_FLAGS.kevlar_system_icons = false;
+yt.config_.EXPERIMENT_FLAGS.kevlar_watch_color_update = false;`);
+
+// Makes some of the icons grey again
+addStyle(`button.yt-icon-button > yt-icon{color:#909090;}`);
+}
+
 // Apply settings
 chrome.storage.sync.get({
   settingsRestoreScroll: true,
@@ -526,7 +540,8 @@ chrome.storage.sync.get({
   settingsChannelScroll: false,
   settingsRelScroll: false,
   settingsFullScreenScroll: false,
-  settingsClassicPlaylist: false
+  settingsClassicPlaylist: false,
+  settingsRestoreIcons: false
 }, function (settings) {
   if (true === settings.settingsRestoreScroll) {
     restoreScrollbar();
@@ -584,5 +599,8 @@ chrome.storage.sync.get({
     playlistStyle();
     classicPlaylist();
     document.querySelector('ytd-app').addEventListener('yt-visibility-refresh', classicPlaylist);
+  }
+  if (true === settings.settingsRestoreIcons) {
+    restoreIcons();
   }
 });
