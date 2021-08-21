@@ -13,6 +13,7 @@ function save_options() {
   const settingsRelScroll = document.getElementById('options-relscroll').checked;
   const settingsFullScreenScroll = document.getElementById('options-fs-scroll').checked;
   const settingsClassicPlaylist = document.getElementById('options-classic-playlist').checked;
+  const settingsRestoreIcons = document.getElementById('options-restore-icons').checked;
   chrome.storage.sync.set({
     settingsRestoreScroll: settingsRestoreScroll,
     settingsGuideMenu: settingsGuideMenu,
@@ -27,7 +28,8 @@ function save_options() {
     settingsChannelScroll: settingsChannelScroll,
     settingsRelScroll: settingsRelScroll,
     settingsFullScreenScroll: settingsFullScreenScroll,
-    settingsClassicPlaylist: settingsClassicPlaylist
+    settingsClassicPlaylist: settingsClassicPlaylist,
+    settingsRestoreIcons: settingsRestoreIcons
   });
 }
 function restore_options() {
@@ -45,7 +47,8 @@ function restore_options() {
     settingsChannelScroll: false,
     settingsRelScroll: false,
     settingsFullScreenScroll: false,
-    settingsClassicPlaylist: false
+    settingsClassicPlaylist: false,
+    settingsRestoreIcons: false
   }, function(items) {
     document.getElementById('options-scrollbar').checked = items.settingsRestoreScroll;
     document.getElementById('options-guide-menu').checked = items.settingsGuideMenu;
@@ -61,6 +64,7 @@ function restore_options() {
     document.getElementById('options-relscroll').checked = items.settingsRelScroll;
     document.getElementById('options-fs-scroll').checked = items.settingsFullScreenScroll;
     document.getElementById('options-classic-playlist').checked = items.settingsClassicPlaylist;
+    document.getElementById('options-restore-icons').checked = items.settingsRestoreIcons;
   });
 }
 document.addEventListener('DOMContentLoaded', function () {
@@ -79,4 +83,5 @@ document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('options-relscroll').addEventListener('click', save_options);
   document.getElementById('options-fs-scroll').addEventListener('click', save_options);
   document.getElementById('options-classic-playlist').addEventListener('click', save_options);
+  document.getElementById('options-restore-icons').addEventListener('click', save_options);
 });

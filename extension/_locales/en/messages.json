@@ -83,6 +83,10 @@
     "message": "Use the classic playlist style",
     "description": "The option to use the classic playlist style"
   },
+  "ext_restoreicons": {
+    "message": "Restore the filled icons (Experimental)",
+    "description": "The option to disable the outlined icons"
+  },
   "c_home": {
     "message": "Home",
     "description": "The home link on the nav bar menu"

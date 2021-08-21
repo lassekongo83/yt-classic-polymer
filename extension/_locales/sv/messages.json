@@ -83,6 +83,10 @@
     "message": "Använd den klassiska spellistestilen",
     "description": "The option to use the classic playlist style"
   },
+  "ext_restoreicons": {
+    "message": "Återställ de fyllda ikonerna (Experimentell)",
+    "description": "The option to disable the outlined icons"
+  },
   "c_home": {
     "message": "Hem",
     "description": "The home link on the nav bar menu"
