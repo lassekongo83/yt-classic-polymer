@@ -521,8 +521,10 @@ yt.config_.EXPERIMENT_FLAGS.kevlar_updated_icons = false;
 yt.config_.EXPERIMENT_FLAGS.kevlar_system_icons = false;
 yt.config_.EXPERIMENT_FLAGS.kevlar_watch_color_update = false;`);
 
-// Makes some of the icons grey again
-addStyle(`button.yt-icon-button > yt-icon{color:#909090;}`);
+  // Make them grey again
+  if (document.getElementsByTagName('html')[0].hasAttribute('system-icons')) {
+    document.getElementsByTagName('html')[0].removeAttribute('system-icons');
+  }
 }
 
 // Apply settings
