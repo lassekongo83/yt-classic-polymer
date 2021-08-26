@@ -79,6 +79,15 @@ lightHeader();
 document.querySelector('ytd-app').addEventListener('yt-visibility-refresh', lightHeader);
 document.querySelector('ytd-app').addEventListener('yt-set-theater-mode-enabled', lightHeader);
 
+// Remove typography spacing
+function rmTypography() {
+  if (document.getElementsByTagName('html')[0].hasAttribute('typography') && document.getElementsByTagName('html')[0].hasAttribute('typography-spacing')) {
+    document.getElementsByTagName('html')[0].removeAttribute('typography-spacing');
+    document.getElementsByTagName('html')[0].removeAttribute('typography');
+  }
+}
+rmTypography();
+
 // -- OPTIONS -- //
 
 // Disable miniplayer
