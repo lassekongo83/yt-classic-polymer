@@ -58,6 +58,13 @@ function lightHeader() {
 lightHeader();
 document.querySelector('ytd-app').addEventListener('yt-visibility-refresh', lightHeader);
 document.querySelector('ytd-app').addEventListener('yt-set-theater-mode-enabled', lightHeader);
+function rmTypography() {
+  if (document.getElementsByTagName('html')[0].hasAttribute('typography') && document.getElementsByTagName('html')[0].hasAttribute('typography-spacing')) {
+    document.getElementsByTagName('html')[0].removeAttribute('typography-spacing');
+    document.getElementsByTagName('html')[0].removeAttribute('typography');
+  }
+}
+rmTypography();
 function disableMP() {
   document.addEventListener('yt-visibility-refresh', function(e) {
     clickButton('.ytp-miniplayer-close-button');
@@ -430,7 +437,9 @@ yt.config_['EXPERIMENT_FLAGS'] = yt.config_.EXPERIMENT_FLAGS || {};
 yt.config_.EXPERIMENT_FLAGS.kevlar_updated_icons = false;
 yt.config_.EXPERIMENT_FLAGS.kevlar_system_icons = false;
 yt.config_.EXPERIMENT_FLAGS.kevlar_watch_color_update = false;`);
-addStyle(`button.yt-icon-button > yt-icon{color:#909090;}`);
+  if (document.getElementsByTagName('html')[0].hasAttribute('system-icons')) {
+    document.getElementsByTagName('html')[0].removeAttribute('system-icons');
+  }
 }
 chrome.storage.sync.get({
   settingsRestoreScroll: true,
