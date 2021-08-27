@@ -372,7 +372,7 @@ ytd-search ytd-video-renderer[use-prominent-thumbs] #channel-info.ytd-video-rend
 
 ytd-channel-renderer[use-prominent-thumbs] #avatar-section.ytd-channel-renderer { min-width: 136px !important; max-width: 136px !important; }
 
-html:not([dark="true"]) .ytcp-main-appbar { width: 100%; text-align: center; line-height: 40px; height: 40px; border-bottom: 1px solid #e8e8e8; background-color: #fff; position: fixed; z-index: 2001; font-size: 13px; font-family: Roboto,arial,sans-serif; }
+html:not([dark="true"]) .ytcp-main-appbar { width: 100%; text-align: center; line-height: 40px; height: 40px; border-bottom: 1px solid #e8e8e8; background-color: #fff; position: fixed; left: 0; z-index: 2001; font-size: 13px; font-family: Roboto,arial,sans-serif; }
 
 html:not([dark="true"]) .ytcp-nav-item { display: inline-block; margin-left: 30px; }
 
@@ -388,7 +388,7 @@ html:not([dark="true"]) [page-subtype="subscriptions"] .ytcp-nav-subs span { box
 
 html:not([dark="true"]) .ytcp-appbar-nav { display: inline-block; vertical-align: top; overflow: hidden; }
 
-html[dark="true"] .ytcp-main-appbar { width: 100%; text-align: center; line-height: 40px; height: 40px; background-color: var(--yt-spec-brand-background-primary); position: fixed; z-index: 2001; font-size: 13px; font-family: Roboto,arial,sans-serif; box-shadow: inset 0 1px #0f0f0f; }
+html[dark="true"] .ytcp-main-appbar { width: 100%; text-align: center; line-height: 40px; height: 40px; background-color: var(--yt-spec-brand-background-primary); position: fixed; left: 0; z-index: 2001; font-size: 13px; font-family: Roboto,arial,sans-serif; box-shadow: inset 0 1px #0f0f0f; }
 
 html[dark="true"] .ytcp-nav-item { display: inline-block; margin-left: 30px; }
 

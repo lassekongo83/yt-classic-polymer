@@ -10,6 +10,7 @@ html:not([dark="true"]) {
     border-bottom: 1px solid #e8e8e8;
     background-color: #fff;
     position: fixed;
+    left: 0;
     z-index: 2001;
     font-size: 13px;
     font-family: Roboto,arial,sans-serif;
@@ -56,6 +57,7 @@ html[dark="true"] {
     height: 40px;
     background-color: var(--yt-spec-brand-background-primary);
     position: fixed;
+    left: 0;
     z-index: 2001;
     font-size: 13px;
     font-family: Roboto,arial,sans-serif;
