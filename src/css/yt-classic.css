@@ -268,6 +268,8 @@ html[dark] #container.ytd-searchbox, html[dark] #search-icon-legacy.ytd-searchbo
 
 #masthead-container.ytd-app { transition: none !important; }
 
+ytd-app[style*="--ytd-masthead-height:0px;"] #masthead-container { visibility: hidden !important; }
+
 html:not([dark]) ytd-button-renderer.style-suggestive.ytd-masthead #button.ytd-button-renderer, html:not([dark]) #sign-in-button #button.ytd-button-renderer { height: 28px !important; padding: 0 10px !important; font-size: 11px !important; background-color: #167ac6 !important; color: white !important; border: none !important; margin-top: 5px !important; }
 
 html:not([dark]) ytd-button-renderer.style-suggestive.ytd-masthead #button.ytd-button-renderer:hover, html:not([dark]) ytd-button-renderer.style-suggestive.ytd-masthead #button.ytd-button-renderer:active, html:not([dark]) #sign-in-button #button.ytd-button-renderer:hover, html:not([dark]) #sign-in-button #button.ytd-button-renderer:active { background-color: #126db3 !important; }
