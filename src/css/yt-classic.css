@@ -256,7 +256,7 @@ ytd-browse[mini-guide-visible] ytd-playlist-sidebar-renderer.ytd-browse { left: 
 
 yt-img-shadow.ytd-guide-entry-renderer { border-radius: 0 !important; }
 
-html:not(.style-scope), ytd-app:not([masthead-hidden_]) { --ytd-masthead-height: 49px !important; }
+html:not(.style-scope), ytd-app:not([masthead-hidden_]):not([masthead-hidden]) { --ytd-masthead-height: 49px !important; }
 
 ytd-masthead.shell, #container.ytd-masthead, #header.ytd-app { height: 49px !important; }
 
@@ -267,8 +267,6 @@ ytd-masthead:not([dark]) #container.ytd-masthead, ytd-masthead.shell { border-bo
 html[dark] #container.ytd-searchbox, html[dark] #search-icon-legacy.ytd-searchbox { box-shadow: none !important; background-color: #383838 !important; border: none !important; }
 
 #masthead-container.ytd-app { transition: none !important; }
-
-ytd-app[style*="--ytd-masthead-height:0px;"] #masthead-container { visibility: hidden !important; }
 
 html:not([dark]) ytd-button-renderer.style-suggestive.ytd-masthead #button.ytd-button-renderer, html:not([dark]) #sign-in-button #button.ytd-button-renderer { height: 28px !important; padding: 0 10px !important; font-size: 11px !important; background-color: #167ac6 !important; color: white !important; border: none !important; margin-top: 5px !important; }
 

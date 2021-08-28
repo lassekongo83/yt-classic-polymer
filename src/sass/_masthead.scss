@@ -1,4 +1,4 @@
-html:not(.style-scope), ytd-app:not([masthead-hidden_]) {
+html:not(.style-scope), ytd-app:not([masthead-hidden_]):not([masthead-hidden]) {
   --ytd-masthead-height: 49px !important; // Plus 1px border = 50px
 }
 
@@ -23,11 +23,6 @@ html[dark] {
 // Remove some effects
 #masthead-container.ytd-app {
   transition: none !important;
-}
-
-// bug? - https://github.com/lassekongo83/yt-classic-polymer/issues/42#issuecomment-907603942
-ytd-app[style*="--ytd-masthead-height:0px;"] #masthead-container {
-  visibility: hidden !important;
 }
 
 // login button
