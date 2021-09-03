@@ -84,9 +84,9 @@ ytd-section-list-renderer[page-subtype="subscriptions"] ytd-thumbnail.ytd-grid-v
 
 ytd-section-list-renderer[page-subtype="subscriptions"] #items.ytd-grid-renderer { margin-right: -15px !important; }
 
-ytd-browse[page-subtype=channels] app-header { transform: unset !important; position: static !important; margin-top: 0 !important; }
+ytd-browse[page-subtype=channels] #wrapper.tp-yt-app-header-layout > [slot=header] { transform: unset !important; position: static !important; margin-top: 0 !important; }
 
-#contentContainer.app-header-layout { padding-top: 0 !important; }
+#contentContainer.tp-yt-app-header-layout { padding-top: 0 !important; }
 
 #header.ytd-c4-tabbed-header-renderer { --app-header-background-front-layer_-_background-position: center 0 !important; }
 
@@ -162,9 +162,7 @@ ytd-section-list-renderer[page-subtype="channels"] #items.ytd-grid-renderer { ma
 
 ytd-browse[page-subtype~="channels"] #contents.ytd-shelf-renderer, ytd-browse[page-subtype~="channels"] .grid-subheader.ytd-shelf-renderer { margin-top: 15px !important; }
 
-ytd-c4-tabbed-header-renderer[has-channel-art] #avatar.ytd-c4-tabbed-header-renderer, ytd-c4-tabbed-header-renderer[has-channel-art] yt-img-shadow.ytd-channel-avatar-editor { position: fixed !important; top: 0 !important; left: 15px !important; margin: 0 !important; width: 100px !important; height: 100px !important; }
-
-ytd-c4-tabbed-header-renderer[has-channel-art] #avatar.ytd-c4-tabbed-header-renderer img.yt-img-shadow, ytd-c4-tabbed-header-renderer[has-channel-art] yt-img-shadow.ytd-channel-avatar-editor img.yt-img-shadow { margin-left: 0 !important; margin-right: 0 !important; }
+ytd-c4-tabbed-header-renderer[has-channel-art] #avatar.ytd-c4-tabbed-header-renderer, ytd-c4-tabbed-header-renderer[has-channel-art] yt-img-shadow.ytd-channel-avatar-editor { width: 80px !important; height: 80px !important; }
 
 #avatar.ytd-c4-tabbed-header-renderer, yt-img-shadow.ytd-channel-avatar-editor { border-radius: 0 !important; }
 
@@ -221,6 +219,8 @@ html:not([dark]) .title.ytd-guide-entry-renderer, html:not([dark]) .guide-icon.y
 html:not([dark]) ytd-guide-entry-renderer[active] * > .title.ytd-guide-entry-renderer, html:not([dark]) ytd-guide-entry-renderer[active] .guide-icon.ytd-guide-entry-renderer { text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.25) !important; }
 
 ytd-app { --app-drawer-width: 230px !important; }
+
+tp-yt-app-drawer[persistent] { width: var(--app-drawer-width, 230px) !important; }
 
 ytd-guide-renderer.ytd-app, app-drawer.ytd-app:not([persistent]).ytd-app, #contentContainer.tp-yt-app-drawer { width: var(--app-drawer-width, 230px) !important; }
 

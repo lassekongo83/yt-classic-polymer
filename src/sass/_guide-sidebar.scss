@@ -36,6 +36,9 @@ html {
 ytd-app {
   --app-drawer-width: 230px !important;
 }
+tp-yt-app-drawer[persistent] {
+  width: var(--app-drawer-width, 230px) !important;
+}
 ytd-guide-renderer.ytd-app, app-drawer.ytd-app:not([persistent]).ytd-app, #contentContainer.tp-yt-app-drawer {
   width: var(--app-drawer-width, 230px) !important;
 }

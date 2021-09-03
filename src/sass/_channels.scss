@@ -1,10 +1,10 @@
 // channel header
-ytd-browse[page-subtype=channels] app-header {
+ytd-browse[page-subtype=channels] #wrapper.tp-yt-app-header-layout > [slot=header] {
   transform: unset !important;
   position: static !important;
   margin-top: 0 !important;
 }
-#contentContainer.app-header-layout {
+#contentContainer.tp-yt-app-header-layout {
   padding-top: 0 !important;
 }
 
@@ -146,17 +146,17 @@ ytd-browse[page-subtype~="channels"] .grid-subheader.ytd-shelf-renderer {
 // Channel avatar
 ytd-c4-tabbed-header-renderer[has-channel-art] #avatar.ytd-c4-tabbed-header-renderer,
 ytd-c4-tabbed-header-renderer[has-channel-art] yt-img-shadow.ytd-channel-avatar-editor {
-  position: fixed !important;
-  top: 0 !important;
-  left: 15px !important;
-  margin: 0 !important;
-  width: 100px !important;
-  height: 100px !important;
+  //position: fixed !important;
+  //top: 0 !important;
+  //left: 15px !important;
+  //margin: 0 !important;
+  width: 80px !important;
+  height: 80px !important;
   
-  img.yt-img-shadow {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-  }
+  //img.yt-img-shadow {
+  //  margin-left: 0 !important;
+  //  margin-right: 0 !important;
+  //}
 }
 
 #avatar.ytd-c4-tabbed-header-renderer,
