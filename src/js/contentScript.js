@@ -551,8 +551,8 @@ chrome.storage.sync.get({
   settingsChannelScroll: false,
   settingsRelScroll: false,
   settingsFullScreenScroll: false,
-  settingsClassicPlaylist: false,
-  settingsRestoreIcons: false
+  settingsClassicPlaylist: false
+  //settingsRestoreIcons: false
 }, function (settings) {
   if (true === settings.settingsRestoreScroll) {
     restoreScrollbar();
