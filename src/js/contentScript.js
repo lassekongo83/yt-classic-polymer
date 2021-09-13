@@ -522,7 +522,7 @@ function playlistStyle() {
 
 // Option to restore the icons
 // https://www.reddit.com/r/oldyoutubelayout/comments/p3d89g/disabling_the_new_icons/
-function restoreIcons() {
+/* function restoreIcons() {
   createScript(`window['yt'] = window['yt'] || {};
 yt['config_'] = yt.config_ || {};
 yt.config_['EXPERIMENT_FLAGS'] = yt.config_.EXPERIMENT_FLAGS || {};
@@ -534,7 +534,7 @@ yt.config_.EXPERIMENT_FLAGS.kevlar_watch_color_update = false;`);
   if (document.getElementsByTagName('html')[0].hasAttribute('system-icons')) {
     document.getElementsByTagName('html')[0].removeAttribute('system-icons');
   }
-}
+} */
 
 // Apply settings
 chrome.storage.sync.get({
@@ -611,7 +611,7 @@ chrome.storage.sync.get({
     classicPlaylist();
     document.querySelector('ytd-app').addEventListener('yt-visibility-refresh', classicPlaylist);
   }
-  if (true === settings.settingsRestoreIcons) {
+  /*if (true === settings.settingsRestoreIcons) {
     restoreIcons();
-  }
+  }*/
 });
