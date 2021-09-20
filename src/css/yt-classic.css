@@ -280,6 +280,8 @@ html:not([dark]) .ytd-masthead button.yt-icon-button > yt-icon { opacity: .75 !i
 
 #search-form.ytd-searchbox { height: 29px !important; max-width: 650px !important; }
 
+ytd-searchbox[desktop-search-bar-big-tap-target] #search-icon-legacy.ytd-searchbox { height: 29px !important; }
+
 ytd-masthead #search-form.ytd-searchbox { margin-left: 16px !important; }
 
 tp-yt-app-drawer ytd-topbar-logo-renderer yt-icon.ytd-topbar-logo-renderer { padding-left: 0 !important; }
