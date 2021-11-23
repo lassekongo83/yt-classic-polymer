@@ -61,13 +61,13 @@ html {
   font-size: $fs5 !important;
 }
 
-ytd-compact-video-renderer #video-title.ytd-compact-video-renderer,
 #video-title.ytd-video-renderer,
 #video-title.ytd-playlist-renderer,
 #video-title.ytd-radio-renderer {
   font-size: $fs4 !important;
 }
 
+ytd-compact-video-renderer #video-title.ytd-compact-video-renderer,
 #video-title.ytd-rich-grid-video-renderer,
 ytd-grid-video-renderer #video-title.yt-simple-endpoint.ytd-grid-video-renderer,
 #author-text.yt-simple-endpoint.ytd-comment-renderer,
@@ -85,7 +85,9 @@ h3.ytd-rich-grid-media {
 }
 
 .more-button.ytd-video-secondary-info-renderer,
-.less-button.ytd-video-secondary-info-renderer {
+.less-button.ytd-video-secondary-info-renderer,
+ytd-video-view-count-renderer[small],
+#info-strings.ytd-video-primary-info-renderer {
   font-size: $fs3 !important;
 }
 
@@ -93,7 +95,10 @@ ytd-video-meta-block[rich-meta] #channel-name.ytd-video-meta-block,
 ytd-video-meta-block[rich-meta] #metadata-line.ytd-video-meta-block,
 #guide-section-title.ytd-guide-section-renderer,
 .badge.ytd-badge-supported-renderer,
-ytd-mini-channel-renderer a.yt-simple-endpoint.ytd-button-renderer {
+ytd-mini-channel-renderer a.yt-simple-endpoint.ytd-button-renderer,
+ytd-video-meta-block:not([rich-meta]) #metadata-line.ytd-video-meta-block,
+ytd-grid-video-renderer:not([rich-meta]) #metadata-line.ytd-grid-video-renderer,
+#metadata #text.ytd-channel-name {
   font-size: $fs1 !important;
 }
 
@@ -157,4 +162,9 @@ tp-yt-paper-tab.ytd-c4-tabbed-header-renderer,
 #autoplay.ytd-compact-autoplay-renderer,
 #title.ytd-vertical-channel-section-renderer {
   text-transform: initial !important;
+}
+
+ytd-expander.ytd-video-secondary-info-renderer {
+  font-size: $fs3 !important;
+  line-height: 17px !important;
 }
