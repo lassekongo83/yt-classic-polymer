@@ -1,4 +1,5 @@
-ytd-rich-grid-renderer {
+#contents.ytd-rich-grid-renderer {
+  margin-top: 10px !important;
   @include for-size(tablet-landscape-up) {
     --ytd-rich-grid-items-per-row: 4 !important;
   }
@@ -13,7 +14,13 @@ ytd-rich-grid-renderer {
   }
 }
 
-ytd-two-column-browse-results-renderer, ytd-two-column-search-results-renderer {
+#contents > ytd-rich-grid-row,
+#contents > ytd-rich-grid-row > #contents {
+  display: contents !important;
+}
+
+ytd-two-column-browse-results-renderer,
+ytd-two-column-search-results-renderer {
   margin-top: 10px !important;
   @include for-size(tablet-landscape-up) {
     max-width: 850px !important;
@@ -27,6 +34,11 @@ ytd-two-column-browse-results-renderer, ytd-two-column-search-results-renderer {
   @include for-size(bigger-desktop-up) {
     max-width: 2200px !important; // not tested
   }
+}
+
+ytd-rich-grid-renderer,
+ytd-rich-section-renderer[align-within-rich-grid] #content.ytd-rich-section-renderer {
+  margin: 0 5px !important;
 }
 
 // thumbnail sizes
