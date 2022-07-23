@@ -1,3 +1,9 @@
+<div align="center">
+
+### This project is no longer updated!
+
+</div>
+
 # YouTube Classic Polymer
 Browse YouTube like it's 2015.
 
